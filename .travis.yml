@@ -1,7 +1,12 @@
 language: go
-go:
-  - '1.7'
-  - tip
+matrix:
+  include:
+    - go: 1.7
+    - go: 1.7.5
+    - go: 1.8
+    - go: tip
+  allow_failures:
+    - go: tip
 sudo: true
 before_install:
   - sudo add-apt-repository ppa:masterminds/glide -y
