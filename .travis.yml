@@ -14,5 +14,7 @@ before_install:
   - sudo apt-get install glide -y
 install:
   - glide install
+  - go get github.com/ahmetb/govvv
 script:
   - go test -v $(glide novendor)
+  - govvv build
