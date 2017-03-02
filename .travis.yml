@@ -30,6 +30,8 @@ deploy:
   local-dir: dist
   upload-dir: dist
   acl: public_read
+  skip_cleanup: true
+  detect_encoding: true
   on:
     repo: rai-project/rai
 env:
