@@ -16,20 +16,19 @@ script:
 - CGO_ENABLED=0 gox -verbose -ldflags="$(govvv -flags)" -ldflags="-s -w" -os="linux
   darwin windows" -arch="amd64 386 armv5 armv6 armv7 arm64" -osarch="!darwin/arm64
   linux/ppc64 linux/ppc64le" -ldflags="-X github.com/rai-project/rai/cmd.appsecret=\"${APP_SECRET}\""
-  -ldflags "-extldflags \"-static\"" -output="dist/rai-{{.OS}}-{{.Arch}}/{{.Dir}}" .
+  -ldflags "-extldflags \"-static\"" -output="dist/rai-{{.OS}}-{{.Arch}}/{{.Dir}}"
+  .
 before_deploy:
 - ls -l dist
 deploy:
   provider: s3
-  access_key_id: AKIAJKYNV36UTYQRGJUA
+  access_key_id: AKIAIAFSJLCCOYB5V3EQ
   secret_access_key:
-    secure: hMt5VNvh6+x6sxX5T2uyUk70SZBeb0cLvWFQjfkr+226NNeGQ86QWygn6JDgnmJpnPOnE5gX1OMMjHglOxcAujUjqMErGFotKGi7uoR3SWA3efN6771tyAyOMWWQyajwhKslU6YyZxrTfNRBmy9w7f5Wc2266syVUu7CfdAL4vTHm+uwzs9x599LTth434Ck/7CDqoEfhbj7+5NWVQ2XGf3CPwgNT72SYVnzi39k5qOPqw3lm+ebFq4Kp+aBd7iOJzyo7j10NsG+VyNnLpcpfuajaOmAaFmuep+USOApUI8ebjDzqQ5nKh4pVJvZxgFIWeyIENlODZmnVf8/lHF8xdC9woO+Dsd8QYqL32oQ6YB2GENIZwT6uLZBuCS4bwXBcz0DzNYeJDcz6EdydfautckmHUlS2LKp6CIuDPyB1aPXlk+LQvCDLzOqz9qIDZgJeJir/5kSkfjxK9JfOWbrA/zDdgmVgG4rMP6FbZlCK9DTWM0k3LctPhncY2s7CQHR9RafoO9Fa2nGGAW5HRk9ERnFH41HwqoFAiNLeq8DVcnWWG5sIDeUde3y/V++w5ESc/jXfP6Zf4INWnVn6/60pmQ9i99ybR19KkePsJzpqtno1ZrhmCDZh2g6sboeFoCuxDr44F1ZUBuaJrn0XTvXlGGHgakmH1b0TyECjUGuSco=
+    secure: TybhA8dNkfZFmMA/gcg5XlwsoqDuZKmUTVghW91xHrf8g+x6JQQTHuIzEIAIYbnOKN8IKPtgodDi2fotzPXghe0yB2lYe5MWaDG303cfAKfrdyqeaKLVIgjF80RPULmFHkosKfb3TlKJLAZxYMOJwxcENkGmePt35hM1lti/DtAq4VMjkjMAP5jLRb2e07u6B5uG1/DNbCqaAtgNtWuVqG5+KUOQBz6CKt/VVdt5DdFcL3fOsXqfMyrxKWoUEgUUcOIHoDBnaexcWPh07v3Vg5DiG3Sj18nieb1MiR8FkNwEBF+bz7yjL+4l8BGk7bVRlhY6QpjPdAIiT9p0C5b0LOsn9LKO0wKiAn49D6v7SJDOum6E5Njw9Hl+Uv/1g9X+zH2z+fjDDjqpUySEIKNF/zSQeLMYyIjobzKqFOTXz/oI31TzOWcJVxj1mKHInbQzBKIYluaGNraj9KZGB5Gv0BRbRkGkPRakD18TVotEN9gT6SFCRs7zs7bggU5VGawNO51qJCp8EUwT10ClU+2IG92TipGiHtIj3jyDPamje9riKeWz+ktYVGK0AmkcneGiwmVB9Zx6E6Jhytj3tNadpNJoii8Qo8KLesYwZ1IUDkPfEuF5QQXVOyxy/wfhwyVFpQmzuR3dXI86JBcphNQJNiB2myl/zMn80o80WslCgYA=
   bucket: files.rai-project.com
+  local-dir: dist
   upload-dir: dist
-  local_dir: dist
-  skip_cleanup: true
   acl: public_read
-  detect_encoding: true
   on:
     repo: rai-project/rai
 env:
