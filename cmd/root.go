@@ -61,6 +61,7 @@ func init() {
 	cobra.OnInitialize(initConfig)
 	RootCmd.AddCommand(cmd.VersionCmd)
 	RootCmd.AddCommand(cmd.LicenseCmd)
+	RootCmd.AddCommand(cmd.EnvCmd)
 
 	cwd, err := os.Getwd()
 	if err != nil {
