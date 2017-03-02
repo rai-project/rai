@@ -10,12 +10,13 @@ var WhoamiCmd = &cobra.Command{
 	Use:    "whoami",
 	Short:  "Prints the user information.",
 	Hidden: false,
-	Run: func(cmd *cobra.Command, args []string) {
+	RunE: func(cmd *cobra.Command, args []string) error {
 		profile, err := user.NewProfile("")
 		if err != nil {
-			return
+			return err
 		}
 		pp.Println(*profile)
+		return nil
 	},
 }
 
