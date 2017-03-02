@@ -20,6 +20,7 @@ script:
   .
 before_deploy:
 - ls -l dist
+- rm ${TRAVIS_BUILD_DIR}/glide.lock
 deploy:
   provider: s3
   access_key_id: AKIAIAFSJLCCOYB5V3EQ
