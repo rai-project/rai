@@ -1,0 +1,6 @@
+aws:
+  access_key_id: +NPjNiwCtTNvMUg94O/PVGOPc1N6ExBx7Lyz3TGRuIqVfqFoYuRNEl1gkZw=
+  secret_access_key: onXRqpVtlebXW+dN5atvjpZGuyNH8pzkAD7tx7diCj9rnByX9+BxlESV1ehoo7D7BtoDCDf73uLYVqXDQvdOq5JoL9AAFdIr
+  region: us-east-1
+  sts_account: 122130270846
+  sts_role: rai-user

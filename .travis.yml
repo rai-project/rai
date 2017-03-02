@@ -13,7 +13,6 @@ install:
 - go get github.com/franciscocpg/gox
 script:
 - cd ${TRAVIS_BUILD_DIR}/cmd && go generate && cd ${TRAVIS_BUILD_DIR}
-- cd ${TRAVIS_BUILD_DIR}/pkg && go generate && cd ${TRAVIS_BUILD_DIR}
 - CGO_ENABLED=0 gox -verbose -ldflags="$(govvv -flags)" -ldflags="-s -w" -os="linux
   darwin windows" -arch="amd64 386 armv5 armv6 armv7 arm64" -osarch="!darwin/arm64
   linux/ppc64 linux/ppc64le" -ldflags="-X github.com/rai-project/rai/cmd.appsecret=\"$(APP_SECRET)\""
