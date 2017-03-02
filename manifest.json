@@ -1,0 +1,19 @@
+{
+    "dependencies": {
+        "github.com/Unknwon/com": {
+            "branch": "master"
+        },
+        "github.com/rai-project/client": {
+            "branch": "master"
+        },
+        "github.com/rai-project/cmd": {
+            "branch": "master"
+        },
+        "github.com/rai-project/config": {
+            "branch": "master"
+        },
+        "github.com/spf13/cobra": {
+            "branch": "master"
+        }
+    }
+}

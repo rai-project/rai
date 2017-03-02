@@ -1,20 +1,38 @@
 language: go
-matrix:
-  include:
-    - go: 1.7
-    - go: 1.7.5
-    - go: 1.8
-    - go: tip
-  allow_failures:
-    - go: tip
+go:
+- '1.8'
 sudo: true
 before_install:
-  - sudo add-apt-repository ppa:masterminds/glide -y
-  - sudo apt-get update -q
-  - sudo apt-get install glide -y
+- sudo add-apt-repository ppa:masterminds/glide -y
+- sudo apt-get update -q
+- sudo apt-get install glide -y
 install:
-  - glide install
-  - go get github.com/ahmetb/govvv
+- glide install
+- go get github.com/mjibson/esc
+- go get github.com/ahmetb/govvv
+- go get github.com/franciscocpg/gox
 script:
-  - go test -v $(glide novendor)
-  - govvv build
+- cd ${TRAVIS_BUILD_DIR}/cmd && go generate && cd ${TRAVIS_BUILD_DIR}
+- cd ${TRAVIS_BUILD_DIR}/pkg && go generate && cd ${TRAVIS_BUILD_DIR}
+- CGO_ENABLED=0 gox -verbose -ldflags="$(govvv -flags)" -ldflags="-s -w" -os="linux
+  darwin windows" -arch="amd64 386 armv5 armv6 armv7 arm64" -osarch="!darwin/arm64
+  linux/ppc64 linux/ppc64le" -ldflags="-X github.com/rai-project/rai/cmd.appsecret=\"$(APP_SECRET)\""
+  -ldflags "-extldflags \"-static\"" -output="dist/rai-{{.OS}}-{{.Arch}}/{{.Dir}}" .
+before_deploy:
+- ls -l dist
+deploy:
+  provider: s3
+  access_key_id: AKIAJKYNV36UTYQRGJUA
+  secret_access_key:
+    secure: hMt5VNvh6+x6sxX5T2uyUk70SZBeb0cLvWFQjfkr+226NNeGQ86QWygn6JDgnmJpnPOnE5gX1OMMjHglOxcAujUjqMErGFotKGi7uoR3SWA3efN6771tyAyOMWWQyajwhKslU6YyZxrTfNRBmy9w7f5Wc2266syVUu7CfdAL4vTHm+uwzs9x599LTth434Ck/7CDqoEfhbj7+5NWVQ2XGf3CPwgNT72SYVnzi39k5qOPqw3lm+ebFq4Kp+aBd7iOJzyo7j10NsG+VyNnLpcpfuajaOmAaFmuep+USOApUI8ebjDzqQ5nKh4pVJvZxgFIWeyIENlODZmnVf8/lHF8xdC9woO+Dsd8QYqL32oQ6YB2GENIZwT6uLZBuCS4bwXBcz0DzNYeJDcz6EdydfautckmHUlS2LKp6CIuDPyB1aPXlk+LQvCDLzOqz9qIDZgJeJir/5kSkfjxK9JfOWbrA/zDdgmVgG4rMP6FbZlCK9DTWM0k3LctPhncY2s7CQHR9RafoO9Fa2nGGAW5HRk9ERnFH41HwqoFAiNLeq8DVcnWWG5sIDeUde3y/V++w5ESc/jXfP6Zf4INWnVn6/60pmQ9i99ybR19KkePsJzpqtno1ZrhmCDZh2g6sboeFoCuxDr44F1ZUBuaJrn0XTvXlGGHgakmH1b0TyECjUGuSco=
+  bucket: files.rai-project.com
+  upload-dir: dist
+  local_dir: dist
+  skip_cleanup: true
+  acl: public_read
+  detect_encoding: true
+  on:
+    repo: rai-project/rai
+env:
+  global:
+    secure: nraNQWDBUedfvUaAFm3el9DS6vFmM0lO+yswdxV7hCUcnthAofA0bmap/v1CRzxZN6yQ4AnvC7yaHgHWoCzDa4T68iFwrDB1/RHnVy/pHAyp89WsyIvij9QSeNUGk6LIkfMWTG+lktEEfWpi3TiAcBTR120R6Lyycr7de87sZCp0xN9xDZV/Ik5VpIOLnkug8OKOrnj1HQeRdcW7rbeywzWDq1orZ2kplxFzgtWHeITL1C1c7U6KuGgAKTr3wegOadZezfPQQbfbbPFhGy+cyOO4YwidgiR59aR+M43p76jccH/BRm950YOl7KqHK8MzjrBuomKMYCnGvMRImJ1C8o+BMQlYHY1SjkFSvlA7kfDrpAiCUVfBfE828eta1ICBDG4EInLJK2hwh6eSYyWkjWs090R9itrN5k9Ufua9F0PyDE9G26Ju2rX/MGAtVDIg/L14A3QZMPwG6jLvuxJXQjX8EboaPYOmi0Oe2UVXx/2xC07htJYrAUzrll84janUDPEx56W0XNZXdWL1AjHEUbZHuDOC3eIaBZtZ55ty0O3cn0X79ZwBy+W8i3amfUHc2JlD2M6PspkEpp6HLsU1BIsUwHvPE0AwPpolQeuw81IUvwQuNLW57P8bg9IiULl0oOOQ1xMLabuBP7ILnl9rDXXx0ZRGG5qnaEGTBOeBye4=

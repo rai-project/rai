@@ -1,5 +1,7 @@
 package main
 
+import "github.com/rai-project/cmd"
+
 var (
 	// These fields are populated by govvv
 	BuildDate  string
@@ -8,3 +10,13 @@ var (
 	GitState   string
 	GitSummary string
 )
+
+func init() {
+	cmd.Version = cmd.VersionInfo{
+		BuildDate:  BuildDate,
+		GitCommit:  GitCommit,
+		GitBranch:  GitBranch,
+		GitState:   GitState,
+		GitSummary: GitSummary,
+	}
+}
