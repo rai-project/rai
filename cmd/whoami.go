@@ -7,9 +7,10 @@ import (
 )
 
 var WhoamiCmd = &cobra.Command{
-	Use:    "whoami",
-	Short:  "Prints the user information.",
-	Hidden: false,
+	Use:          "whoami",
+	Short:        "Prints the user information.",
+	Hidden:       false,
+	SilenceUsage: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		profile, err := user.NewProfile("")
 		if err != nil {

@@ -18,8 +18,9 @@ var (
 
 // RootCmd represents the base command when called without any subcommands
 var RootCmd = &cobra.Command{
-	Use:   "rai",
-	Short: "The client is used to submit jobs to the server.",
+	Use:          "rai",
+	Short:        "The client is used to submit jobs to the server.",
+	SilenceUsage: true,
 	PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 		if workingDir == "" || !com.IsDir(workingDir) {
 			fmt.Printf("Error:: the directory specified = %s was not found.\n", workingDir)
