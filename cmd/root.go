@@ -58,7 +58,6 @@ var RootCmd = &cobra.Command{
 
 func Execute() {
 	if err := RootCmd.Execute(); err != nil {
-		fmt.Println(err)
 		os.Exit(-1)
 	}
 }
@@ -77,19 +76,23 @@ func init() {
 
 	RootCmd.PersistentFlags().StringVarP(&workingDir, "directory", "p", cwd,
 		"Path to the directory you wish to submit. Defaults to the current working directory.")
+	RootCmd.PersistentFlags().StringVarP(&appsecret, "secret", "s", "", "Pass in application secret.")
 	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", color.NoColor, "Toggle color output.")
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
 
+	viper.BindPFlag("app.secret", RootCmd.PersistentFlags().Lookup("secret"))
 	viper.BindPFlag("app.debug", RootCmd.PersistentFlags().Lookup("debug"))
 	viper.BindPFlag("app.verbose", RootCmd.PersistentFlags().Lookup("verbose"))
+	viper.BindPFlag("color", RootCmd.PersistentFlags().Lookup("color"))
 }
 
 func initConfig() {
+	cs := _escFSMustString(false, "/.rai_config.yaml")
 	config.Init(
 		config.AppName("rai"),
 		config.AppSecret(appsecret),
-		config.ConfigString(_escFSMustString(false, "/.rai_config.yaml")),
+		config.ConfigString(cs),
 	)
 }
 
