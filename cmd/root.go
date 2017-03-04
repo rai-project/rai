@@ -6,14 +6,19 @@ import (
 	"os"
 
 	"github.com/Unknwon/com"
+	"github.com/fatih/color"
 	"github.com/rai-project/client"
 	"github.com/rai-project/cmd"
 	"github.com/rai-project/config"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 var (
 	workingDir string
+	isColor    bool
+	isVerbose  bool
+	isDebug    bool
 )
 
 // RootCmd represents the base command when called without any subcommands
@@ -59,7 +64,8 @@ func Execute() {
 }
 
 func init() {
-	cobra.OnInitialize(initConfig)
+	cobra.OnInitialize(initConfig, initColor)
+
 	RootCmd.AddCommand(cmd.VersionCmd)
 	RootCmd.AddCommand(cmd.LicenseCmd)
 	RootCmd.AddCommand(cmd.EnvCmd)
@@ -69,9 +75,14 @@ func init() {
 		cwd = ""
 	}
 
-	RootCmd.PersistentFlags().StringVarP(&workingDir, "directory", "d", cwd,
+	RootCmd.PersistentFlags().StringVarP(&workingDir, "directory", "p", cwd,
 		"Path to the directory you wish to submit. Defaults to the current working directory.")
+	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", color.NoColor, "Toggle color output.")
+	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
+	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
 
+	viper.BindPFlag("app.debug", RootCmd.PersistentFlags().Lookup("debug"))
+	viper.BindPFlag("app.verbose", RootCmd.PersistentFlags().Lookup("verbose"))
 }
 
 func initConfig() {
@@ -80,4 +91,8 @@ func initConfig() {
 		config.AppSecret(appsecret),
 		config.ConfigString(_escFSMustString(false, "/.rai_config.yaml")),
 	)
+}
+
+func initColor() {
+	color.NoColor = !isColor
 }
