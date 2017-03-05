@@ -8,3 +8,8 @@ aws:
   region: us-east-1
   sts_account: 122130270846
   sts_role: rai-user
+store:
+  provider: s3
+  base_url: http://s3.amazonaws.com/rai-server/
+  bucket: rai
+  acl: public-read
