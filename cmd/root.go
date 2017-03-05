@@ -48,6 +48,9 @@ var RootCmd = &cobra.Command{
 		if err := client.Init(); err != nil {
 			return err
 		}
+		if err := client.Upload(); err != nil {
+			return err
+		}
 		if err := client.Connect(); err != nil {
 			return err
 		}
@@ -74,12 +77,15 @@ func init() {
 		cwd = ""
 	}
 
-	RootCmd.PersistentFlags().StringVarP(&workingDir, "directory", "p", cwd,
+	RootCmd.PersistentFlags().StringVarP(&workingDir, "path", "p", cwd,
 		"Path to the directory you wish to submit. Defaults to the current working directory.")
 	RootCmd.PersistentFlags().StringVarP(&appsecret, "secret", "s", "", "Pass in application secret.")
 	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", color.NoColor, "Toggle color output.")
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
+
+	// mark secret flag hidden
+	RootCmd.PersistentFlags().MarkHidden("secret")
 
 	viper.BindPFlag("app.secret", RootCmd.PersistentFlags().Lookup("secret"))
 	viper.BindPFlag("app.debug", RootCmd.PersistentFlags().Lookup("debug"))
