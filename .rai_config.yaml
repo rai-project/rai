@@ -10,7 +10,7 @@ aws:
   sts_role: rai
 store:
   provider: s3
-  base_url: http://s3.amazonaws.com/files.rai-project.com
+  base_url: http://s3.amazonaws.com
   acl: public-read
 client:
   upload_bucket: files.rai-project.com

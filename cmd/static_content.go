@@ -190,16 +190,16 @@ var _escData = map[string]*_escFile{
 
 	"/.rai_config.yaml": {
 		local:   "../.rai_config.yaml",
-		size:    503,
-		modtime: 1488743806,
+		size:    481,
+		modtime: 1488759570,
 		compressed: `
-H4sIAAAAAAAA/3SQT2/aQBDF7/4Uc0dAjJM4rNQDYEJTUUNp6pJcrLF3IAuLd71/zJ9PXxkF9ZTjvKf3
-5umHWrMAoMIDMTAoAoCGTKEsMdigtBQAcCr89nbi0bYBLEuyNt/TORecQSdd7lJxnLjXtPn5Zzu8X/SX
-2WyxLMP0cXoan+L5+RK9zlb+pc429bN686t0KsPt/v34LQCwVBpy+f9SBqpar2qdOUnF+m+Hpw/omp1+
-n/lz+v1JX/ajJHanmIvJbmiq8Xk97IxPcvo7C+lDqTiJx04lk2QTR37+ltXr5FfDF/XDDzUfjkbP/MUE
-AIa2QlUMvO0SWtcN2yXOtjOUrxyDcDAIo7tBfPd0//jpGSU/QVmnDLUotFGN4GQY2CgAKNBS7o1k8OGc
-Zv2+jXp4wIuq8Gh7pTr0N0KS7RkUXW3UjkrXqlemkoH2hRRl1xDyoJSCKtf+8Foq5Hnhyz05Bl813Hxv
-yXB0eJWE5HkbuM7Or3fwLwAA//9SYYZz9wEAAA==
+H4sIAAAAAAAA/0SQTW/aQBCG7/4Vc0dAjJM4rNQDYEJTUUNp6pJcrLF3IAuLd70f5uPXV0agHmdeva8e
+Pag1CwAqPBADgyIAaMgUyhKDDUpLAQCnwm/vJx5tW8CyJGvzPZ1zwRl00uUuFceJe0+bn3+2w8dFf5nN
+FssyTJ+np/Epnp8v0fts5d/qbFO/qg+/Sqcy3O4/j98CAEulIZf/H2WgqvWq1pmTVKz/dnj6hK7Z6c+Z
+P6ffX/RlP0pid4q5mOyGphqf18PO+CSnv7OQvpSKk3jsVDJJNnHk5x9ZvU5+NXxRP/1Q8+Fo9MrfTABg
+aCtUxcDbLqF13bAlcbbFUL5yDMLBIIweBvHDy+PzLTNK3kRZpwy1KrRRjeBkGNgoACjQUu6NZPDlnGb9
+vo16eMCLqvBoe6U6XO1JBtoXUpRdQ8iDUgqqXLvmtVTI88KXe3IMNkKS7RkUXW3Ujkp3W7jn3pLh6PD6
+EpLnbeEKmF/v4F8AAAD//+Xob+vhAQAA
 `,
 	},
 
