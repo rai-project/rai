@@ -3,6 +3,12 @@
         "github.com/Unknwon/com": {
             "branch": "master"
         },
+        "github.com/fatih/color": {
+            "branch": "master"
+        },
+        "github.com/k0kubun/pp": {
+            "branch": "master"
+        },
         "github.com/rai-project/client": {
             "branch": "master"
         },
@@ -12,7 +18,13 @@
         "github.com/rai-project/config": {
             "branch": "master"
         },
+        "github.com/rai-project/user": {
+            "branch": "master"
+        },
         "github.com/spf13/cobra": {
+            "branch": "master"
+        },
+        "github.com/spf13/viper": {
             "branch": "master"
         }
     }

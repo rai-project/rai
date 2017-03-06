@@ -2,7 +2,13 @@ package: github.com/rai-project/rai
 import:
 - package: github.com/Unknwon/com
   version: ~1.0.0
+- package: github.com/fatih/color
+  version: ~1.4.0
+- package: github.com/k0kubun/pp
+  version: ~2.3.0
 - package: github.com/rai-project/client
 - package: github.com/rai-project/cmd
 - package: github.com/rai-project/config
+- package: github.com/rai-project/user
 - package: github.com/spf13/cobra
+- package: github.com/spf13/viper
