@@ -1,5 +1,5 @@
 {
-    "memo": "234383f16a81464fccfe4d78f991c505438a917b63c453aa28528e5e1b3721f1",
+    "memo": "e2c520c0f309c63b6aa1927d980bfc4388f149bd5dab908293e924667ec3acea",
     "projects": [
         {
             "name": "github.com/BurntSushi/toml",
@@ -280,7 +280,7 @@
         {
             "name": "github.com/rai-project/archive",
             "branch": "master",
-            "revision": "b01c0417d8686afe80838d059f86eb20a0637134",
+            "revision": "42d52e668aa42630f5538c1e578bae0320373a23",
             "packages": [
                 "."
             ]
@@ -288,7 +288,7 @@
         {
             "name": "github.com/rai-project/auth",
             "branch": "master",
-            "revision": "92b573c662b088082f3a9c1311affa9ef336fedc",
+            "revision": "96bf66b7833b2ccf336a388cb50aa48dccd04a98",
             "packages": [
                 "."
             ]
@@ -296,7 +296,7 @@
         {
             "name": "github.com/rai-project/aws",
             "branch": "master",
-            "revision": "2a0df296fdffd6a212334de35c2130f78e8918ee",
+            "revision": "8ef33358d9e505e48f710b00192cf7e4f3f4c93f",
             "packages": [
                 "."
             ]
@@ -304,7 +304,7 @@
         {
             "name": "github.com/rai-project/broker",
             "branch": "master",
-            "revision": "8231018b359efa8451ddefd26ec8ba1e26577af5",
+            "revision": "2d2b1d61abbb70a61ff13cb32d5c8ea639b9f1af",
             "packages": [
                 ".",
                 "sqs"
@@ -313,7 +313,7 @@
         {
             "name": "github.com/rai-project/client",
             "branch": "master",
-            "revision": "57cc34504adc4f888a879c61eb394fddd2117125",
+            "revision": "149e93c5d498ac233b99d74a9b98af814e604db5",
             "packages": [
                 "."
             ]
@@ -321,7 +321,7 @@
         {
             "name": "github.com/rai-project/cmd",
             "branch": "master",
-            "revision": "22c703d47e58804e45f625608d4a909427b736ee",
+            "revision": "67cca8b1c3b9e9cb830f75cdc092e1e2b201adbe",
             "packages": [
                 "."
             ]
@@ -329,7 +329,7 @@
         {
             "name": "github.com/rai-project/config",
             "branch": "master",
-            "revision": "f142de4f1e9287bc9b77897377032488b8277fed",
+            "revision": "4aa19f8adcdc677cdbcf102c3e48bd83d169f4f8",
             "packages": [
                 "."
             ]
@@ -345,7 +345,7 @@
         {
             "name": "github.com/rai-project/logger",
             "branch": "master",
-            "revision": "123335906259c59f1e0d25ca45333c5ebdced4f2",
+            "revision": "03818fe07fa7d04ed67bb0a30bba6fa771c216a6",
             "packages": [
                 "."
             ]
@@ -353,7 +353,7 @@
         {
             "name": "github.com/rai-project/ratelimit",
             "branch": "master",
-            "revision": "db4493a5b8a29180d3930afd59dea840cb264be7",
+            "revision": "29611a667845f8f10f5a4a8c80fd7e5da65efa36",
             "packages": [
                 "."
             ]
@@ -361,7 +361,7 @@
         {
             "name": "github.com/rai-project/serializer",
             "branch": "master",
-            "revision": "47a0b7526029cf6dfe371051960bc11b0d40ae42",
+            "revision": "21e7ae368f8280e606bef919d11a2fb655a59b80",
             "packages": [
                 ".",
                 "bson",
@@ -371,7 +371,7 @@
         {
             "name": "github.com/rai-project/store",
             "branch": "master",
-            "revision": "0e7ba7543e49dc576fe0ccbb9bb77936aa47710c",
+            "revision": "087b2d6efd33b0f3d0c129673e570a7402b43430",
             "packages": [
                 ".",
                 "s3"
@@ -380,7 +380,7 @@
         {
             "name": "github.com/rai-project/user",
             "branch": "master",
-            "revision": "44b76efaa539238d58e596a7d9275d5a248fda06",
+            "revision": "e63cef261482b7f291f8e09d8dc992b1c83a7789",
             "packages": [
                 "."
             ]
@@ -388,7 +388,7 @@
         {
             "name": "github.com/rai-project/utils",
             "branch": "master",
-            "revision": "87ed878e71d0e3072193907f6677def4a3222a38",
+            "revision": "046662ebe0c449889ca20565eff674c065352ad4",
             "packages": [
                 "."
             ]
@@ -396,7 +396,7 @@
         {
             "name": "github.com/rai-project/uuid",
             "branch": "master",
-            "revision": "98e6b541d057d872a4efa4fe925c66a80a42c206",
+            "revision": "78cb3d0e814182cfcb5eb18d415b67b53a110f10",
             "packages": [
                 "."
             ]
@@ -404,7 +404,7 @@
         {
             "name": "github.com/rai-project/vipertags",
             "branch": "master",
-            "revision": "5d4945c50b8c10708e9f3659a55f4b2bb1b1a17c",
+            "revision": "9c71f81fd78302f0665e1d180c506d26a19f226a",
             "packages": [
                 "."
             ]
