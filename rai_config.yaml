@@ -23,4 +23,4 @@ auth:
   encrypted_client_secret: 2pOhrh3oRAs+o6h1Z7kcM4w6LpFjL67+j2vBTMGpS91jtBO42wKGjkIUTCtqUukMy2K/5VmzL125YcuPnwiVbZiwXTrmr8O/gW8H/DOGEWCjI5dqcaHhIsMFVEWT5GNbw1/moxb4sF4=
 pubsub:
   endpoints:
-    - localhost:6379
+    - rai-redis.1lxieb.ng.0001.use1.cache.amazonaws.com:6379
