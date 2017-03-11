@@ -94,7 +94,7 @@ func init() {
 }
 
 func initConfig() {
-	cs := _escFSMustString(false, "/.rai_config.yaml")
+	cs := configContent
 	config.Init(
 		config.AppName("rai"),
 		config.AppSecret(appsecret),
