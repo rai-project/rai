@@ -45,7 +45,7 @@ var RootCmd = &cobra.Command{
 		if err := client.Validate(); err != nil {
 			return err
 		}
-		if err := client.Init(); err != nil {
+		if err := client.PublishSubscribe(); err != nil {
 			return err
 		}
 		if err := client.Upload(); err != nil {

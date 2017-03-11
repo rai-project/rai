@@ -21,3 +21,6 @@ auth:
   domain: raiproject.auth0.com
   encrypted_client_id: 59Eg6+hFDfkoeZCkQvSUo0sgCsHcu1B9MoGgANkwyzJqgtVfQr7IG6iY+awG8abQPUmnaaAqJrYfbtxO
   encrypted_client_secret: 2pOhrh3oRAs+o6h1Z7kcM4w6LpFjL67+j2vBTMGpS91jtBO42wKGjkIUTCtqUukMy2K/5VmzL125YcuPnwiVbZiwXTrmr8O/gW8H/DOGEWCjI5dqcaHhIsMFVEWT5GNbw1/moxb4sF4=
+pubsub:
+  endpoints:
+    - localhost:6379
