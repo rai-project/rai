@@ -13,6 +13,7 @@ store:
   base_url: http://s3.amazonaws.com
   acl: public-read
 client:
+  name: rai
   upload_bucket: files.rai-project.com
   bucket: userdata
   build_file: rai_build
