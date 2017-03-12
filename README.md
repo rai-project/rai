@@ -142,8 +142,8 @@ In your bug report. You can also invoke the `rai` command with verbose and debug
 rai --verbose --debug
 ```
 
+## License
+
+MIT © [Abdul Dakkak](http://impact.crhc.illinois.edu/Content_Page.aspx?student_pg=Default-dakkak)
 
 [github issue manager]: https://github.com/rai-project/rai/issues
-
-
-
