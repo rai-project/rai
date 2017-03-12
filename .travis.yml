@@ -21,18 +21,18 @@ script:
 before_deploy:
 - echo "go-selfupdate generating bindiffs"
 - mkdir -p ${DIST}/${VERSION}/binaries
-- tar czvf ${DIST}/${VERSION}/binaries/darwin-386 ${DIST}/${VERSION}/darwin-386/rai
-- tar czvf ${DIST}/${VERSION}/binaries/darwin-amd64 ${DIST}/${VERSION}/darwin-amd64/rai
-- tar czvf ${DIST}/${VERSION}/binaries/linux-386 ${DIST}/${VERSION}/linux-386/rai
-- tar czvf ${DIST}/${VERSION}/binaries/linux-amd64 ${DIST}/${VERSION}/linux-amd64/rai
-- tar czvf ${DIST}/${VERSION}/binaries/linux-armv5 ${DIST}/${VERSION}/linux-armv5/rai
-- tar czvf ${DIST}/${VERSION}/binaries/linux-armv6 ${DIST}/${VERSION}/linux-armv6/rai
-- tar czvf ${DIST}/${VERSION}/binaries/linux-armv7 ${DIST}/${VERSION}/linux-armv7/rai
-- tar czvf ${DIST}/${VERSION}/binaries/linux-arm64 ${DIST}/${VERSION}/linux-arm64/rai
-- tar czvf ${DIST}/${VERSION}/binaries/linux-ppc64 ${DIST}/${VERSION}/linux-ppc64/rai
-- tar czvf ${DIST}/${VERSION}/binaries/linux-ppc64le ${DIST}/${VERSION}/linux-ppc64le/rai
-- tar czvf ${DIST}/${VERSION}/binaries/windows-386 ${DIST}/${VERSION}/windows-386/rai
-- tar czvf ${DIST}/${VERSION}/binaries/windows-amd64 ${DIST}/${VERSION}/windows-amd64/rai
+- tar czvf ${DIST}/${VERSION}/binaries/darwin-386 ${DIST}/${VERSION}/darwin-386/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/darwin-amd64 ${DIST}/${VERSION}/darwin-amd64/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-386 ${DIST}/${VERSION}/linux-386/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-amd64 ${DIST}/${VERSION}/linux-amd64/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-armv5 ${DIST}/${VERSION}/linux-armv5/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-armv6 ${DIST}/${VERSION}/linux-armv6/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-armv7 ${DIST}/${VERSION}/linux-armv7/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-arm64 ${DIST}/${VERSION}/linux-arm64/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-ppc64 ${DIST}/${VERSION}/linux-ppc64/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-ppc64le ${DIST}/${VERSION}/linux-ppc64le/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/windows-386 ${DIST}/${VERSION}/windows-386/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/windows-amd64 ${DIST}/${VERSION}/windows-amd64/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
 - go-selfupdate -o ${DIST}/updates ${DIST}/${VERSION}/binaries/ ${VERSION}
 - cp -r ${DIST}/${VERSION} ${DIST}/latest
 # - echo "releasing v${VERSION}..."
