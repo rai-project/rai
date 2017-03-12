@@ -11,25 +11,32 @@ install:
 - go get github.com/mjibson/esc
 - go get github.com/ahmetb/govvv
 - go get github.com/franciscocpg/gox
+- go get github.com/sanbornm/go-selfupdate
 script:
 - cd ${TRAVIS_BUILD_DIR}/cmd && go generate && cd ${TRAVIS_BUILD_DIR}
 - VERSION=$(cat VERSION)
+- DIST=dist/rai/stable/
 - CGO_ENABLED=0 gox -verbose -ldflags="$(govvv -flags)" -ldflags="-s -w" -os="linux
   darwin windows" -arch="amd64 386 armv5 armv6 armv7 arm64" -osarch="!darwin/arm64
   linux/ppc64 linux/ppc64le" -ldflags="-X github.com/rai-project/rai/cmd.appsecret=\"${APP_SECRET}\""
-  -ldflags "-extldflags \"-static\"" -output="dist/rai/stable/${VERSION}/{{.OS}}-{{.Arch}}"
+  -ldflags "-extldflags \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}"
   .
 before_deploy:
-- ls -l dist
-- rm ${TRAVIS_BUILD_DIR}/glide.lock
+- echo "releasing v${VERSION}..."
+- ghr -t "$GITHUB_TOKEN" -u abduld -r platform --replace "v${VERSION}" "${DIST}/${VERSION}/darwin-amd64/rai_${VERSION}_darwin_amd64"
+- echo "go-selfupdate generating bindiffs"
+- mkdir releases/${version}/bins
+- cp ${DIST}/${VERSION}/darwin-amd64/ranch ${DIST}/${VERSION}/bins/darwin-amd64
+- cp ${DIST}/${VERSION}/linux-amd64/ranch ${DIST}/${VERSION}/bins/linux-amd64
+- go-selfupdate releases/${version}/bins/ ${VERSION}
 deploy:
   provider: s3
   access_key_id: AKIAIAFSJLCCOYB5V3EQ
   secret_access_key:
     secure: TybhA8dNkfZFmMA/gcg5XlwsoqDuZKmUTVghW91xHrf8g+x6JQQTHuIzEIAIYbnOKN8IKPtgodDi2fotzPXghe0yB2lYe5MWaDG303cfAKfrdyqeaKLVIgjF80RPULmFHkosKfb3TlKJLAZxYMOJwxcENkGmePt35hM1lti/DtAq4VMjkjMAP5jLRb2e07u6B5uG1/DNbCqaAtgNtWuVqG5+KUOQBz6CKt/VVdt5DdFcL3fOsXqfMyrxKWoUEgUUcOIHoDBnaexcWPh07v3Vg5DiG3Sj18nieb1MiR8FkNwEBF+bz7yjL+4l8BGk7bVRlhY6QpjPdAIiT9p0C5b0LOsn9LKO0wKiAn49D6v7SJDOum6E5Njw9Hl+Uv/1g9X+zH2z+fjDDjqpUySEIKNF/zSQeLMYyIjobzKqFOTXz/oI31TzOWcJVxj1mKHInbQzBKIYluaGNraj9KZGB5Gv0BRbRkGkPRakD18TVotEN9gT6SFCRs7zs7bggU5VGawNO51qJCp8EUwT10ClU+2IG92TipGiHtIj3jyDPamje9riKeWz+ktYVGK0AmkcneGiwmVB9Zx6E6Jhytj3tNadpNJoii8Qo8KLesYwZ1IUDkPfEuF5QQXVOyxy/wfhwyVFpQmzuR3dXI86JBcphNQJNiB2myl/zMn80o80WslCgYA=
   bucket: files.rai-project.com
-  local-dir: dist
-  upload-dir: dist/stable
+  local-dir: dist/rai/stable
+  upload-dir: dist/rai/stable
   acl: public_read
   skip_cleanup: true
   detect_encoding: true
@@ -37,4 +44,5 @@ deploy:
     repo: rai-project/rai
 env:
   global:
-    secure: nraNQWDBUedfvUaAFm3el9DS6vFmM0lO+yswdxV7hCUcnthAofA0bmap/v1CRzxZN6yQ4AnvC7yaHgHWoCzDa4T68iFwrDB1/RHnVy/pHAyp89WsyIvij9QSeNUGk6LIkfMWTG+lktEEfWpi3TiAcBTR120R6Lyycr7de87sZCp0xN9xDZV/Ik5VpIOLnkug8OKOrnj1HQeRdcW7rbeywzWDq1orZ2kplxFzgtWHeITL1C1c7U6KuGgAKTr3wegOadZezfPQQbfbbPFhGy+cyOO4YwidgiR59aR+M43p76jccH/BRm950YOl7KqHK8MzjrBuomKMYCnGvMRImJ1C8o+BMQlYHY1SjkFSvlA7kfDrpAiCUVfBfE828eta1ICBDG4EInLJK2hwh6eSYyWkjWs090R9itrN5k9Ufua9F0PyDE9G26Ju2rX/MGAtVDIg/L14A3QZMPwG6jLvuxJXQjX8EboaPYOmi0Oe2UVXx/2xC07htJYrAUzrll84janUDPEx56W0XNZXdWL1AjHEUbZHuDOC3eIaBZtZ55ty0O3cn0X79ZwBy+W8i3amfUHc2JlD2M6PspkEpp6HLsU1BIsUwHvPE0AwPpolQeuw81IUvwQuNLW57P8bg9IiULl0oOOQ1xMLabuBP7ILnl9rDXXx0ZRGG5qnaEGTBOeBye4=
+  - secure: nraNQWDBUedfvUaAFm3el9DS6vFmM0lO+yswdxV7hCUcnthAofA0bmap/v1CRzxZN6yQ4AnvC7yaHgHWoCzDa4T68iFwrDB1/RHnVy/pHAyp89WsyIvij9QSeNUGk6LIkfMWTG+lktEEfWpi3TiAcBTR120R6Lyycr7de87sZCp0xN9xDZV/Ik5VpIOLnkug8OKOrnj1HQeRdcW7rbeywzWDq1orZ2kplxFzgtWHeITL1C1c7U6KuGgAKTr3wegOadZezfPQQbfbbPFhGy+cyOO4YwidgiR59aR+M43p76jccH/BRm950YOl7KqHK8MzjrBuomKMYCnGvMRImJ1C8o+BMQlYHY1SjkFSvlA7kfDrpAiCUVfBfE828eta1ICBDG4EInLJK2hwh6eSYyWkjWs090R9itrN5k9Ufua9F0PyDE9G26Ju2rX/MGAtVDIg/L14A3QZMPwG6jLvuxJXQjX8EboaPYOmi0Oe2UVXx/2xC07htJYrAUzrll84janUDPEx56W0XNZXdWL1AjHEUbZHuDOC3eIaBZtZ55ty0O3cn0X79ZwBy+W8i3amfUHc2JlD2M6PspkEpp6HLsU1BIsUwHvPE0AwPpolQeuw81IUvwQuNLW57P8bg9IiULl0oOOQ1xMLabuBP7ILnl9rDXXx0ZRGG5qnaEGTBOeBye4=
+  - secure: SQXrtt+xDxhCJVj0UvBQLPMMQNEH7l4iwn5vFUJr6Bwc72Js6hYkhZbzHTcUirmysG/z9xP6IMnlxDZzHQiMUyJuIq8w1XeQ16Q0c+tpf7U1KB59SEI/qoaRf3ZhdXZSjxijhThnsopPIGAU6zmZf4OVz990RdUsr0awczGOzXj6SySyec4kr/sWshXDkawsp3RUI0M/yMiOfptknKA3a0QaSNXcv1yakC8b5uGYnkcBJIRpDyUSMAnCcDstMfiAEo1IWl6oamtX68y8hCRCEu5mPc5mdEmN3c4c2jVIxvOELiyXbNvHEN25LNjKryaiiq+FmZvz4k7+s4CMjxwTjwOkowMDrGEETd2wf86botfUKa2JYN8eqpQtJUQ5bV1MtUvcPw9DKxCRUCkfpKs/4elPN54kwqTTfN/nlboJlvjyRF5W1QY2v7ZIIajGAPu60YadTvfg7vr/lImY+ojFkkIIVR7PpodFL7KyBKfEFHmGVV332xn5x4S0xuMkycGwwPHCwoXetYg6opiEuQTiXfKPCazLvD2hSN4gYCaJytagT4gfyoPIrwLPQ69gHAA++m3HFgw7L1zwtHYPFvSxWLmVdM/GazSIKT1zNPau1UOfGl4zjqRu118ez3VU2HtDDAGDPBAAp4wan8lYscmwj9EQUo993hmP9b+aEikpOJ4=
