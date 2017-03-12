@@ -1,6 +1,9 @@
 # RAI Client [![Build Status](https://travis-ci.org/rai-project/rai.svg?branch=master)](https://travis-ci.org/rai-project/rai)
 
-
+> The RAI client is an executable downloaded by the students and runs on the students' machines.
+> The executable requires no library dependencies and works on all the main operating systems and CPU architectures.
+> Both features reduce the liklihood that students will have technical difficulties running the client.
+> Students use the RAI client to interact with a distributed elastic system to submit jobs.
 
 ## Download Binaries
 
@@ -144,6 +147,6 @@ rai --verbose --debug
 
 ## License
 
-MIT © [Abdul Dakkak](http://impact.crhc.illinois.edu/Content_Page.aspx?student_pg=Default-dakkak)
+NCSA/UIUC © [Abdul Dakkak](http://impact.crhc.illinois.edu/Content_Page.aspx?student_pg=Default-dakkak)
 
 [github issue manager]: https://github.com/rai-project/rai/issues
