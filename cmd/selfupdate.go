@@ -18,7 +18,9 @@ type HTTPRequester struct {
 // Fetch will return an HTTP request to the specified url and return
 // the body of the result. An error will occur for a non 200 status code.
 func (httpRequester *HTTPRequester) Fetch(url string) (io.ReadCloser, error) {
-	fmt.Printf("GET %s\n", url)
+	if isDebug || isVerbose {
+		fmt.Println("GET %s", url)
+	}
 
 	resp, err := http.Get(url)
 	if err != nil {
@@ -28,6 +30,12 @@ func (httpRequester *HTTPRequester) Fetch(url string) (io.ReadCloser, error) {
 	if resp.StatusCode != 200 {
 		return nil, fmt.Errorf("bad http status from %s: %v", url, resp.Status)
 	}
+
+	defer func() {
+		if resp.Body != nil {
+			resp.Body.Close()
+		}
+	}()
 
 	return resp.Body, nil
 }
