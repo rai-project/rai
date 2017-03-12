@@ -13,7 +13,7 @@ import (
 var configContent string
 
 func init() {
-	configPath := filepath.Join(sourcepath.MustAbsoluteDir(), "..", "rai_config.yaml")
+	configPath := filepath.Join(sourcepath.MustAbsoluteDir(), "..", "rai_config.yml")
 	if !com.IsFile(configPath) {
 		panic("unable to locate " + configPath)
 	}

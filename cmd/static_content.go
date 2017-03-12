@@ -188,23 +188,23 @@ func _escFSMustString(useLocal bool, name string) string {
 
 var _escData = map[string]*_escFile{
 
-	"/rai_config.yaml": {
-		local:   "../rai_config.yaml",
-		size:    926,
-		modtime: 1489265368,
+	"/rai_config.yml": {
+		local:   "../rai_config.yml",
+		size:    938,
+		modtime: 1489352656,
 		compressed: `
-H4sIAAAAAAAA/2yTS5OyOhCG9/yK7CnHAS9IqmbhlXE+BcdRvGysABECSEIuoP76UzAzdeo7dZbdb/rt
-J90JYgxqABTohiHgiGgAVJgHVGAIrigXWAMgwoGKf0NUi6YAhSEW4pLhx4VEEOjuJnVJPZU7t1rvY7vv
-dTe+421Cwx3O75O7tXo8eztnq5alfy0X9KS27jw34uxcv2kACBxyLC//mkJAi+O2ZL7McXA86JE7QLJK
-2dlRD/d9xJ7ZeGbJuxWRaWrzYvI42vrkns+/fAMnlFozayLpbDq7Wj21OvnlcfZZRV45+KArezxeREuu
-AcBxTGgBgRIdjITsGA2JFA0GVYWEwDBNo/dqWq+j/vBH4zT/GZSQlONmFIzTikSYQyB6GgABEviieA5B
-IiWD3a7ovaAbetIC1eIlpLd2ejkETAU5CTsco0gLc4IL2bgpllMUXQIVZlhCcCU5Fi8ckQ7jNMWh/HH4
-1ZXAPEIStSmSR5emoAW8tLGGlEz+pmwyr81a6Q2Roj37691KPx1wEfIHkzi6fMO1ex7Y83ioJ4vZNaP4
-PM0+q689fRXxVLyHypjYa+rEYzerH8+PMpb+9ZNbS2dITjqqnREKPjf7W4HQuPzgp2sg797/9fl+DBCY
-zEt40qPbsdDpMDHOVhau+/VwxRbpamjpqVlNdmuHfdlGKide36z/OGm23O+mstyrbP0w/3QH/u25MszB
-KVSboiZ+cCb1ccdvfOR148PovTvznPlhmi4HURmi92Qp1gt/ftgNHDeoje6N3oO+WPTfNKYCoQLY8kaM
-kkK23wCADviW/rsjOOxZ9l/XY0iImvIIgq/ipB/tR7Vjlb89UD0pS2OSKjaqqtNczvbbUHhm/fam/RMA
-AP//E0CBpp4DAAA=
+H4sIAAAAAAAA/2xTW3OqPBR951fknbEWvCCZ6YNXao+CtYqXFydAhACSkAuov/4bqZ1vTuc87r2y115Z
+K0GMQQ2AAl0wBBwRDYAK84AKDMEZ5QJrAEQ4UPFPiWrxGEBhiIU4Zfh2IhEEurtKXVKP5catltvY7nrt
+le94q9Bw+9Pr6GotbvfOxlmreemfyxk9qLU7zY04O9ZvGgAChxzL0/+kENBivy6ZL3Mc7Hd65PaQrFJ2
+dNTNfR+wezacWPJqRWSc2rwY3fa2Prrm0y/fwAml1sQaSToZT85WRy0OfrmffFaRV/Y+6MIeDmfRnGsA
+cBwTWkCgRAsjIVvGQ4kUDxlUFRICwzSNzqtpvQ66/SfGaf40SkjK8cMKxmlFIswhEB0NgAAJfFI8hyCR
+ksF2W3Re0AXdaYFq8RLSS+NeDgFTQU7CFsco0sKc4EL+TkKxnKLoFKgwwxKCM8mxeOGItBinKQ7lk+0H
+VwLzCEnUtEgenR4DDdepqTWkZPK34kfn9RExvSBSNGd/uBvouQEXIb8xiaPTt9Am8549jft6MpucM4qP
+4+yz+trSVxGPxXuojJG9pE48dLP6dv8oY+mfP7k1d/rkoKPaGaDgc7W9FAgNyw9+OAfy6v1rz/fDgMBk
+XsKTDl0PhU77iXG0snDZrfsLNksXfUtPzWq0WTrsyzZSOfK6Zv3HSbP5djOW5VZly5v5p93zL/eFYfYO
+oVoVNfGDI6n3G37hA68d7wbv7YnnTHfjdN6LyhC9J3OxnPnT3abnuEFttC/0GnTFrPumMRUIFcBGb8Qo
+KWTzJQBogW/od0aw37Hsv67HkBA15REEX8VB39u3asMqf72jelKWxihVbFBVh6mcbNeh8Mz67U37LwAA
+//+FPbNvqgMAAA==
 `,
 	},
 
