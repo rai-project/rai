@@ -9,9 +9,6 @@
         "github.com/fatih/color": {
             "branch": "master"
         },
-        "github.com/k0kubun/pp": {
-            "branch": "master"
-        },
         "github.com/pkg/errors": {
             "branch": "master"
         },
@@ -32,6 +29,9 @@
         },
         "github.com/spf13/viper": {
             "branch": "master"
+        },
+        "gopkg.in/yaml.v2": {
+            "branch": "v2"
         }
     }
 }

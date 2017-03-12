@@ -5,16 +5,14 @@ import:
   version: ~1.0.0
 - package: github.com/fatih/color
   version: ~1.4.1
-- package: github.com/k0kubun/pp
-  version: ~2.3.0
 - package: github.com/pkg/errors
   version: ~0.8.0
 - package: github.com/rai-project/auth
   subpackages:
-  - auth0
-  - secret
+  - provider
 - package: github.com/rai-project/client
 - package: github.com/rai-project/cmd
 - package: github.com/rai-project/config
 - package: github.com/spf13/cobra
 - package: github.com/spf13/viper
+- package: gopkg.in/yaml.v2

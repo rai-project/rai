@@ -1,5 +1,5 @@
 {
-    "memo": "35fdd386ed6e03b296a718e017ff12b2ff9982aa07a5f3980bfeb52d7e267bf8",
+    "memo": "74d96f8a8d238c3d52df0cd843dc96350062a8467688c8cce22290cbc0427810",
     "projects": [
         {
             "name": "github.com/GeertJohan/go-sourcepath",
@@ -288,7 +288,7 @@
         {
             "name": "github.com/rai-project/archive",
             "branch": "master",
-            "revision": "42d52e668aa42630f5538c1e578bae0320373a23",
+            "revision": "4e116183e2d7f8162c6e9333fef72d9760b6e700",
             "packages": [
                 "."
             ]
@@ -296,18 +296,19 @@
         {
             "name": "github.com/rai-project/auth",
             "branch": "master",
-            "revision": "a68bad471852a2ad41f7610e73e1929988b2aad2",
+            "revision": "227aa4301b2eb49fba3bb37119c1067008ee29ab",
             "packages": [
                 ".",
                 "auth0",
                 "auth0/api",
+                "provider",
                 "secret"
             ]
         },
         {
             "name": "github.com/rai-project/aws",
             "branch": "master",
-            "revision": "c55233701900cd5b7fee9d59dd1cf5d8fbdbd1bf",
+            "revision": "d6c35048d75b41cca52243483e5592c6f35ded98",
             "packages": [
                 "."
             ]
@@ -315,7 +316,7 @@
         {
             "name": "github.com/rai-project/broker",
             "branch": "master",
-            "revision": "9f080aae2718c9f47ea1003ded5dfbeff7247a09",
+            "revision": "8feaacf20642ee849e61d5d70b9c23eb6ab316df",
             "packages": [
                 ".",
                 "sqs"
@@ -324,7 +325,7 @@
         {
             "name": "github.com/rai-project/client",
             "branch": "master",
-            "revision": "f451b25c5fc523e0ef44a218f6e611cd2bbc7af8",
+            "revision": "458ed3b62e0b49df688dc02e33e60eb9f13c8ae2",
             "packages": [
                 "."
             ]
@@ -332,7 +333,7 @@
         {
             "name": "github.com/rai-project/cmd",
             "branch": "master",
-            "revision": "67cca8b1c3b9e9cb830f75cdc092e1e2b201adbe",
+            "revision": "4df453af7ff9ac5dcabd8f2920b38177e281a04d",
             "packages": [
                 "."
             ]
@@ -340,7 +341,7 @@
         {
             "name": "github.com/rai-project/config",
             "branch": "master",
-            "revision": "3cdd1d24b21e8735c63a591b04b3decd16138e13",
+            "revision": "4e772ccbc6c2d66a8285d4c8d0e94c5c20a1dfeb",
             "packages": [
                 "."
             ]
@@ -364,7 +365,7 @@
         {
             "name": "github.com/rai-project/logger",
             "branch": "master",
-            "revision": "03818fe07fa7d04ed67bb0a30bba6fa771c216a6",
+            "revision": "18cb3edb6ab2e424faa3c96d988b2237b6cd8e65",
             "packages": [
                 "."
             ]
@@ -372,7 +373,7 @@
         {
             "name": "github.com/rai-project/model",
             "branch": "master",
-            "revision": "5692b2e72b6f42787ef18a1da9fd237d33e071fd",
+            "revision": "d16696c980bb9ef22f9a33111a1723bafa21543a",
             "packages": [
                 "."
             ]
@@ -380,7 +381,7 @@
         {
             "name": "github.com/rai-project/pubsub",
             "branch": "master",
-            "revision": "fd7b342428ee44f2cf87641872b77c58d65363ee",
+            "revision": "7c24be023cdd5ce9a324d87e71a08fa108c25493",
             "packages": [
                 ".",
                 "redis"
@@ -389,7 +390,7 @@
         {
             "name": "github.com/rai-project/ratelimit",
             "branch": "master",
-            "revision": "29611a667845f8f10f5a4a8c80fd7e5da65efa36",
+            "revision": "576aa42e8b7ce6a6ed323b30d66dcaaa95746587",
             "packages": [
                 "."
             ]
@@ -407,7 +408,7 @@
         {
             "name": "github.com/rai-project/store",
             "branch": "master",
-            "revision": "dee6569179a46f7a873123c242a4ea35d4af1cfb",
+            "revision": "544dde7c441bd142b4a9203f9eead4149e24e395",
             "packages": [
                 ".",
                 "s3"
@@ -481,7 +482,7 @@
         {
             "name": "github.com/spf13/cobra",
             "branch": "master",
-            "revision": "92ea23a837e66f46ac9e7d04fa826602b7b0a42d",
+            "revision": "16c014f1a19d865b765b420e74508f80eb831ada",
             "packages": [
                 ".",
                 "doc"
