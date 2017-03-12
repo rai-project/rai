@@ -34,16 +34,16 @@ func (httpRequester *HTTPRequester) Fetch(url string) (io.ReadCloser, error) {
 // self-updateCmd represents the self-update command
 var selfUpdateCmd = &cobra.Command{
 	Use:     "self-update",
-	Aliases: []string{"update"},
+	Aliases: []string{"update", "selfupdate"},
 	Short:   "Update RAI if a new version exists",
 	Long:    `This will allow RAI to update it's self.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		updater := &selfupdate.Updater{
 			CurrentVersion: ccmd.Version.Version,
-			ApiURL:         "https://files.rai-project.com.s3.amazonaws.com/dist/",
-			BinURL:         "https://files.rai-project.com.s3.amazonaws.com/dist/",
-			DiffURL:        "https://files.rai-project.com.s3.amazonaws.com/dist/",
-			Dir:            "rai/stable/",
+			ApiURL:         "https://files.rai-project.com.s3.amazonaws.com/dist/stable/",
+			BinURL:         "https://files.rai-project.com.s3.amazonaws.com/dist/stable/",
+			DiffURL:        "https://files.rai-project.com.s3.amazonaws.com/dist/stable/",
+			Dir:            "rai",
 			CmdName:        "rai",
 			Requester:      &HTTPRequester{},
 			ForceCheck:     true,
