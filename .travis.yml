@@ -60,8 +60,8 @@ before_deploy:
 - rm -fr ${DIST}/${VERSION}/binaries
 - echo "Copying latest directory to ${DIST}/${TRAVIS_COMMIT}"
 - cp -r ${DIST}/latest ${DIST}/${TRAVIS_COMMIT}
-- echo "releasing v${VERSION}..."
-- ghr -t "$GITHUB_TOKEN" -u abduld -r github.com/${TRAVIS_REPO_SLUG} --replace "v${VERSION}" "${DIST}/latest"
+# - echo "releasing v${VERSION}..."
+# - ghr -t "$GITHUB_TOKEN" -u abduld -r github.com/${TRAVIS_REPO_SLUG} --replace "v${VERSION}" "${DIST}/latest"
 - cd ${TRAVIS_BUILD_DIR}
 deploy:
   provider: s3
