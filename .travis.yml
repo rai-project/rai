@@ -21,10 +21,8 @@ script:
 before_deploy:
 - echo "go-selfupdate generating bindiffs"
 - mkdir -p ${DIST}/${VERSION}/binaries
-- cd ${DIST}/${VERSION}/darwin-amd64 && tar czvf "../darwin-amd64.tar.gz" rai
-- cd ${DIST}/${VERSION}/linux-amd64 && tar czvf "../linux-amd64.tar.gz" rai
-- cp ${DIST}/${VERSION}/darwin-amd64.tar.gz ${DIST}/${VERSION}/binaries/darwin-amd64
-- cp ${DIST}/${VERSION}/linux-amd64.tar.gz ${DIST}/${VERSION}/binaries/linux-amd64
+- tar czvf ${DIST}/${VERSION}/binaries/darwin-amd64 ${DIST}/${VERSION}/darwin-amd64/rai
+- tar czvf ${DIST}/${VERSION}/binaries/linux-amd64 ${DIST}/${VERSION}/linux-amd64/rai
 - go-selfupdate -o ${DIST}/updates ${DIST}/${VERSION}/binaries/ ${VERSION}
 # - echo "releasing v${VERSION}..."
 # - ghr -t "$GITHUB_TOKEN" -u abduld -r platform --replace "v${VERSION}" "${DIST}/darwin-amd64/rai"
