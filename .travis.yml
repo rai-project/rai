@@ -5,7 +5,8 @@ sudo: true
 before_install:
 - sudo add-apt-repository ppa:masterminds/glide -y
 - sudo apt-get update -q
-- sudo apt-get install glide -y
+- sudo apt-get install glide build-essential ruby1.9.1-full rubygems1.9.1 -y
+- sudo gem install pkgr
 install:
 - glide install
 - go get github.com/mjibson/esc
