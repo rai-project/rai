@@ -14,7 +14,7 @@ install:
 - go get github.com/franciscocpg/gox
 - go get github.com/tcnksm/ghr
 - go get github.com/sanbornm/go-selfupdate
-- go install github.com/laher/bump/...
+- go get github.com/laher/bump/...
 script:
 - cd ${TRAVIS_BUILD_DIR}/cmd && go generate && cd ${TRAVIS_BUILD_DIR}
 - VERSION=$(cat ./VERSION)
