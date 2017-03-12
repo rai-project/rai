@@ -32,8 +32,8 @@ before_deploy:
 - tar czvf ${DIST}/${VERSION}/binaries/linux-arm64 ${DIST}/${VERSION}/linux-arm64/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
 - tar czvf ${DIST}/${VERSION}/binaries/linux-ppc64 ${DIST}/${VERSION}/linux-ppc64/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
 - tar czvf ${DIST}/${VERSION}/binaries/linux-ppc64le ${DIST}/${VERSION}/linux-ppc64le/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
-- tar czvf ${DIST}/${VERSION}/binaries/windows-386 ${DIST}/${VERSION}/windows-386/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
-- tar czvf ${DIST}/${VERSION}/binaries/windows-amd64 ${DIST}/${VERSION}/windows-amd64/rai ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/windows-386 ${DIST}/${VERSION}/windows-386/rai.exe ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/windows-amd64 ${DIST}/${VERSION}/windows-amd64/rai.exe ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
 - go-selfupdate -o ${DIST}/updates ${DIST}/${VERSION}/binaries/ ${VERSION}
 - cp -r ${DIST}/${VERSION} ${DIST}/latest
 # - echo "releasing v${VERSION}..."
