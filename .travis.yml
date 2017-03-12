@@ -15,16 +15,16 @@ install:
 script:
 - cd ${TRAVIS_BUILD_DIR}/cmd && go generate && cd ${TRAVIS_BUILD_DIR}
 - VERSION=$(cat ./VERSION)
-- DIST=dist/rai/stable/
+- DIST=dist/rai/stable
 - CGO_ENABLED=0 gox -verbose -ldflags="$(govvv -flags)" -ldflags="-s -w" -osarch="darwin/amd64 linux/amd64" -ldflags="-X github.com/rai-project/rai/cmd.appsecret=\"${APP_SECRET}\"" -ldflags "-extldflags \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}" .
 before_deploy:
 - echo "releasing v${VERSION}..."
 - ghr -t "$GITHUB_TOKEN" -u abduld -r platform --replace "v${VERSION}" "${DIST}/${VERSION}/darwin-amd64/rai_${VERSION}_darwin_amd64"
 - echo "go-selfupdate generating bindiffs"
-- mkdir releases/${version}/bins
-- cp ${DIST}/${VERSION}/darwin-amd64/ranch ${DIST}/${VERSION}/bins/darwin-amd64
-- cp ${DIST}/${VERSION}/linux-amd64/ranch ${DIST}/${VERSION}/bins/linux-amd64
-- go-selfupdate ${DIST}/${version}/bins/ ${VERSION}
+- mkdir -p ${DIST}/${VERSION}/bins
+- cp ${DIST}/${VERSION}/darwin-amd64/rai ${DIST}/${VERSION}/bins/darwin-amd64
+- cp ${DIST}/${VERSION}/linux-amd64/rai ${DIST}/${VERSION}/bins/linux-amd64
+- go-selfupdate ${DIST}/${VERSION}/bins/ ${VERSION}
 deploy:
   provider: s3
   access_key_id: AKIAIAFSJLCCOYB5V3EQ
