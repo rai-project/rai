@@ -1,5 +1,5 @@
 {
-    "memo": "74d96f8a8d238c3d52df0cd843dc96350062a8467688c8cce22290cbc0427810",
+    "memo": "d3ab238c0ee138a9feef89a7ef51ff5e42a48de63b326f65be5d4d3717c460d7",
     "projects": [
         {
             "name": "github.com/GeertJohan/go-sourcepath",
@@ -37,7 +37,7 @@
         {
             "name": "github.com/aws/aws-sdk-go",
             "branch": "master",
-            "revision": "78568b07950e5e7948496878fe99b9436add41d4",
+            "revision": "963d664c4279debae251c0f336e247571dc614db",
             "packages": [
                 "aws",
                 "aws/awserr",
@@ -72,7 +72,7 @@
         {
             "name": "github.com/cheggaaa/pb",
             "branch": "master",
-            "revision": "d7e6ca3010b6f084d8056847f55d7f572f180678",
+            "revision": "bd1f886442f85613c68401483d34fc7ed9d70ca7",
             "packages": [
                 "."
             ]
@@ -96,7 +96,7 @@
         {
             "name": "github.com/docker/docker",
             "branch": "master",
-            "revision": "7fb83eb7629856756e3ed7b1f20cedc87584354b",
+            "revision": "613334eb5073e3b332d4f23babc5d4847ef66f59",
             "packages": [
                 "pkg/archive",
                 "pkg/fileutils",
@@ -119,7 +119,7 @@
         {
             "name": "github.com/dustin/go-humanize",
             "branch": "master",
-            "revision": "7a41df006ff9af79a29f0ffa9c5f21fbe6314a2d",
+            "revision": "259d2a102b871d17f30e3cd9881a642961a1e486",
             "packages": [
                 "."
             ]
@@ -135,7 +135,7 @@
         {
             "name": "github.com/fatih/color",
             "branch": "master",
-            "revision": "7824417a424b65227be8ac9b14d545a7f3e6c3f0",
+            "revision": "9131ab34cf20d2f6d83fdc67168a5430d1c7dc23",
             "packages": [
                 "."
             ]
@@ -158,7 +158,7 @@
         },
         {
             "name": "github.com/go-ini/ini",
-            "version": "v1.25.3",
+            "branch": "master",
             "revision": "7e015cd18f007383aa571cc413bd2ec09cff7f2d",
             "packages": [
                 "."
@@ -190,8 +190,8 @@
         },
         {
             "name": "github.com/jmespath/go-jmespath",
-            "version": "0.2.2",
-            "revision": "3433f3ea46d9f8019119e7dd41274e112a2359a9",
+            "branch": "master",
+            "revision": "bd40a432e4c76585ef6b72d3fd96fb9b6dc7b68d",
             "packages": [
                 "."
             ]
@@ -200,6 +200,22 @@
             "name": "github.com/k0kubun/pp",
             "branch": "master",
             "revision": "d1532fc5d94ecdf2da29e24d7b99721f3287de4a",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/kardianos/osext",
+            "branch": "master",
+            "revision": "9d302b58e975387d0b4d9be876622c86cefe64be",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/kr/binarydist",
+            "branch": "master",
+            "revision": "3035450ff8b987ec4373f65c40767f096b35f2d2",
             "packages": [
                 "."
             ]
@@ -215,7 +231,7 @@
         {
             "name": "github.com/mattn/go-colorable",
             "branch": "master",
-            "revision": "d898aa9fb31c91f35dd28ca75db377eff023c076",
+            "revision": "acb9493f2794fd0f820de7a27a217dafbb1b65ea",
             "packages": [
                 "."
             ]
@@ -223,7 +239,7 @@
         {
             "name": "github.com/mattn/go-isatty",
             "branch": "master",
-            "revision": "dda3de49cbfcec471bd7a70e6cc01fcc3ff90109",
+            "revision": "57fdcb988a5c543893cc61bce354a6e24ab70022",
             "packages": [
                 "."
             ]
@@ -247,15 +263,15 @@
         {
             "name": "github.com/mitchellh/mapstructure",
             "branch": "master",
-            "revision": "db1efb556f84b25a0a13a04aad883943538ad2e0",
+            "revision": "53818660ed4955e899c0bcafa97299a388bd7c8e",
             "packages": [
                 "."
             ]
         },
         {
             "name": "github.com/opencontainers/runc",
-            "version": "v0.1.1",
-            "revision": "baf6536d6259209c3edfa2b22237af82942d3dfa",
+            "branch": "master",
+            "revision": "31980a53ae7887b2c8f8715d13c3eb486c27b6cf",
             "packages": [
                 "libcontainer/system",
                 "libcontainer/user"
@@ -272,7 +288,7 @@
         {
             "name": "github.com/pelletier/go-toml",
             "branch": "master",
-            "revision": "361678322880708ac144df8575e6f01144ba1404",
+            "revision": "13d49d4606eb801b8f01ae542b4afc4c6ee3d84a",
             "packages": [
                 "."
             ]
@@ -296,7 +312,7 @@
         {
             "name": "github.com/rai-project/auth",
             "branch": "master",
-            "revision": "227aa4301b2eb49fba3bb37119c1067008ee29ab",
+            "revision": "818d8f928456bf39dd9597700d43604dc879dacc",
             "packages": [
                 ".",
                 "auth0",
@@ -325,7 +341,7 @@
         {
             "name": "github.com/rai-project/client",
             "branch": "master",
-            "revision": "458ed3b62e0b49df688dc02e33e60eb9f13c8ae2",
+            "revision": "ac5db989fb4f7364519e553ef9c8515d0f0c4ea3",
             "packages": [
                 "."
             ]
@@ -333,7 +349,7 @@
         {
             "name": "github.com/rai-project/cmd",
             "branch": "master",
-            "revision": "4df453af7ff9ac5dcabd8f2920b38177e281a04d",
+            "revision": "1add2830a28ee3b5bfe39a766dab553cbd035d72",
             "packages": [
                 "."
             ]
@@ -341,7 +357,7 @@
         {
             "name": "github.com/rai-project/config",
             "branch": "master",
-            "revision": "4e772ccbc6c2d66a8285d4c8d0e94c5c20a1dfeb",
+            "revision": "867cc4fdd9f7f5031bcc9ecbaa6eaa0db5f755ef",
             "packages": [
                 "."
             ]
@@ -408,7 +424,7 @@
         {
             "name": "github.com/rai-project/store",
             "branch": "master",
-            "revision": "544dde7c441bd142b4a9203f9eead4149e24e395",
+            "revision": "b5db63ec56cb800b350985ec95778aa71deaaa58",
             "packages": [
                 ".",
                 "s3"
@@ -447,6 +463,14 @@
             ]
         },
         {
+            "name": "github.com/sanbornm/go-selfupdate",
+            "branch": "master",
+            "revision": "bf295275fb1ee4e347c09330ed9a3c76cc19895a",
+            "packages": [
+                "selfupdate"
+            ]
+        },
+        {
             "name": "github.com/satori/go.uuid",
             "branch": "master",
             "revision": "b061729afc07e77a8aa4fad0a2fd840958f1942a",
@@ -474,7 +498,7 @@
         {
             "name": "github.com/spf13/cast",
             "branch": "master",
-            "revision": "f820543c3592e283e311a60d2a600a664e39f6f7",
+            "revision": "ce135a4ebeee6cfe9a26c93ee0d37825f26113c7",
             "packages": [
                 "."
             ]
@@ -582,6 +606,15 @@
                 "hash/scrypt/raw",
                 "hash/sha2crypt",
                 "hash/sha2crypt/raw"
+            ]
+        },
+        {
+            "name": "gopkg.in/inconshreveable/go-update.v0",
+            "branch": "v0",
+            "revision": "d8b0b1d421aa1cbf392c05869f8abbc669bb7066",
+            "packages": [
+                ".",
+                "download"
             ]
         },
         {
