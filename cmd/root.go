@@ -10,6 +10,7 @@ import (
 	"github.com/rai-project/client"
 	"github.com/rai-project/cmd"
 	"github.com/rai-project/config"
+	"github.com/sanbornm/go-selfupdate/selfupdate"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -109,4 +110,18 @@ func initConfig() {
 
 func initColor() {
 	color.NoColor = !isColor
+}
+
+func initSelfUpdater() {
+	updater := &selfupdate.Updater{
+		CurrentVersion: cmd.Version.Version,
+		ApiURL:         "https://files.rai-project.com.s3.amazonaws.com/dist/",
+		BinURL:         "https://files.rai-project.com.s3.amazonaws.com/dist/",
+		DiffURL:        "https://files.rai-project.com.s3.amazonaws.com/dist/",
+		Dir:            "stable/",
+		CmdName:        "rai",
+		ForceCheck:     true,
+	}
+
+	return updater.BackgroundRun()
 }

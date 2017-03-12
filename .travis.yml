@@ -28,7 +28,7 @@ deploy:
     secure: TybhA8dNkfZFmMA/gcg5XlwsoqDuZKmUTVghW91xHrf8g+x6JQQTHuIzEIAIYbnOKN8IKPtgodDi2fotzPXghe0yB2lYe5MWaDG303cfAKfrdyqeaKLVIgjF80RPULmFHkosKfb3TlKJLAZxYMOJwxcENkGmePt35hM1lti/DtAq4VMjkjMAP5jLRb2e07u6B5uG1/DNbCqaAtgNtWuVqG5+KUOQBz6CKt/VVdt5DdFcL3fOsXqfMyrxKWoUEgUUcOIHoDBnaexcWPh07v3Vg5DiG3Sj18nieb1MiR8FkNwEBF+bz7yjL+4l8BGk7bVRlhY6QpjPdAIiT9p0C5b0LOsn9LKO0wKiAn49D6v7SJDOum6E5Njw9Hl+Uv/1g9X+zH2z+fjDDjqpUySEIKNF/zSQeLMYyIjobzKqFOTXz/oI31TzOWcJVxj1mKHInbQzBKIYluaGNraj9KZGB5Gv0BRbRkGkPRakD18TVotEN9gT6SFCRs7zs7bggU5VGawNO51qJCp8EUwT10ClU+2IG92TipGiHtIj3jyDPamje9riKeWz+ktYVGK0AmkcneGiwmVB9Zx6E6Jhytj3tNadpNJoii8Qo8KLesYwZ1IUDkPfEuF5QQXVOyxy/wfhwyVFpQmzuR3dXI86JBcphNQJNiB2myl/zMn80o80WslCgYA=
   bucket: files.rai-project.com
   local-dir: dist
-  upload-dir: dist
+  upload-dir: dist/stable
   acl: public_read
   skip_cleanup: true
   detect_encoding: true
