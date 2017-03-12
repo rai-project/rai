@@ -29,6 +29,7 @@ before_deploy:
 # - echo "releasing v${VERSION}..."
 # - ghr -t "$GITHUB_TOKEN" -u abduld -r platform --replace "v${VERSION}" "${DIST}/darwin-amd64/rai"
 # - ghr -t "$GITHUB_TOKEN" -u abduld -r platform --replace "v${VERSION}" "${DIST}/darwin-amd64/rai"
+- cd ${TRAVIS_BUILD_DIR}
 deploy:
   provider: s3
   access_key_id: AKIAIAFSJLCCOYB5V3EQ
