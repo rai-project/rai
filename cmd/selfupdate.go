@@ -42,8 +42,8 @@ var selfUpdateCmd = &cobra.Command{
 		updateDir, _ := homedir.Expand("~/.rai_update")
 		updater := &selfupdate.Updater{
 			CurrentVersion: ccmd.Version.Version,
-			ApiURL:         "http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/",
-			BinURL:         "http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/",
+			ApiURL:         "http://files.rai-project.com/dist/rai/stable/",
+			BinURL:         "http://files.rai-project.com/dist/rai/stable/",
 			CmdName:        "updates",
 			Dir:            updateDir,
 			Requester:      &HTTPRequester{},
