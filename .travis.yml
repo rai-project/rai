@@ -11,6 +11,7 @@ install:
 - go get github.com/mjibson/esc
 - go get github.com/ahmetb/govvv
 - go get github.com/franciscocpg/gox
+- go get github.com/tcnksm/ghr
 - go get github.com/sanbornm/go-selfupdate
 script:
 - cd ${TRAVIS_BUILD_DIR}/cmd && go generate && cd ${TRAVIS_BUILD_DIR}
