@@ -27,7 +27,7 @@ script:
 - VERSION=$(cat ./VERSION)
 - echo "VERSION = ${VERSION}"
 - DIST=${TRAVIS_BUILD_DIR}/dist/rai/stable
-- CGO_ENABLED=0 gox -verbose -ldflags="$(govvv -flags)" -ldflags="-s -w" -os="linux darwin windows" -arch="amd64 386 armv5 armv6 armv7 arm64" -osarch="!darwin/arm64 linux/ppc64 linux/ppc64le" -ldflags="-X github.com/rai-project/rai/cmd.appsecret=\"${APP_SECRET}\"" -ldflags "-extldflags \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}" .
+- CGO_ENABLED=0 gox -verbose -ldflags="$(govvv -flags)" -parallel=4 -ldflags="-s -w" -os="linux darwin windows" -arch="amd64 386 armv5 armv6 armv7 arm64" -osarch="!darwin/arm64 linux/ppc64 linux/ppc64le" -ldflags="-X github.com/rai-project/rai/cmd.appsecret=\"${APP_SECRET}\"" -ldflags "-extldflags \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}" .
 before_deploy:
 - echo "go-selfupdate generating bindiffs"
 - mkdir -p ${DIST}/${VERSION}/binaries
