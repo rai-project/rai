@@ -38,6 +38,7 @@ var RootCmd = &cobra.Command{
 			client.Directory(workingDir),
 			client.Stdout(os.Stdout),
 			client.Stderr(os.Stderr),
+			client.JobQueueName("rai"),
 		)
 		if err != nil {
 			return err

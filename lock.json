@@ -1,14 +1,6 @@
 {
-    "memo": "e2c520c0f309c63b6aa1927d980bfc4388f149bd5dab908293e924667ec3acea",
+    "memo": "35fdd386ed6e03b296a718e017ff12b2ff9982aa07a5f3980bfeb52d7e267bf8",
     "projects": [
-        {
-            "name": "github.com/BurntSushi/toml",
-            "branch": "master",
-            "revision": "99064174e013895bbd9b025c31100bd1d9b590ca",
-            "packages": [
-                "."
-            ]
-        },
         {
             "name": "github.com/GeertJohan/go-sourcepath",
             "branch": "master",
@@ -28,7 +20,7 @@
         {
             "name": "github.com/Sirupsen/logrus",
             "branch": "master",
-            "revision": "0208149b40d863d2c1a2f8fe5753096a9cf2cc8b",
+            "revision": "1deb2db2a6fff8a35532079061b903c3a25eed52",
             "packages": [
                 ".",
                 "hooks/syslog"
@@ -75,6 +67,14 @@
                 "service/s3/s3manager",
                 "service/sqs",
                 "service/sts"
+            ]
+        },
+        {
+            "name": "github.com/cheggaaa/pb",
+            "branch": "master",
+            "revision": "d7e6ca3010b6f084d8056847f55d7f572f180678",
+            "packages": [
+                "."
             ]
         },
         {
@@ -158,8 +158,8 @@
         },
         {
             "name": "github.com/go-ini/ini",
-            "version": "v1.25.2",
-            "revision": "74bdc99692c3408cb103221e38675ce8fda0a718",
+            "version": "v1.25.3",
+            "revision": "7e015cd18f007383aa571cc413bd2ec09cff7f2d",
             "packages": [
                 "."
             ]
@@ -229,6 +229,14 @@
             ]
         },
         {
+            "name": "github.com/mattn/go-runewidth",
+            "branch": "master",
+            "revision": "14207d285c6c197daabb5c9793d63e7af9ab2d50",
+            "packages": [
+                "."
+            ]
+        },
+        {
             "name": "github.com/mitchellh/go-homedir",
             "branch": "master",
             "revision": "b8bc1bf767474819792c23f32d8286a45736f1c6",
@@ -288,15 +296,18 @@
         {
             "name": "github.com/rai-project/auth",
             "branch": "master",
-            "revision": "96bf66b7833b2ccf336a388cb50aa48dccd04a98",
+            "revision": "a68bad471852a2ad41f7610e73e1929988b2aad2",
             "packages": [
-                "."
+                ".",
+                "auth0",
+                "auth0/api",
+                "secret"
             ]
         },
         {
             "name": "github.com/rai-project/aws",
             "branch": "master",
-            "revision": "8ef33358d9e505e48f710b00192cf7e4f3f4c93f",
+            "revision": "c55233701900cd5b7fee9d59dd1cf5d8fbdbd1bf",
             "packages": [
                 "."
             ]
@@ -304,7 +315,7 @@
         {
             "name": "github.com/rai-project/broker",
             "branch": "master",
-            "revision": "2d2b1d61abbb70a61ff13cb32d5c8ea639b9f1af",
+            "revision": "9f080aae2718c9f47ea1003ded5dfbeff7247a09",
             "packages": [
                 ".",
                 "sqs"
@@ -313,7 +324,7 @@
         {
             "name": "github.com/rai-project/client",
             "branch": "master",
-            "revision": "149e93c5d498ac233b99d74a9b98af814e604db5",
+            "revision": "f451b25c5fc523e0ef44a218f6e611cd2bbc7af8",
             "packages": [
                 "."
             ]
@@ -329,7 +340,15 @@
         {
             "name": "github.com/rai-project/config",
             "branch": "master",
-            "revision": "4aa19f8adcdc677cdbcf102c3e48bd83d169f4f8",
+            "revision": "3cdd1d24b21e8735c63a591b04b3decd16138e13",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/rai-project/context",
+            "branch": "master",
+            "revision": "55bd97a26eb53521628937dc223b22c5e648d5d2",
             "packages": [
                 "."
             ]
@@ -348,6 +367,23 @@
             "revision": "03818fe07fa7d04ed67bb0a30bba6fa771c216a6",
             "packages": [
                 "."
+            ]
+        },
+        {
+            "name": "github.com/rai-project/model",
+            "branch": "master",
+            "revision": "5692b2e72b6f42787ef18a1da9fd237d33e071fd",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/rai-project/pubsub",
+            "branch": "master",
+            "revision": "fd7b342428ee44f2cf87641872b77c58d65363ee",
+            "packages": [
+                ".",
+                "redis"
             ]
         },
         {
@@ -371,24 +407,16 @@
         {
             "name": "github.com/rai-project/store",
             "branch": "master",
-            "revision": "087b2d6efd33b0f3d0c129673e570a7402b43430",
+            "revision": "dee6569179a46f7a873123c242a4ea35d4af1cfb",
             "packages": [
                 ".",
                 "s3"
             ]
         },
         {
-            "name": "github.com/rai-project/user",
-            "branch": "master",
-            "revision": "e63cef261482b7f291f8e09d8dc992b1c83a7789",
-            "packages": [
-                "."
-            ]
-        },
-        {
             "name": "github.com/rai-project/utils",
             "branch": "master",
-            "revision": "046662ebe0c449889ca20565eff674c065352ad4",
+            "revision": "7a189b20fc8151d81803e4b3e27bba7e578f2cf4",
             "packages": [
                 "."
             ]
@@ -497,7 +525,7 @@
         {
             "name": "golang.org/x/net",
             "branch": "master",
-            "revision": "906cda9512f77671ab44f8c8563b13a8e707b230",
+            "revision": "a6577fac2d73be281a500b310739095313165611",
             "packages": [
                 "context"
             ]
@@ -514,7 +542,7 @@
         {
             "name": "golang.org/x/text",
             "branch": "master",
-            "revision": "0ad425fe45e885577bef05dc1c50f72e33188b16",
+            "revision": "f28f36722d5ef2f9655ad3de1f248e3e52ad5ebd",
             "packages": [
                 "internal/gen",
                 "internal/triegen",
@@ -562,6 +590,19 @@
             "packages": [
                 "bson",
                 "internal/json"
+            ]
+        },
+        {
+            "name": "gopkg.in/redis.v5",
+            "branch": "master",
+            "revision": "a16aeec10ff407b1e7be6dd35797ccf5426ef0f0",
+            "packages": [
+                ".",
+                "internal",
+                "internal/consistenthash",
+                "internal/hashtag",
+                "internal/pool",
+                "internal/proto"
             ]
         },
         {
