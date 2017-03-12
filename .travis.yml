@@ -24,7 +24,7 @@ before_deploy:
 - mkdir releases/${version}/bins
 - cp ${DIST}/${VERSION}/darwin-amd64/ranch ${DIST}/${VERSION}/bins/darwin-amd64
 - cp ${DIST}/${VERSION}/linux-amd64/ranch ${DIST}/${VERSION}/bins/linux-amd64
-- go-selfupdate releases/${version}/bins/ ${VERSION}
+- go-selfupdate ${DIST}/${version}/bins/ ${VERSION}
 deploy:
   provider: s3
   access_key_id: AKIAIAFSJLCCOYB5V3EQ
