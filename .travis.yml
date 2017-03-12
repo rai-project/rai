@@ -23,7 +23,7 @@ before_deploy:
 - mkdir -p ${DIST}/${VERSION}/bins
 - cp ${DIST}/${VERSION}/darwin-amd64/rai ${DIST}/${VERSION}/bins/darwin-amd64
 - cp ${DIST}/${VERSION}/linux-amd64/rai ${DIST}/${VERSION}/bins/linux-amd64
-- go-selfupdate -o ${DIST} ${DIST}/${VERSION}/bins/ ${VERSION}
+- go-selfupdate -o ${DIST}/updates ${DIST}/${VERSION}/bins/ ${VERSION}
 # - echo "releasing v${VERSION}..."
 # - ghr -t "$GITHUB_TOKEN" -u abduld -r platform --replace "v${VERSION}" "${DIST}/${VERSION}/darwin-amd64/rai"
 # - ghr -t "$GITHUB_TOKEN" -u abduld -r platform --replace "v${VERSION}" "${DIST}/${VERSION}/darwin-amd64/rai"

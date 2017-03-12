@@ -40,10 +40,10 @@ var selfUpdateCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		updater := &selfupdate.Updater{
 			CurrentVersion: ccmd.Version.Version,
-			ApiURL:         "https://files.rai-project.com.s3.amazonaws.com/dist/stable/",
-			BinURL:         "https://files.rai-project.com.s3.amazonaws.com/dist/stable/",
-			DiffURL:        "https://files.rai-project.com.s3.amazonaws.com/dist/stable/",
-			Dir:            "rai",
+			ApiURL:         "http://files.rai-project.com.s3.amazonaws.com/dist/stable/rai/updates/",
+			BinURL:         "http://files.rai-project.com.s3.amazonaws.com/dist/stable/rai/updates/",
+			DiffURL:        "http://files.rai-project.com.s3.amazonaws.com/dist/stable/rai/updates/",
+			Dir:            "rai/updates/",
 			CmdName:        "rai",
 			Requester:      &HTTPRequester{},
 			ForceCheck:     true,
