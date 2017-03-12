@@ -22,8 +22,6 @@ script:
 # - misspell -source go -i Unknwon $(glide novendor)
 - go vet $(glide novendor)
 - cd ${TRAVIS_BUILD_DIR}/cmd && go generate && cd ${TRAVIS_BUILD_DIR}
-- NEXTVERSION=$(bump -stdin < VERSION)
-- echo ${NEXTVERSION} > VERSION
 - VERSION=$(cat ./VERSION)
 - echo "VERSION = ${VERSION}"
 - DIST=${TRAVIS_BUILD_DIR}/dist/rai/stable
