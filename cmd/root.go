@@ -123,5 +123,5 @@ func initSelfUpdater() {
 		ForceCheck:     true,
 	}
 
-	return updater.BackgroundRun()
+	updater.BackgroundRun()
 }
