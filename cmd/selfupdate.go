@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 
+	homedir "github.com/mitchellh/go-homedir"
 	ccmd "github.com/rai-project/cmd"
 	"github.com/sanbornm/go-selfupdate/selfupdate"
 	"github.com/spf13/cobra"
@@ -38,12 +39,13 @@ var selfUpdateCmd = &cobra.Command{
 	Short:   "Update RAI if a new version exists",
 	Long:    `This will allow RAI to update it's self.`,
 	Run: func(cmd *cobra.Command, args []string) {
+		updateDir, _ := homedir.Expand("~/.rai_update")
 		updater := &selfupdate.Updater{
 			CurrentVersion: ccmd.Version.Version,
-			ApiURL:         "http://files.rai-project.com.s3.amazonaws.com/dist/stable/updates/",
-			BinURL:         "http://files.rai-project.com.s3.amazonaws.com/dist/stable/updates/",
-			DiffURL:        "http://files.rai-project.com.s3.amazonaws.com/dist/stable/updates/",
-			Dir:            "rai/updates/",
+			ApiURL:         "http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/updates",
+			BinURL:         "http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/updates",
+			DiffURL:        "http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/updates",
+			Dir:            updateDir,
 			Requester:      &HTTPRequester{},
 			ForceCheck:     true,
 		}
