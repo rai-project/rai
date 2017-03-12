@@ -44,7 +44,6 @@ var selfUpdateCmd = &cobra.Command{
 			BinURL:         "http://files.rai-project.com.s3.amazonaws.com/dist/stable/updates/",
 			DiffURL:        "http://files.rai-project.com.s3.amazonaws.com/dist/stable/updates/",
 			Dir:            "rai/updates/",
-			CmdName:        "rai",
 			Requester:      &HTTPRequester{},
 			ForceCheck:     true,
 		}
