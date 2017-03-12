@@ -13,6 +13,9 @@ import:
 - package: github.com/rai-project/client
 - package: github.com/rai-project/cmd
 - package: github.com/rai-project/config
+- package: github.com/sanbornm/go-selfupdate
+  subpackages:
+  - selfupdate
 - package: github.com/spf13/cobra
 - package: github.com/spf13/viper
 - package: gopkg.in/yaml.v2
