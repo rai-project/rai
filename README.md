@@ -18,6 +18,8 @@ The code is continuously built and published. The client can be downloaded from 
 | Linux            | armv6        | [URL](http://files.rai-project.com/dist/rai/stable/latest/linux-armv6.tar.gz)   |
 | Linux            | armv7        | [URL](http://files.rai-project.com/dist/rai/stable/latest/linux-armv7.tar.gz)   |
 | Linux            | arm64        | [URL](http://files.rai-project.com/dist/rai/stable/latest/linux-arm64.tar.gz)   |
+| Linux            | ppc64        | [URL](http://files.rai-project.com/dist/rai/stable/latest/linux-ppc64.tar.gz)   |
+| Linux            | ppc64le      | [URL](http://files.rai-project.com/dist/rai/stable/latest/linux-ppc64le.tar.gz) |
 | OSX/Darwin       | i386         | [URL](http://files.rai-project.com/dist/rai/stable/latest/darwin-386.tar.gz)    |
 | OSX/Darwin       | amd64        | [URL](http://files.rai-project.com/dist/rai/stable/latest/darwin-amd64.tar.gz)  |
 | Windows          | i386         | [URL](http://files.rai-project.com/dist/rai/stable/latest/windows-386.tar.gz)   |
