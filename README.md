@@ -10,18 +10,18 @@
 The code is continuously built and published. The client can be downloaded from the following URLs (depending on your OS and Architecture):
 
 
-| Operating System | Architecture | Stable Version Link                                                                              |
-| ---------------- | ------------ | ------------------------------------------------------------------------------------------------ |
-| Linux            | i386         | [URL](http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/latest/linux-386.tar.gz)     |
-| Linux            | amd64        | [URL](http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/latest/linux-amd64.tar.gz)   |
-| Linux            | armv5        | [URL](http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/latest/linux-armv5.tar.gz)   |
-| Linux            | armv6        | [URL](http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/latest/linux-armv6.tar.gz)   |
-| Linux            | armv7        | [URL](http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/latest/linux-armv7.tar.gz)   |
-| Linux            | arm64        | [URL](http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/latest/linux-arm64.tar.gz)   |
-| OSX/Darwin       | i386         | [URL](http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/latest/darwin-386.tar.gz)    |
-| OSX/Darwin       | amd64        | [URL](http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/latest/darwin-amd64.tar.gz)  |
-| Windows          | i386         | [URL](http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/latest/windows-386.tar.gz)   |
-| Windows          | amd64        | [URL](http://files.rai-project.com.s3.amazonaws.com/dist/rai/stable/latest/windows-amd64.tar.gz) |
+| Operating System | Architecture | Stable Version Link                                                             |
+| ---------------- | ------------ | ------------------------------------------------------------------------------- |
+| Linux            | i386         | [URL](http://files.rai-project.com/dist/rai/stable/latest/linux-386.tar.gz)     |
+| Linux            | amd64        | [URL](http://files.rai-project.com/dist/rai/stable/latest/linux-amd64.tar.gz)   |
+| Linux            | armv5        | [URL](http://files.rai-project.com/dist/rai/stable/latest/linux-armv5.tar.gz)   |
+| Linux            | armv6        | [URL](http://files.rai-project.com/dist/rai/stable/latest/linux-armv6.tar.gz)   |
+| Linux            | armv7        | [URL](http://files.rai-project.com/dist/rai/stable/latest/linux-armv7.tar.gz)   |
+| Linux            | arm64        | [URL](http://files.rai-project.com/dist/rai/stable/latest/linux-arm64.tar.gz)   |
+| OSX/Darwin       | i386         | [URL](http://files.rai-project.com/dist/rai/stable/latest/darwin-386.tar.gz)    |
+| OSX/Darwin       | amd64        | [URL](http://files.rai-project.com/dist/rai/stable/latest/darwin-amd64.tar.gz)  |
+| Windows          | i386         | [URL](http://files.rai-project.com/dist/rai/stable/latest/windows-386.tar.gz)   |
+| Windows          | amd64        | [URL](http://files.rai-project.com/dist/rai/stable/latest/windows-amd64.tar.gz) |
 
 
 ## Building From Source
