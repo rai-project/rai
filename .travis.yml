@@ -20,7 +20,7 @@ install:
 script:
 - diff <(echo -n) <(gofmt -s -d .)
 - ineffassign .
-- misspell -error .
+- misspell .
 - go vet ./...
 - cd ${TRAVIS_BUILD_DIR}/cmd && go generate && cd ${TRAVIS_BUILD_DIR}
 - NEXTVERSION=$(bump -stdin < VERSION)
