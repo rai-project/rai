@@ -16,13 +16,13 @@ install:
 script:
 - cd ${TRAVIS_BUILD_DIR}/cmd && go generate && cd ${TRAVIS_BUILD_DIR}
 - VERSION=$(cat ./VERSION)
-- DIST=dist/rai/stable
+- DIST=${TRAVIS_BUILD_DIR}/dist/rai/stable
 - CGO_ENABLED=0 gox -verbose -ldflags="$(govvv -flags)" -ldflags="-s -w" -osarch="darwin/amd64 linux/amd64" -ldflags="-X github.com/rai-project/rai/cmd.appsecret=\"${APP_SECRET}\"" -ldflags "-extldflags \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}" .
 before_deploy:
 - echo "go-selfupdate generating bindiffs"
 - mkdir -p ${DIST}/${VERSION}/binaries
-- cd ${DIST}/${VERSION}/darwin-amd64 && tar czvf "../darwin-amd64.tar.gz"
-- cd ${DIST}/${VERSION}/linux-amd64 && tar czvf "../linux-amd64.tar.gz"
+- cd ${DIST}/${VERSION}/darwin-amd64 && tar czvf "../darwin-amd64.tar.gz" rai
+- cd ${DIST}/${VERSION}/linux-amd64 && tar czvf "../linux-amd64.tar.gz" rai
 - cp ${DIST}/${VERSION}/darwin-amd64.tar.gz ${DIST}/${VERSION}/binaries/darwin-amd64
 - cp ${DIST}/${VERSION}/linux-amd64.tar.gz ${DIST}/${VERSION}/binaries/linux-amd64
 - go-selfupdate -o ${DIST}/updates ${DIST}/${VERSION}/binaries/ ${VERSION}
