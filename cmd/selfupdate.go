@@ -2,12 +2,34 @@ package cmd
 
 import (
 	"fmt"
+	"io"
+	"net/http"
 	"os"
 
 	ccmd "github.com/rai-project/cmd"
 	"github.com/sanbornm/go-selfupdate/selfupdate"
 	"github.com/spf13/cobra"
 )
+
+type HTTPRequester struct {
+}
+
+// Fetch will return an HTTP request to the specified url and return
+// the body of the result. An error will occur for a non 200 status code.
+func (httpRequester *HTTPRequester) Fetch(url string) (io.ReadCloser, error) {
+	fmt.Printf("GET %s\n", url)
+
+	resp, err := http.Get(url)
+	if err != nil {
+		return nil, err
+	}
+
+	if resp.StatusCode != 200 {
+		return nil, fmt.Errorf("bad http status from %s: %v", url, resp.Status)
+	}
+
+	return resp.Body, nil
+}
 
 // self-updateCmd represents the self-update command
 var selfUpdateCmd = &cobra.Command{
@@ -23,6 +45,7 @@ var selfUpdateCmd = &cobra.Command{
 			DiffURL:        "https://files.rai-project.com.s3.amazonaws.com/dist/",
 			Dir:            "rai/stable/",
 			CmdName:        "rai",
+			Requester:      &HTTPRequester{},
 			ForceCheck:     true,
 		}
 
