@@ -16,14 +16,14 @@ install:
 script:
 - cd ${TRAVIS_BUILD_DIR}/cmd && go generate && cd ${TRAVIS_BUILD_DIR}
 - VERSION=$(cat ./VERSION)
-- DIST=dist/stable/rai
-- CGO_ENABLED=0 gox -verbose -ldflags="$(govvv -flags)" -ldflags="-s -w" -osarch="darwin/amd64 linux/amd64" -ldflags="-X github.com/rai-project/rai/cmd.appsecret=\"${APP_SECRET}\"" -ldflags "-extldflags \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}" .
+- DIST=dist/stable
+- CGO_ENABLED=0 gox -verbose -ldflags="$(govvv -flags)" -ldflags="-s -w" -osarch="darwin/amd64 linux/amd64" -ldflags="-X github.com/rai-project/rai/cmd.appsecret=\"${APP_SECRET}\"" -ldflags "-extldflags \"-static\"" -output="${DIST}/${VERSION}/rai/{{.OS}}-{{.Arch}}/{{.Dir}}" .
 before_deploy:
 - echo "go-selfupdate generating bindiffs"
 - mkdir -p ${DIST}/${VERSION}/bins
-- cp ${DIST}/${VERSION}/darwin-amd64/rai ${DIST}/${VERSION}/bins/darwin-amd64
-- cp ${DIST}/${VERSION}/linux-amd64/rai ${DIST}/${VERSION}/bins/linux-amd64
-- go-selfupdate -o ${DIST}/updates ${DIST}/${VERSION}/bins/ ${VERSION}
+- cp ${DIST}/${VERSION}/rai/darwin-amd64/rai ${DIST}/${VERSION}/rai/bins/darwin-amd64
+- cp ${DIST}/${VERSION}/rai/linux-amd64/rai ${DIST}/${VERSION}/rai/bins/linux-amd64
+- go-selfupdate -o ${DIST}/updates/rai ${DIST}/${VERSION}/rai/bins/ ${VERSION}
 # - echo "releasing v${VERSION}..."
 # - ghr -t "$GITHUB_TOKEN" -u abduld -r platform --replace "v${VERSION}" "${DIST}/${VERSION}/darwin-amd64/rai"
 # - ghr -t "$GITHUB_TOKEN" -u abduld -r platform --replace "v${VERSION}" "${DIST}/${VERSION}/darwin-amd64/rai"
