@@ -28,7 +28,7 @@ The code is continuously built and published. The client can be downloaded from 
 
 ## Building From Source
 
-This is not recommended unless you are interested in developing and/or deploying `rai` on your own cluster. To build from source simple run
+This is not recommended unless you are interested in developing and/or deploying `rai` on your personal cluster. To build from source simple run
 
 ```bash
 go get -u github.com/rai-project/rai
@@ -65,7 +65,7 @@ On Windows, it might be useful to disable the colored output. You can do that by
 
 Each student will be contacted by a TA and given a secret key to use this service. Do not share your key with other users. The secret key is used to authenticate you with the server.
 
-The `RAI_SECRET_KEY`, `RAI_TEAM_NAME`, and `RAI_ACCESS_KEY` should be specified in your `~/.rai_profile` (linux/OSX) or `%HOME%/.rai_profile` (Windows -- for me this is `C:\Users\abduld\.rai_profile`) in the following way.
+The `RAI_SECRET_KEY`, `RAI_TEAM_NAME`, and `RAI_ACCESS_KEY` should be specified in your `~/.rai_profile` (Linux/OSX) or `%HOME%/.rai_profile` (Windows -- for me this is `C:\Users\abduld\.rai_profile`) in the following way.
 
 ```yaml
 profile:
@@ -78,9 +78,9 @@ profile:
 ```
 
 
-## Project Build Sepecification
+## Project Build Specification
 
-The `rai_build.yml` must exist in your project directory. In some cases you may not be able to execute certain builtin bash commands, in this senario the current workaround is to create a bash file and insert the commands you need to run. You can then execute the bash script within `rai_build.yml`.
+The `rai_build.yml` must exist in your project directory. In some cases, you may not be able to execute certain builtin bash commands, in this scenario the current workaround is to create a bash file and insert the commands you need to run. You can then execute the bash script within `rai_build.yml`.
 
 The `rai_build.yml` is written as a [Yaml](http://yaml.org/) ([Spec](http://www.yaml.org/spec/1.2/spec.html)) file and has the following structure.
 
@@ -106,7 +106,7 @@ commands:
       ./mybinary -i input1,input2 -o output
 ```
 
-Syntax errors will be reported and the job will not be executed. You can check if your file is in a valid yaml format by using tools such as [Yaml Validator](http://codebeautify.org/yaml-validator).
+Syntax errors will be reported, and the job will not be executed. You can check if your file is in a valid yaml format by using tools such as [Yaml Validator](http://codebeautify.org/yaml-validator).
 
 
 ## Profiling
