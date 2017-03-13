@@ -18,30 +18,43 @@ install:
 - go get github.com/gordonklaus/ineffassign
 - go get github.com/client9/misspell/cmd/misspell
 script:
-# - ineffassign $(glide novendor)
-# - misspell -source go -i Unknwon $(glide novendor)
-# - go vet $(glide novendor)
 - cd ${TRAVIS_BUILD_DIR}/cmd && go generate && cd ${TRAVIS_BUILD_DIR}
 - VERSION=$(cat ./VERSION)
 - echo "VERSION = ${VERSION}"
 - DIST=${TRAVIS_BUILD_DIR}/dist/rai/stable
-- CGO_ENABLED=0 gox -verbose -ldflags="$(govvv -flags)" -parallel=4 -ldflags="-s -w" -os="linux darwin windows" -arch="amd64 386 armv5 armv6 armv7 arm64" -osarch="!darwin/arm64 linux/ppc64 linux/ppc64le" -ldflags="-X github.com/rai-project/rai/cmd.appsecret=\"${APP_SECRET}\"" -ldflags "-extldflags \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}" .
+- CGO_ENABLED=0 gox -verbose -ldflags="$(govvv -flags)" -parallel=4 -ldflags="-s -w"
+  -os="linux darwin windows" -arch="amd64 386 armv5 armv6 armv7 arm64" -osarch="!darwin/arm64
+  linux/ppc64 linux/ppc64le" -ldflags="-X github.com/rai-project/rai/cmd.appsecret=\"${APP_SECRET}\""
+  -ldflags "-extldflags \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}"
+  .
 before_deploy:
 - echo "go-selfupdate generating bindiffs"
 - mkdir -p ${DIST}/${VERSION}/binaries
 - mkdir -p ${DIST}/latest
-- tar czvf ${DIST}/${VERSION}/binaries/darwin-386     ${DIST}/${VERSION}/darwin-386/rai        ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
-- tar czvf ${DIST}/${VERSION}/binaries/darwin-amd64   ${DIST}/${VERSION}/darwin-amd64/rai      ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
-- tar czvf ${DIST}/${VERSION}/binaries/linux-386      ${DIST}/${VERSION}/linux-386/rai         ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
-- tar czvf ${DIST}/${VERSION}/binaries/linux-amd64    ${DIST}/${VERSION}/linux-amd64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
-- tar czvf ${DIST}/${VERSION}/binaries/linux-armv5    ${DIST}/${VERSION}/linux-armv5/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
-- tar czvf ${DIST}/${VERSION}/binaries/linux-armv6    ${DIST}/${VERSION}/linux-armv6/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
-- tar czvf ${DIST}/${VERSION}/binaries/linux-armv7    ${DIST}/${VERSION}/linux-armv7/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
-- tar czvf ${DIST}/${VERSION}/binaries/linux-arm64    ${DIST}/${VERSION}/linux-arm64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
-- tar czvf ${DIST}/${VERSION}/binaries/linux-ppc64    ${DIST}/${VERSION}/linux-ppc64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
-- tar czvf ${DIST}/${VERSION}/binaries/linux-ppc64le  ${DIST}/${VERSION}/linux-ppc64le/rai     ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
-- tar czvf ${DIST}/${VERSION}/binaries/windows-386    ${DIST}/${VERSION}/windows-386/rai.exe   ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
-- tar czvf ${DIST}/${VERSION}/binaries/windows-amd64  ${DIST}/${VERSION}/windows-amd64/rai.exe ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/darwin-386     ${DIST}/${VERSION}/darwin-386/rai        ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+  ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/darwin-amd64   ${DIST}/${VERSION}/darwin-amd64/rai      ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+  ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-386      ${DIST}/${VERSION}/linux-386/rai         ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+  ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-amd64    ${DIST}/${VERSION}/linux-amd64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+  ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-armv5    ${DIST}/${VERSION}/linux-armv5/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+  ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-armv6    ${DIST}/${VERSION}/linux-armv6/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+  ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-armv7    ${DIST}/${VERSION}/linux-armv7/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+  ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-arm64    ${DIST}/${VERSION}/linux-arm64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+  ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-ppc64    ${DIST}/${VERSION}/linux-ppc64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+  ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/linux-ppc64le  ${DIST}/${VERSION}/linux-ppc64le/rai     ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+  ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/windows-386    ${DIST}/${VERSION}/windows-386/rai.exe   ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+  ${TRAVIS_BUILD_DIR}/VERSION
+- tar czvf ${DIST}/${VERSION}/binaries/windows-amd64  ${DIST}/${VERSION}/windows-amd64/rai.exe
+  ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
 - go-selfupdate -o ${DIST}/updates ${DIST}/${VERSION}/binaries/ ${VERSION}
 - cp ${DIST}/${VERSION}/binaries/darwin-386    ${DIST}/latest/darwin-386.tar.gz
 - cp ${DIST}/${VERSION}/binaries/darwin-amd64  ${DIST}/latest/darwin-amd64.tar.gz
@@ -78,3 +91,4 @@ env:
   global:
   - secure: nraNQWDBUedfvUaAFm3el9DS6vFmM0lO+yswdxV7hCUcnthAofA0bmap/v1CRzxZN6yQ4AnvC7yaHgHWoCzDa4T68iFwrDB1/RHnVy/pHAyp89WsyIvij9QSeNUGk6LIkfMWTG+lktEEfWpi3TiAcBTR120R6Lyycr7de87sZCp0xN9xDZV/Ik5VpIOLnkug8OKOrnj1HQeRdcW7rbeywzWDq1orZ2kplxFzgtWHeITL1C1c7U6KuGgAKTr3wegOadZezfPQQbfbbPFhGy+cyOO4YwidgiR59aR+M43p76jccH/BRm950YOl7KqHK8MzjrBuomKMYCnGvMRImJ1C8o+BMQlYHY1SjkFSvlA7kfDrpAiCUVfBfE828eta1ICBDG4EInLJK2hwh6eSYyWkjWs090R9itrN5k9Ufua9F0PyDE9G26Ju2rX/MGAtVDIg/L14A3QZMPwG6jLvuxJXQjX8EboaPYOmi0Oe2UVXx/2xC07htJYrAUzrll84janUDPEx56W0XNZXdWL1AjHEUbZHuDOC3eIaBZtZ55ty0O3cn0X79ZwBy+W8i3amfUHc2JlD2M6PspkEpp6HLsU1BIsUwHvPE0AwPpolQeuw81IUvwQuNLW57P8bg9IiULl0oOOQ1xMLabuBP7ILnl9rDXXx0ZRGG5qnaEGTBOeBye4=
   - secure: SQXrtt+xDxhCJVj0UvBQLPMMQNEH7l4iwn5vFUJr6Bwc72Js6hYkhZbzHTcUirmysG/z9xP6IMnlxDZzHQiMUyJuIq8w1XeQ16Q0c+tpf7U1KB59SEI/qoaRf3ZhdXZSjxijhThnsopPIGAU6zmZf4OVz990RdUsr0awczGOzXj6SySyec4kr/sWshXDkawsp3RUI0M/yMiOfptknKA3a0QaSNXcv1yakC8b5uGYnkcBJIRpDyUSMAnCcDstMfiAEo1IWl6oamtX68y8hCRCEu5mPc5mdEmN3c4c2jVIxvOELiyXbNvHEN25LNjKryaiiq+FmZvz4k7+s4CMjxwTjwOkowMDrGEETd2wf86botfUKa2JYN8eqpQtJUQ5bV1MtUvcPw9DKxCRUCkfpKs/4elPN54kwqTTfN/nlboJlvjyRF5W1QY2v7ZIIajGAPu60YadTvfg7vr/lImY+ojFkkIIVR7PpodFL7KyBKfEFHmGVV332xn5x4S0xuMkycGwwPHCwoXetYg6opiEuQTiXfKPCazLvD2hSN4gYCaJytagT4gfyoPIrwLPQ69gHAA++m3HFgw7L1zwtHYPFvSxWLmVdM/GazSIKT1zNPau1UOfGl4zjqRu118ez3VU2HtDDAGDPBAAp4wan8lYscmwj9EQUo993hmP9b+aEikpOJ4=
+  - secure: CdUeVtYYk6iUe7YOB4SeBzLDKZvqOWaHVDLdyIR6oABLO01Lm72la4p4G8rj+B1gMUpjGacB4oSy//mqVQDp+OPV2j4owoA2IstkEQj9Vm0Nz/Wm9Jp4eDjXfeHWeRUssvrt29xZ/lR9w5Tdw72AelDiIMLD5E4tR5WhPNPV0YpqZTtrKe7/DkXLG/+W49B6cRNpJZbVcg69AzFAyWuHRaVw0n8xnY2HnZicxkRNFJ/djjgtEa5UlzrTWGWG3Q1PSV6T2fR0My6OiZgf3aamXMnD00cywG7tO3y7cn89Z5bgZR8NkhMvWMGMdPV3+FkAVHaFbonh9082OI1X3McqAYsNkJ0+2TFURLPqnaQO7DG7Ld+lOgJ8onXEMHC83OiGiMIFH/5nEW0C0knRwUr63MBLmelTotehWBzMrmqUm7L2o8dEgO+6htTVI94NZ0ksf4qpdXXnHyVgbRd4omGjIY6ICrdtVUKbxrBvZRuUOIr62k/9J0k/HgstKN2VkomGugD1fQ4wefIt4Wei9jjWkysClEApk8Vwn3SVMnv4hQO31LjXar0F7Yk2a/wbPtBd2vOrG6SFuRCq9WjNBsvCUSl6rsPEa0cTSR+gDbiJIi61oK7QtNvLz2hRyUjygdejFhB2FXnbmk2CFDzBOJ9xIRDqrod/tXF6eutHp5XtSlY=
