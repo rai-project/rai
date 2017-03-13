@@ -19,7 +19,7 @@ type HTTPRequester struct {
 // the body of the result. An error will occur for a non 200 status code.
 func (httpRequester *HTTPRequester) Fetch(url string) (io.ReadCloser, error) {
 	if isDebug || isVerbose {
-		fmt.Println("GET %s", url)
+		fmt.Println("GET " + url)
 	}
 
 	resp, err := http.Get(url)
