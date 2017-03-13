@@ -65,7 +65,7 @@ On Windows, it might be useful to disable the colored output. You can do that by
 
 Each student will be contacted by a TA and given a secret key to use this service. Do not share your key with other users. The secret key is used to authenticate you with the server.
 
-The `RAI_SECRET_KEY`, `RAI_TEAM_NAME`, and `RAI_ACCESS_KEY` should be specified in your `~/.rai_profile` (linux/OSX) or `%HOME%/.rai_profile` (Windows -- for me this is `C:\Users\abduld\.rai.profile`) in the following way.
+The `RAI_SECRET_KEY`, `RAI_TEAM_NAME`, and `RAI_ACCESS_KEY` should be specified in your `~/.rai_profile` (linux/OSX) or `%HOME%/.rai_profile` (Windows -- for me this is `C:\Users\abduld\.rai_profile`) in the following way.
 
 ```yaml
 profile:
