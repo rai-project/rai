@@ -18,5 +18,7 @@ import:
   subpackages:
   - selfupdate
 - package: github.com/spf13/cobra
+  subpackages:
+  - doc
 - package: github.com/spf13/viper
 - package: gopkg.in/yaml.v2
