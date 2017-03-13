@@ -2,7 +2,7 @@
 
 > The RAI client is an executable downloaded by the students and runs on the students' machines.
 > The executable requires no library dependencies and works on all the main operating systems and CPU architectures.
-> Both features reduce the liklihood that students will have technical difficulties running the client.
+> Both features reduce the likelihood that students will have technical difficulties running the client.
 > Students use the RAI client to interact with a distributed elastic system to submit jobs.
 
 ## Download Binaries
