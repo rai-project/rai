@@ -71,6 +71,7 @@ before_deploy:
 - rm -fr ${DIST}/${VERSION}/binaries
 - echo "Copying latest directory to ${DIST}/${TRAVIS_COMMIT}"
 - cp -r ${DIST}/latest ${DIST}/${TRAVIS_COMMIT}
+after_deploy:
 - echo "releasing v${VERSION}..."
 - ghr -t "$GITHUB_TOKEN" -u rai-project -r rai --replace "v${VERSION}" "${DIST}/latest"
 - cd ${TRAVIS_BUILD_DIR}
