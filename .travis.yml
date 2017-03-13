@@ -20,7 +20,7 @@ install:
 script:
 # - ineffassign $(glide novendor)
 # - misspell -source go -i Unknwon $(glide novendor)
-- go vet $(glide novendor)
+# - go vet $(glide novendor)
 - cd ${TRAVIS_BUILD_DIR}/cmd && go generate && cd ${TRAVIS_BUILD_DIR}
 - VERSION=$(cat ./VERSION)
 - echo "VERSION = ${VERSION}"
