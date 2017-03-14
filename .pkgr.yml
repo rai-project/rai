@@ -1,9 +1,8 @@
 buildpack: https://github.com/heroku/heroku-buildpack-go
 cli: rai
-
+env:
+  - GOVERSION=go1.8
 targets:
-  ubuntu-14.04:
+  ubuntu-16.04:
   centos-7:
-  ubuntu-12.04:
-  centos-6:
   debian-7:
