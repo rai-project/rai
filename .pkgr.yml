@@ -1,3 +1,4 @@
+buildpack: github.com/heroku/heroku-buildpack-go
 cli: rai
 
 targets:

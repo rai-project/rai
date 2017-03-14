@@ -4,7 +4,7 @@ import "github.com/rai-project/cmd"
 
 var (
 	// These fields are populated by govvv
-	Version    string
+	Version    = "0.2.4"
 	BuildDate  string
 	GitCommit  string
 	GitBranch  string
