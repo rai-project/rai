@@ -19,7 +19,7 @@ func init() {
 	}
 	data, err := ioutil.ReadFile(configPath)
 	if err != nil {
-		panic("unable to config file " + err.Error())
+		panic("unable to read config file " + err.Error())
 	}
 	configContent = string(data)
 }
