@@ -25,7 +25,7 @@ script:
 - DIST=${TRAVIS_BUILD_DIR}/dist/rai/stable
 - CGO_ENABLED=0 gox -verbose  -os="linux darwin windows" -arch="amd64 386 armv5 armv6
   armv7 arm64" -osarch="!darwin/arm64 linux/ppc64 linux/ppc64le" -ldflags="$(govvv
-  -flags) -s -w -X github.com/rai-project/rai/cmd.appsecret=${APP_SECRET} -extldflags
+  -flags) -s -w -X main.AppSecret=${APP_SECRET} -extldflags
   \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}" .
 before_deploy:
 - echo "go-selfupdate generating bindiffs"
