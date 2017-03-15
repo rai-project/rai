@@ -25,8 +25,8 @@ script:
 - DIST=${TRAVIS_BUILD_DIR}/dist/rai/stable
 - CGO_ENABLED=0 gox -verbose  -os="linux darwin windows" -arch="amd64 386 armv5 armv6
   armv7 arm64" -osarch="!darwin/arm64 linux/ppc64 linux/ppc64le" -ldflags="$(govvv
-  -flags) -s -w -X main.AppSecret=${APP_SECRET} -extldflags
-  \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}" .
+  -flags) -s -w -X main.AppSecret=${APP_SECRET} -extldflags \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}"
+  .
 before_deploy:
 - echo "go-selfupdate generating bindiffs"
 - mkdir -p ${DIST}/${VERSION}/binaries
@@ -90,4 +90,5 @@ deploy:
     repo: rai-project/rai
 env:
   global:
-    secure: IQp/wVvtpcT8ya+ZBWA15IX13iBG8adP5ah+8eV7ijsY9zwCl+yqIIuQqzg+FNg4jjSElCgUrKQZmhgjdNjyi5/4V2KNMqvEICx+RzDixqyAUpcnuEOFi1c33Klb3QgXa4gh6EVDNhNEMxzb9n11133uAY/OLi3wXMAnWKLn0cDze0ji0ji6Lgb5rMuBomSbhD+Br49yje0JFk/MJjDsVyLt9YtvEdhoDYXEvpnLCGvivRnA3MdzSXaS59IyjFufqtp8aCR6YRXTPY/hPyGrw4Gfcj4ygBh2M4hJ/gn4J/UyI+c9WIe9+yejJtwBhsscGlhr7VJLAF/5LiRfZqXIerAvKDzaUuqMpN3u43SMzrHjcq3Hw84MFCOraSo+qHINiHMsYC11sY8yydrkiumkW1EAvSE7k24M/xKwQ1l9RcfZSBvxoqppiVLzu5QmLi99VGclT/vAJMnADOSQ40+KYjtlRoJGeWbQeOc+2FfSe3Sl0JS+oDvDKVuY6D4U6ld3uGsR8zwjvO16WUfRJcw3hoDajkJ4AYPjZsUfCFdEF/6uQuc1ZHFg94bbwrYay6YG92KtfI74fEIu1ia5TeY7OpMy42C6fj1OjVTIac3qstUeHiFDAF5ITmpnp+/WPlLloOvHbYFFgnMNFRO9prxosJPm7QmtDY+Oy9rxKMvZNVc=
+  - secure: IQp/wVvtpcT8ya+ZBWA15IX13iBG8adP5ah+8eV7ijsY9zwCl+yqIIuQqzg+FNg4jjSElCgUrKQZmhgjdNjyi5/4V2KNMqvEICx+RzDixqyAUpcnuEOFi1c33Klb3QgXa4gh6EVDNhNEMxzb9n11133uAY/OLi3wXMAnWKLn0cDze0ji0ji6Lgb5rMuBomSbhD+Br49yje0JFk/MJjDsVyLt9YtvEdhoDYXEvpnLCGvivRnA3MdzSXaS59IyjFufqtp8aCR6YRXTPY/hPyGrw4Gfcj4ygBh2M4hJ/gn4J/UyI+c9WIe9+yejJtwBhsscGlhr7VJLAF/5LiRfZqXIerAvKDzaUuqMpN3u43SMzrHjcq3Hw84MFCOraSo+qHINiHMsYC11sY8yydrkiumkW1EAvSE7k24M/xKwQ1l9RcfZSBvxoqppiVLzu5QmLi99VGclT/vAJMnADOSQ40+KYjtlRoJGeWbQeOc+2FfSe3Sl0JS+oDvDKVuY6D4U6ld3uGsR8zwjvO16WUfRJcw3hoDajkJ4AYPjZsUfCFdEF/6uQuc1ZHFg94bbwrYay6YG92KtfI74fEIu1ia5TeY7OpMy42C6fj1OjVTIac3qstUeHiFDAF5ITmpnp+/WPlLloOvHbYFFgnMNFRO9prxosJPm7QmtDY+Oy9rxKMvZNVc=
+  - secure: lAoZnZ0RBS6CFRj7L26mrUlMxTAJbzoCL+aKNTxrLQQnrwWMe2jppQgmBDcxQfmaD3sMIoTUwObY/ucdzDxEVghDEAqZ+3I+Bhi353kdKRcUIW5RV1e+bwTBAg09TCzaAOOs5xDSgR4McX/Hffba2fTZvCEgXKhrFSpuCWqH3Pf41p0b0Y7pYpJNa0DHE6zmHy5/wxF7HVM/R/7206YgPXH6Kg2RoO4vxYRvdPc/d1YKLe8t7ojhgMl7kPQy023/Mnc7I4NulSNfSXt+Blu514wgXjJBT6QnoyIRzpGd/q823IStIRrTM6VYe3vYJqOHmMcWOhceaJpgEOz5jl095Q9dhTQPr15bJ390bDeBuJ+O+3/chSHon6JhBU8l+Q/nvM14Eyf/Zik3/pDDgYjMOUyCUzN+90AohDmHFU+Kr8Cl/Y0f+/XBgsb1E3VQtzme3RLlpXkRpY1HSbTlntMWuqIr8RWdSyLUFZMFBcLAX+oPOhjknYOM29C/gxNJJqpmaPIWBFXj/GgEq1laiZh8uErC8COrkSj0Y9eeOB5gJoP/sZQP/q6DmIG4/etxGcfFPGEaigzVJH7CwTUKk1tnHxJjMCql2iwcFOAWIviMOyJg1exGHhBjFuAfobiSoP6Que2dUph2nxRTcW5sNhL83Ansq18r1xeKMHA1uKwKKn8=
