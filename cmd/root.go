@@ -15,6 +15,7 @@ import (
 )
 
 var (
+	AppSecret  string
 	workingDir string
 	isColor    bool
 	isVerbose  bool
@@ -82,7 +83,7 @@ func init() {
 
 	RootCmd.PersistentFlags().StringVarP(&workingDir, "path", "p", cwd,
 		"Path to the directory you wish to submit. Defaults to the current working directory.")
-	RootCmd.PersistentFlags().StringVarP(&config.DefaultAppSecret, "secret", "s", "", "Pass in application secret.")
+	RootCmd.PersistentFlags().StringVarP(&AppSecret, "secret", "s", "", "Pass in application secret.")
 	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", !color.NoColor, "Toggle color output.")
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
@@ -92,7 +93,7 @@ func init() {
 	// mark secret flag hidden
 	RootCmd.PersistentFlags().MarkHidden("secret")
 
-	viper.BindPFlag("app.secret", RootCmd.PersistentFlags().Lookup("secret"))
+	// viper.BindPFlag("app.secret", RootCmd.PersistentFlags().Lookup("secret"))
 	viper.BindPFlag("app.debug", RootCmd.PersistentFlags().Lookup("debug"))
 	viper.BindPFlag("app.verbose", RootCmd.PersistentFlags().Lookup("verbose"))
 	viper.BindPFlag("app.color", RootCmd.PersistentFlags().Lookup("color"))
@@ -102,6 +103,7 @@ func initConfig() {
 	cs := configContent
 	config.Init(
 		config.AppName("rai"),
+		config.AppSecret(AppSecret),
 		config.ConfigString(cs),
 	)
 }
