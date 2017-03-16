@@ -57,6 +57,9 @@ var RootCmd = &cobra.Command{
 			return err
 		}
 		defer client.Disconnect()
+		if err := client.Wait(); err != nil {
+			return err
+		}
 		return nil
 	},
 }
