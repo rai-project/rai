@@ -15,11 +15,12 @@ import (
 )
 
 var (
-	AppSecret  string
-	workingDir string
-	isColor    bool
-	isVerbose  bool
-	isDebug    bool
+	AppSecret   string
+	workingDir  string
+	isColor     bool
+	isVerbose   bool
+	isDebug     bool
+	isRatelimit bool
 )
 
 // RootCmd represents the base command when called without any subcommands
@@ -35,12 +36,17 @@ var RootCmd = &cobra.Command{
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		client, err := client.New(
+		opts := []client.Option{
 			client.Directory(workingDir),
 			client.Stdout(os.Stdout),
 			client.Stderr(os.Stderr),
 			client.JobQueueName("rai"),
-		)
+		}
+		if !isRatelimit {
+			opts = append(opts, client.DisableRatelimit())
+		}
+		client, err := client.New(opts...)
+
 		if err != nil {
 			return err
 		}
@@ -93,6 +99,7 @@ func init() {
 	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", !color.NoColor, "Toggle color output.")
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
+	RootCmd.PersistentFlags().BoolVar(&isRatelimit, "ratelimit", true, "Toggle debug mode.")
 
 	RootCmd.MarkPersistentFlagRequired("path")
 
