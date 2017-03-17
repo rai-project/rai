@@ -31,12 +31,6 @@ func (httpRequester *HTTPRequester) Fetch(url string) (io.ReadCloser, error) {
 		return nil, fmt.Errorf("bad http status from %s: %v", url, resp.Status)
 	}
 
-	defer func() {
-		if resp.Body != nil {
-			resp.Body.Close()
-		}
-	}()
-
 	return resp.Body, nil
 }
 
@@ -64,8 +58,6 @@ var selfUpdateCmd = &cobra.Command{
 			fmt.Println(err)
 			os.Exit(4)
 		}
-
-		fmt.Println("Self Update Finished")
 	},
 }
 
