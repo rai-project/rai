@@ -15,7 +15,7 @@ import (
 )
 
 var (
-	AppSecret   string
+	appSecret   string
 	workingDir  string
 	isColor     bool
 	isVerbose   bool
@@ -95,7 +95,7 @@ func init() {
 
 	RootCmd.PersistentFlags().StringVarP(&workingDir, "path", "p", cwd,
 		"Path to the directory you wish to submit. Defaults to the current working directory.")
-	RootCmd.PersistentFlags().StringVarP(&AppSecret, "secret", "s", "", "Pass in application secret.")
+	RootCmd.PersistentFlags().StringVarP(&appSecret, "secret", "s", "", "Pass in application secret.")
 	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", !color.NoColor, "Toggle color output.")
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
@@ -113,13 +113,16 @@ func init() {
 	viper.BindPFlag("app.color", RootCmd.PersistentFlags().Lookup("color"))
 }
 
+// initConfig reads in config file and ENV variables if set.
 func initConfig() {
-	cs := configContent
-	config.Init(
+	opts := []config.Option{
 		config.AppName("rai"),
-		config.AppSecret(AppSecret),
-		config.ConfigString(cs),
-	)
+		config.ConfigString(configContent),
+	}
+	if appSecret != "" {
+		opts = append(opts, config.AppSecret(appSecret))
+	}
+	config.Init(opts...)
 }
 
 func initColor() {

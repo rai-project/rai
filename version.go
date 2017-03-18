@@ -1,6 +1,8 @@
 package main
 
-import "github.com/rai-project/cmd"
+import (
+	"github.com/rai-project/config"
+)
 
 var (
 	// These fields are populated by govvv
@@ -13,7 +15,7 @@ var (
 )
 
 func init() {
-	cmd.Version = cmd.VersionInfo{
+	config.App.Version = config.VersionInfo{
 		Version:    Version,
 		BuildDate:  BuildDate,
 		GitCommit:  GitCommit,

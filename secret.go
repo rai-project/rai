@@ -1,9 +1,11 @@
 package main
 
-import "github.com/rai-project/rai/cmd"
+import "github.com/rai-project/config"
 
 var AppSecret string
 
 func init() {
-	cmd.AppSecret = AppSecret
+	config.BeforeInit(func() {
+		config.SetAppSecret(AppSecret)
+	})
 }
