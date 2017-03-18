@@ -10,6 +10,7 @@ import (
 	"github.com/rai-project/client"
 	"github.com/rai-project/cmd"
 	"github.com/rai-project/config"
+	_ "github.com/rai-project/logger/hooks"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -30,7 +31,8 @@ var RootCmd = &cobra.Command{
 	SilenceUsage: true,
 	PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 		if workingDir == "" || !com.IsDir(workingDir) {
-			fmt.Printf("Error:: the directory specified = %s was not found.\n", workingDir)
+			fmt.Printf("Error:: the directory specified = %s was not found. "+
+				"Use the --path option to specify the directory you want to build.\n", workingDir)
 			return errors.New("Invalid directory")
 		}
 		return nil
@@ -96,7 +98,7 @@ func init() {
 	RootCmd.PersistentFlags().StringVarP(&workingDir, "path", "p", cwd,
 		"Path to the directory you wish to submit. Defaults to the current working directory.")
 	RootCmd.PersistentFlags().StringVarP(&appSecret, "secret", "s", "", "Pass in application secret.")
-	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", !color.NoColor, "Toggle color output.")
+	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", true, "Toggle color output.")
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
 	RootCmd.PersistentFlags().BoolVar(&isRatelimit, "ratelimit", true, "Toggle debug mode.")
@@ -117,6 +119,7 @@ func init() {
 func initConfig() {
 	opts := []config.Option{
 		config.AppName("rai"),
+		config.ColorMode(isColor),
 		config.ConfigString(configContent),
 	}
 	if appSecret != "" {
