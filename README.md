@@ -88,10 +88,15 @@ The `rai_build.yml` is written as a [Yaml](http://yaml.org/) ([Spec](http://www.
 rai:
   version: 0.2 # this is required
   image: nvidia/cuda:8.0-devel-ubuntu16.04 # nvidia/cuda:8.0-devel-ubuntu16.04 is a docker image 
-                                  # and can be viewed at https://hub.docker.com/r/nvidia/cuda/
-                         				  # You can specify any image found on dockerhub
+                                           # and can be viewed at https://hub.docker.com/r/nvidia/cuda/
+                                           # You can specify any image found on dockerhub
 resources:
-  gpus: 1 # tell the system that you're using a gpu
+  cpu:
+    architecture: ppc64le
+  gpu: 
+    architecture: pascal
+    count: 1 # tell the system that you're using a gpu
+  network: false
 commands:
   build:
     - echo "Building project"
