@@ -112,6 +112,22 @@ commands:
 
 Syntax errors will be reported, and the job will not be executed. You can check if your file is in a valid yaml format by using tools such as [Yaml Validator](http://codebeautify.org/yaml-validator).
 
+## Building PPC64le Image
+
+Most of the images on [Docker Hub](http://hub.docker.com) are compiled for X86 architectures. If you are using PPC64le, Power 9 architecture, e.g. Minsky, then you will have to build your Docker image from scratch. The following shows you how to build a PPC64le docker image on an X86 architecture which extends the `webgpu/cuda_devel:ppc64le_8.0` image to have OpenCV support.
+
+1. Download [Docker](https://www.docker.com/community-edition) locally
+2. You should now be able to run Docker, for example `docker run hello-world`
+3. To build a PPC64le image, you will need to build the Dockerfile in cross compile mode. The `webgpu/cuda_devel:ppc64le_8.0` image has the tools to do that.
+4. Register `qemu-*-static` for all supported processors except the current one `docker run --rm --privileged multiarch/qemu-user-static:register`
+5. 
+
+We have created a few example images that can be used as basis:
+
+* [CUDNN]()
+* [Tensorflow]()
+* [Caffe2]()
+* [OpenCV]()
 
 ## Profiling
 
