@@ -112,22 +112,30 @@ commands:
 
 Syntax errors will be reported, and the job will not be executed. You can check if your file is in a valid yaml format by using tools such as [Yaml Validator](http://codebeautify.org/yaml-validator).
 
-## Building PPC64le Image
+## Building Docker Images
 
-Most of the images on [Docker Hub](http://hub.docker.com) are compiled for X86 architectures. If you are using PPC64le, Power 9 architecture, e.g. Minsky, then you will have to build your Docker image from scratch. The following shows you how to build a PPC64le docker image on an X86 architecture which extends the `webgpu/cuda_devel:ppc64le_8.0` image to have OpenCV support.
+Most of the images on [Docker Hub](http://hub.docker.com) are compiled for X86 architectures. If you are using PPC64le, Power 9 architecture, e.g. Minsky, then you will have to build your Docker image from scratch. RAI has support for building Docker images on the host system.
 
-1. Download [Docker](https://www.docker.com/community-edition) locally
-2. You should now be able to run Docker, for example `docker run hello-world`
-3. To build a PPC64le image, you will need to build the Dockerfile in cross compile mode. The `webgpu/cuda_devel:ppc64le_8.0` image has the tools to do that.
-4. Register `qemu-*-static` for all supported processors except the current one `docker run --rm --privileged multiarch/qemu-user-static:register`
-5. 
+1. Create your Dockerfile we have created some example files that can be used as base and/or inspiration: 
+[CUDNN](https://github.com/rai-project/Dockerfiles/tree/master/caffe2),
+[OpenCV](https://github.com/rai-project/Dockerfiles/tree/master/opencv),
+[CUMF](https://github.com/rai-project/Dockerfiles/tree/master/cumf),
+[NCCL](https://github.com/rai-project/Dockerfiles/tree/master/nccl),
+...
 
-We have created a few example images that can be used as basis:
+2. Tell the RAI client that you want to build a Dockerfile. This can be done by modifying the `.rai-build.yml` file to include the following:
 
-* [CUDNN]()
-* [Tensorflow]()
-* [Caffe2]()
-* [OpenCV]()
+```yaml
+commands:
+  build_image:
+    image_name: rai/cumf:8.0 # your image name
+    dockerfile: "./Dockerfile" # the location of the Dockerfile on your local file system
+  build: ...
+```
+
+3. Run `rai` as if you are submitting the project. RAI will build and use the image you've specified.
+
+A repository containing prebuilt Dockerfiles for PPC64le is available on [Github](https://github.com/rai-project/Dockerfiles) and we accept contributions and/or fixes.
 
 ## Profiling
 
