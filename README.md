@@ -122,6 +122,7 @@ Most of the images on [Docker Hub](http://hub.docker.com) are compiled for X86 a
 [CUMF](https://github.com/rai-project/Dockerfiles/tree/master/cumf),
 [NCCL](https://github.com/rai-project/Dockerfiles/tree/master/nccl),
 ...
+Refer to [Docker Syntax Reference](https://docs.docker.com/engine/reference/builder/) to understand the Docker commands.
 
 2. Tell the RAI client that you want to build a Dockerfile. This can be done by modifying the `.rai-build.yml` file to include the following:
 
