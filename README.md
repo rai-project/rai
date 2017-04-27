@@ -129,7 +129,7 @@ Refer to [Docker Syntax Reference](https://docs.docker.com/engine/reference/buil
 ```yaml
 commands:
   build_image:
-    image_name: rai/cumf:8.0 # your image name
+  image_name: your_user_name/your_image_name:your_image_version # example dakkak/cudnn:6.0
     dockerfile: "./Dockerfile" # the location of the Dockerfile on your local file system
   build: ...
 ```
