@@ -14,15 +14,12 @@ import:
 - package: github.com/rai-project/client
 - package: github.com/rai-project/cmd
 - package: github.com/rai-project/config
+- package: github.com/rai-project/logger
+  subpackages:
+  - hooks
 - package: github.com/sanbornm/go-selfupdate
   subpackages:
   - selfupdate
 - package: github.com/spf13/cobra
-  version: master
-  subpackages:
-  - doc
 - package: github.com/spf13/viper
-  version: master
 - package: gopkg.in/yaml.v2
-- package: github.com/spf13/pflag
-  version: master
