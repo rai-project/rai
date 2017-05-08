@@ -9,8 +9,6 @@
 
 [![asciicast](https://asciinema.org/a/6k5e96itnqu6ekbji60c3kgy4.png)](https://asciinema.org/a/6k5e96itnqu6ekbji60c3kgy4)
 
-<script type="text/javascript" src="https://asciinema.org/a/6k5e96itnqu6ekbji60c3kgy4.js" id="asciicast-6k5e96itnqu6ekbji60c3kgy4" async></script>
-
 
 ## Download Binaries
 
