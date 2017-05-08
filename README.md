@@ -5,6 +5,8 @@
 > Both features reduce the likelihood that students will have technical difficulties running the client.
 > Students use the RAI client to interact with a distributed elastic system to submit jobs.
 
+## Demo
+
 [![asciicast](https://asciinema.org/a/6k5e96itnqu6ekbji60c3kgy4.png)](https://asciinema.org/a/6k5e96itnqu6ekbji60c3kgy4)
 
 ## Download Binaries
