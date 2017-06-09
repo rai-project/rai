@@ -2,7 +2,7 @@ package: github.com/rai-project/rai
 import:
 - package: github.com/GeertJohan/go-sourcepath
 - package: github.com/Unknwon/com
-  version: ~1.0.0
+  version: ^1.0.0
 - package: github.com/fatih/color
   version: master
 - package: github.com/mitchellh/go-homedir
