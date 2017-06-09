@@ -10,7 +10,7 @@ addons:
     packages:
     - glide
 install:
-- glide install --force
+- glide install --force --strip-vendor
 - go get github.com/mjibson/esc
 - go get github.com/ahmetb/govvv
 - go get github.com/franciscocpg/gox
