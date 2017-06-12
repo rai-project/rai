@@ -12,7 +12,7 @@ addons:
 install:
 - glide install --force
 - rm -fr vendor/github.com/Sirupsen
-  - find vendor -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
+- find vendor -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
 - go get github.com/mjibson/esc
 - go get github.com/ahmetb/govvv
 - go get github.com/franciscocpg/gox
