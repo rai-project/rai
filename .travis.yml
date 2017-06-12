@@ -10,7 +10,9 @@ addons:
     packages:
     - glide
 install:
-- glide --debug install --force 
+- glide --debug install --force
+- rm -fr vendor/github.com/Sirupsen
+  - find vendor -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
 - go get github.com/mjibson/esc
 - go get github.com/ahmetb/govvv
 - go get github.com/franciscocpg/gox
