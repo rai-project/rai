@@ -182,6 +182,13 @@ In your bug report. You can also invoke the `rai` command with verbose and debug
 rai --verbose --debug
 ```
 
+
+## Presentations
+
+### GTC 2017
+
+<iframe src="https://docs.google.com/presentation/d/1dnn0yJ_VJdJ108gv8TDMcuIoP6eUtoQMkGJ-zRvGZl0/embed?start=true&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
 ## License
 
 NCSA/UIUC © [Abdul Dakkak](http://impact.crhc.illinois.edu/Content_Page.aspx?student_pg=Default-dakkak)
