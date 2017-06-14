@@ -187,7 +187,11 @@ rai --verbose --debug
 
 ### GTC 2017
 
+{::nomarkdown}
+
 <iframe src="https://docs.google.com/presentation/d/1dnn0yJ_VJdJ108gv8TDMcuIoP6eUtoQMkGJ-zRvGZl0/embed?start=true&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+{:/}
 
 ## License
 
