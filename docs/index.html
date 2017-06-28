@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>carml</title>
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <style>
+    .sidebar {
+      width: 15%;
+    }
+
+    i.todo-list-item {
+      list-style-type: none;
+    }
+
+    .left {
+      display: block;
+      margin: 0 0;
+    }
+
+    .center {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .right {
+      display: block;
+      margin: auto 0 auto auto;
+    }
+
+    .floated {
+      float: right;
+      z-index: 99;
+      position: relative;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div data-app id="main">Please wait...</div>
+</body>
+<script>
+  window.$docsify = {
+    name: 'RAI',
+    repo: 'rai-project/rai',
+    el: '#main',
+    coverpage: true,
+    loadSidebar: true,
+    mergeNavbar: true,
+    nameLink: '/',
+    maxLevel: 4,
+    subMaxLevel: 4,
+    auto2top: true,
+    executeScript: true,
+    routerMode: 'hash',
+    search: {
+      noData: {
+        '/': 'No results!'
+      },
+      paths: 'auto',
+      placeholder: {
+        '/': 'Search'
+      }
+    },
+    markdown: function (marked, renderer) {
+      // Tasks list
+      var checkedTaskItemPtn = /^\s*\[(x|X)\]\s*/;
+      var uncheckedTaskItemPtn = /^\s*\[ \]\s*/;
+      renderer.listitem = function (text) {
+        var isCheckedTaskItem = checkedTaskItemPtn.test(text);
+        var isUncheckedTaskItem = uncheckedTaskItemPtn.test(text);
+        if (isCheckedTaskItem) {
+          text = text.replace(checkedTaskItemPtn,
+            '<i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;') + '\n';
+        }
+        if (isUncheckedTaskItem) {
+          text = text.replace(uncheckedTaskItemPtn,
+            '<i class="fa fa-square-o" aria-hidden="true"></i>&nbsp;') + '\n';
+        }
+        var cls = (isCheckedTaskItem || isUncheckedTaskItem) ? ' class="todo-list-item"' : '';
+        return '<li' + cls + '>' + text + '</li>\n';
+      };
+
+      renderer.image = function (href, title, text) {
+        var alignment;
+        var dimensions = [];
+        if (href) {
+          var splitted = href.split('|').map(function (s) {
+            return s.trim();
+          });
+          href = splitted[0];
+          var parameters = splitted[1];
+          if (parameters) {
+            var heightFromParams = /height=(\d+)/.exec(parameters);
+            var widthFromParams = /width=(\d+)/.exec(parameters);
+            var alignFromParams = /align=([a-zA-Z]+)/.exec(parameters);
+            var height = heightFromParams && heightFromParams[1];
+            var width = widthFromParams && widthFromParams[1];
+            var align = alignFromParams && alignFromParams[1];
+            var widthIsFinite = isFinite(parseInt(width));
+            var heightIsFinite = isFinite(parseInt(height));
+            if (widthIsFinite) {
+              dimensions.push('width="' + width + '"');
+            }
+            if (heightIsFinite) {
+              dimensions.push('height="' + height + '"');
+            }
+            alignment = align;
+          }
+        }
+        var attributes = [];
+        if (href) {
+          attributes.push('src="' + href + '"');
+          attributes.push('data-origin="' + href + '"');
+        }
+        if (text) {
+          attributes.push('alt="' + text + '"');
+        }
+        if (alignment) {
+          attributes.push('class="' + alignment + '"');
+        }
+        if (title) {
+          attributes.push('title="' + title + '"');
+        }
+        if (dimensions.length) {
+          attributes = attributes.concat(dimensions);
+        }
+        return '<img ' + attributes.join(' ') + '>';
+      };
+      marked.setOptions({
+        gfm: true,
+        smartLists: true,
+        smartypants: true,
+        renderer: renderer
+      });
+      return marked;
+    },
+    formatUpdated: '{MM}/{DD} {HH}:{mm}',
+    plugins: [
+      function (hook, vm) {
+        hook.beforeEach(function (html) {
+          var url = 'https://github.com/rai-project/rai/blob/master/docs/' + vm.route.file
+          var editHtml = '[:memo: Edit Document](' + url + ')\n'
+          return editHtml +
+            html +
+            '\n----\n' +
+            'Last modified {docsify-updated} ' +
+            editHtml
+        })
+      },
+      function (hook) {
+        var footer = [
+          '<hr/>',
+          '<footer>',
+          '<span><a href="https://github.com/rai-project/rai">Abdul Dakkak</a> &copy;2017.</span>',
+          '</footer>'
+        ].join('')
+
+        hook.afterEach(function (html) {
+          return html + footer
+        })
+      }
+    ]
+  }
+
+</script>
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/front-matter.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-yaml.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-markdown.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-go.min.js"></script>
+<script src="https://use.fontawesome.com/990dab6c40.js"></script>
+
+<script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+
+</script>
+
+</html>
