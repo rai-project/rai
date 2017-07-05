@@ -9,11 +9,9 @@
 
 [![asciicast](https://asciinema.org/a/6k5e96itnqu6ekbji60c3kgy4.png)](https://asciinema.org/a/6k5e96itnqu6ekbji60c3kgy4)
 
-
 ## Download Binaries
 
 The code is continuously built and published. The client can be downloaded from the following URLs (depending on your OS and Architecture):
-
 
 | Operating System | Architecture | Stable Version Link                                                             |
 | ---------------- | ------------ | ------------------------------------------------------------------------------- |
@@ -30,7 +28,6 @@ The code is continuously built and published. The client can be downloaded from 
 | Windows          | i386         | [URL](http://files.rai-project.com/dist/rai/stable/latest/windows-386.tar.gz)   |
 | Windows          | amd64        | [URL](http://files.rai-project.com/dist/rai/stable/latest/windows-amd64.tar.gz) |
 
-
 ## Building From Source
 
 This is not recommended unless you are interested in developing and/or deploying `rai` on your personal cluster. To build from source simple run
@@ -42,7 +39,6 @@ go get -u github.com/rai-project/rai
 You will need an extra secret key if you build from source.
 
 ## Usage
-
 
 To run the client, use
 
@@ -56,15 +52,12 @@ The server limits the task time to be an hour with a maximum of 8GB of memory be
 
 #### Other Options
 
-```
-  -c, --color         Toggle color output.
-  -d, --debug         Toggle debug mode.
-  -p, --path string   Path to the directory you wish to submit. Defaults to the current working directory. (default "current working directory")
-  -v, --verbose       Toggle verbose mode.
-```
+      -c, --color         Toggle color output.
+      -d, --debug         Toggle debug mode.
+      -p, --path string   Path to the directory you wish to submit. Defaults to the current working directory. (default "current working directory")
+      -v, --verbose       Toggle verbose mode.
 
 On Windows, it might be useful to disable the colored output. You can do that by using the `-c=false` option
-
 
 ## Setting your Profile
 
@@ -81,7 +74,6 @@ profile:
   access_key: XXXXXXXXXXXXXXXXXXX
   secret_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
-
 
 ## Project Build Specification
 
@@ -121,15 +113,15 @@ Syntax errors will be reported, and the job will not be executed. You can check 
 
 Most of the images on [Docker Hub](http://hub.docker.com) are compiled for X86 architectures. If you are using PPC64le, Power 9 architecture, e.g. Minsky, then you will have to build your Docker image from scratch. RAI has support for building Docker images on the host system.
 
-1. Create your Dockerfile we have created some example files that can be used as base and/or inspiration: 
-[CUDNN](https://github.com/rai-project/Dockerfiles/tree/master/caffe2),
-[OpenCV](https://github.com/rai-project/Dockerfiles/tree/master/opencv),
-[CUMF](https://github.com/rai-project/Dockerfiles/tree/master/cumf),
-[NCCL](https://github.com/rai-project/Dockerfiles/tree/master/nccl),
-...
-Refer to [Docker Syntax Reference](https://docs.docker.com/engine/reference/builder/) to understand the Docker commands.
+1.  Create your Dockerfile we have created some example files that can be used as base and/or inspiration: 
+    [CUDNN](https://github.com/rai-project/Dockerfiles/tree/master/caffe2),
+    [OpenCV](https://github.com/rai-project/Dockerfiles/tree/master/opencv),
+    [CUMF](https://github.com/rai-project/Dockerfiles/tree/master/cumf),
+    [NCCL](https://github.com/rai-project/Dockerfiles/tree/master/nccl),
+    ...
+    Refer to [Docker Syntax Reference](https://docs.docker.com/engine/reference/builder/) to understand the Docker commands.
 
-2. Tell the RAI client that you want to build a Dockerfile. This can be done by modifying the `.rai-build.yml` file to include the following:
+2.  Tell the RAI client that you want to build a Dockerfile. This can be done by modifying the `.rai-build.yml` file to include the following:
 
 ```yaml
 commands:
@@ -139,7 +131,7 @@ commands:
   build: ...
 ```
 
-3. Run `rai` as if you are submitting the project. RAI will build and use the image you've specified.
+3.  Run `rai` as if you are submitting the project. RAI will build and use the image you've specified.
 
 A repository containing prebuilt Dockerfiles for PPC64le is available on [Github](https://github.com/rai-project/Dockerfiles) and we accept contributions and/or fixes.
 
@@ -182,10 +174,19 @@ In your bug report. You can also invoke the `rai` command with verbose and debug
 rai --verbose --debug
 ```
 
+## Publications
 
-## Presentations
+### Papers
 
-### GTC 2017
+-   [Dakkak, Abdul et al. “RAI: A Scalable Project Submission System for Parallel Programming Courses.” (2017).](assets/rai-edupar17.pdf)
+
+### Posters
+
+-   [![GTC 2017](assets/gtc-rai-poster.png)](assets/gtc-rai-poster.png)
+
+### Presentations
+
+#### GTC 2017
 
 {::nomarkdown}
 
