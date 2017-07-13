@@ -1,4 +1,5 @@
 # RAI Client [![Build Status](https://travis-ci.org/rai-project/rai.svg?branch=master)](https://travis-ci.org/rai-project/rai)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Frai-project%2Frai.svg?type=shield)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Frai-project%2Frai?ref=badge_shield)
 
 > The RAI client is an executable downloaded by the students and runs on the students' machines.
 > The executable requires no library dependencies and works on all the main operating systems and CPU architectures.
@@ -199,3 +200,6 @@ rai --verbose --debug
 NCSA/UIUC © [Abdul Dakkak](http://impact.crhc.illinois.edu/Content_Page.aspx?student_pg=Default-dakkak)
 
 [github issue manager]: https://github.com/rai-project/rai/issues
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Frai-project%2Frai.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Frai-project%2Frai?ref=badge_large)
