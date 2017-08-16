@@ -1,6 +1,4 @@
-
-homepage: &homepage http://www.rai-project.org
-description: &description Cognitive ARtifacts for Machine Learning
+project_name: rai
 build:
   main: ./main.go
   binary: rai
@@ -25,6 +23,18 @@ build:
   hooks:
     pre: go generate
     # post: ./script.sh
+  env:
+    - CGO_ENABLED=0
+  flags: >
+    -extldflags \"-static\""
+  ldflags: >
+    -s -w
+    -x main.GitBranch={{.Tag}}
+    -x main.GitState=build
+    -X main.Version={{.Version}}
+    -X main.GitCommit={{.Commit}}
+    -X main.BuildDate={{.Date}}
+    -X main.AppSecret={{.AppSecret}}
 archive:
   format: tar.gz
   name_template: '{{ .Binary }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
