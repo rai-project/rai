@@ -16,12 +16,13 @@ import (
 )
 
 var (
-	appSecret   string
-	workingDir  string
-	isColor     bool
-	isVerbose   bool
-	isDebug     bool
-	isRatelimit bool
+	appSecret    string
+	workingDir   string
+	isColor      bool
+	isVerbose    bool
+	isDebug      bool
+	isRatelimit  bool
+	isSubmission bool
 )
 
 // RootCmd represents the base command when called without any subcommands
@@ -47,6 +48,10 @@ var RootCmd = &cobra.Command{
 		if !isRatelimit {
 			opts = append(opts, client.DisableRatelimit())
 		}
+		if isSubmission {
+			opts = append(opts, client.IsSubmission(true))
+		}
+
 		client, err := client.New(opts...)
 
 		if err != nil {
@@ -103,6 +108,7 @@ func init() {
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
 	RootCmd.PersistentFlags().BoolVar(&isRatelimit, "ratelimit", true, "Toggle debug mode.")
+	RootCmd.PersistentFlags().BoolVar(&isSubmission, "submit", false, "mark as a final submission")
 
 	RootCmd.MarkPersistentFlagRequired("path")
 

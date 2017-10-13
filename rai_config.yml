@@ -1,7 +1,7 @@
 app:
   name: rai
   verbose: false
-  debug: false
+  debug: true
 aws:
   access_key_id: ==AES32==+NPjNiwCtTNvMUg94O/PVGOPc1N6ExBx7Lyz3TGRuIqVfqFoYuRNEl1gkZw=
   secret_access_key: ==AES32==onXRqpVtlebXW+dN5atvjpZGuyNH8pzkAD7tx7diCj9rnByX9+BxlESV1ehoo7D7BtoDCDf73uLYVqXDQvdOq5JoL9AAFdIr
@@ -18,6 +18,7 @@ client:
   upload_bucket: files.rai-project.com
   bucket: userdata
   build_file: rai_build
+  submit_requirements: ["report.pdf", "report2.pdf"]
 auth:
   provider: auth0
   domain: raiproject.auth0.com
