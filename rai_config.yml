@@ -18,7 +18,10 @@ client:
   upload_bucket: files.rai-project.com
   bucket: userdata
   build_file: rai_build
-  submit_requirements: ["report.pdf", "report2.pdf"]
+  submit_requirements:
+    - report.pdf
+    - what.ever
+  
 auth:
   provider: auth0
   domain: raiproject.auth0.com
