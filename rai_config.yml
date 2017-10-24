@@ -1,6 +1,6 @@
 app:
   name: rai
-  verbose: false
+  verbose: true
   debug: true
 aws:
   access_key_id: ==AES32==+NPjNiwCtTNvMUg94O/PVGOPc1N6ExBx7Lyz3TGRuIqVfqFoYuRNEl1gkZw=
@@ -21,6 +21,7 @@ client:
   submit_requirements:
     - report.pdf
     - what.ever
+  mongo_endpoint: localhost
   
 auth:
   provider: auth0
