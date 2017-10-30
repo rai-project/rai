@@ -1,6 +1,6 @@
 app:
   name: rai
-  verbose: false
+  verbose: true
   debug: true
 aws:
   access_key_id: ==AES32==+NPjNiwCtTNvMUg94O/PVGOPc1N6ExBx7Lyz3TGRuIqVfqFoYuRNEl1gkZw=
@@ -22,6 +22,8 @@ client:
     - report.pdf
     - what.ever
   job_queue_name: rai_amd64_test
+  mongo_endpoint: localhost
+  
 auth:
   provider: auth0
   domain: raiproject.auth0.com
