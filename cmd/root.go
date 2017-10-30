@@ -42,7 +42,7 @@ var RootCmd = &cobra.Command{
 			client.Directory(workingDir),
 			client.Stdout(os.Stdout),
 			client.Stderr(os.Stderr),
-			client.JobQueueName("rai"),
+			// client.JobQueueName("rai_amd64_test"),
 		}
 		if !isRatelimit {
 			opts = append(opts, client.DisableRatelimit())
