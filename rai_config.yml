@@ -21,7 +21,7 @@ client:
   submit_requirements:
     - report.pdf
     - what.ever
-  
+  job_queue_name: rai_amd64_test
 auth:
   provider: auth0
   domain: raiproject.auth0.com

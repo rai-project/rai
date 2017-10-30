@@ -35,6 +35,15 @@ go get -u github.com/rai-project/rai
 
 You will need an extra secret key if you build from source.
 
+* Create a `.rai_config.yml` in the `rai` directory. You can copy the existing `rai_config.yml` as a starting point.
+* Run rai with `go run -tags develop main.go -d -v -s <app-secret> -p <project-folder>`
+
+Alternatively, you can place the app secret in `~/.rai_secret` and just do
+
+    go run -tags develop main.go -d -v -p <project-folder>
+
+The `-tags develop` casuses rai to read the local configuration instead of using an embedded one.
+
 ## Usage
 
 To run the client, use
