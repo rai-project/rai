@@ -16,12 +16,13 @@ import (
 )
 
 var (
-	appSecret   string
-	workingDir  string
-	isColor     bool
-	isVerbose   bool
-	isDebug     bool
-	isRatelimit bool
+	appSecret    string
+	workingDir   string
+	jobQueueName string
+	isColor      bool
+	isVerbose    bool
+	isDebug      bool
+	isRatelimit  bool
 )
 
 // RootCmd represents the base command when called without any subcommands
@@ -42,7 +43,7 @@ var RootCmd = &cobra.Command{
 			client.Directory(workingDir),
 			client.Stdout(os.Stdout),
 			client.Stderr(os.Stderr),
-			// client.JobQueueName("rai_amd64_test"),
+			client.JobQueueName(jobQueueName),
 		}
 		if !isRatelimit {
 			opts = append(opts, client.DisableRatelimit())
@@ -98,6 +99,7 @@ func init() {
 
 	RootCmd.PersistentFlags().StringVarP(&workingDir, "path", "p", cwd,
 		"Path to the directory you wish to submit. Defaults to the current working directory.")
+	RootCmd.PersistentFlags().StringVarP(&jobQueueName, "queue", "q", "rai", "Name of the job queue. Defaults to 'rai'")
 	RootCmd.PersistentFlags().StringVarP(&appSecret, "secret", "s", "", "Pass in application secret.")
 	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", true, "Toggle color output.")
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
