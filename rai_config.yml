@@ -19,11 +19,12 @@ client:
   bucket: userdata
   build_file: rai_build
   submit_requirements:
-    - report.pdf
-    - what.ever
+    # - report.pdf
+    # - what.ever
   job_queue_name: rai_amd64_test
-  mongo_endpoint: localhost
-  
+database:
+  endpoints:
+    - localhost 
 auth:
   provider: auth0
   domain: raiproject.auth0.com
