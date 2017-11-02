@@ -1,6 +1,6 @@
 rai:
   version: 0.2
-  image: nvidia/cuda
+  image: nvidia/cuda-ppc64le
 resources:
   cpu:
     architecture: amd64
