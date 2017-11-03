@@ -111,6 +111,7 @@ func init() {
 	// mark secret flag hidden
 	RootCmd.PersistentFlags().MarkHidden("secret")
 	RootCmd.PersistentFlags().MarkHidden("ratelimit")
+	RootCmd.PersistentFlags().MarkHidden("queue")
 
 	// viper.BindPFlag("app.secret", RootCmd.PersistentFlags().Lookup("secret"))
 	viper.BindPFlag("app.debug", RootCmd.PersistentFlags().Lookup("debug"))
