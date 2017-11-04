@@ -19,8 +19,7 @@ client:
   bucket: userdata
   build_file: rai_build
   submit_requirements:
-    # - report.pdf
-    # - what.ever
+    - report.pdf
   job_queue_name: rai_amd64
 database:
   endpoints:
