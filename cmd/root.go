@@ -77,7 +77,7 @@ var RootCmd = &cobra.Command{
 		if err := client.Wait(); err != nil {
 			return err
 		}
-		if err := client.RecordIfSubmission(); err != nil {
+		if err := client.RecordRanking(); err != nil {
 			return err
 		}
 		return nil
