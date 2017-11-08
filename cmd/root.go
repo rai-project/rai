@@ -10,6 +10,7 @@ import (
 	"github.com/rai-project/client"
 	"github.com/rai-project/cmd"
 	"github.com/rai-project/config"
+	log "github.com/rai-project/logger"
 	_ "github.com/rai-project/logger/hooks"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -23,10 +24,7 @@ var (
 	isVerbose    bool
 	isDebug      bool
 	isRatelimit  bool
-	isSubmission bool
-	isMilestone2 bool // milestone 2 submission
-	isMilestone3 bool // miletone 3 submission
-	isFinal      bool // final submission
+	submit       string
 )
 
 // RootCmd represents the base command when called without any subcommands
@@ -52,14 +50,15 @@ var RootCmd = &cobra.Command{
 		if !isRatelimit {
 			opts = append(opts, client.DisableRatelimit())
 		}
-		if isMilestone2 {
-			opts = append(opts, client.SubmissionKindM2())
-		}
-		if isMilestone3 {
-			opts = append(opts, client.SubmissionKindM3())
-		}
-		if isFinal || isSubmission {
-			opts = append(opts, client.SubmissionKindFinal())
+
+		if submit == "m2" {
+			opts = append(opts, client.SubmissionM2())
+		} else if submit == "m3" {
+			opts = append(opts, client.SubmissionM3())
+		} else if submit == "final" {
+			opts = append(opts, client.SubmissionFinal())
+		} else if submit != "" {
+			return errors.New("Must provide a value: --submit=[m2, m3, final]")
 		}
 
 		client, err := client.New(opts...)
@@ -87,6 +86,7 @@ var RootCmd = &cobra.Command{
 			return err
 		}
 		if err := client.RecordRanking(); err != nil {
+			log.WithError(err).Error("job not recorded. If this was a submission, it was not recorded.")
 			return err
 		}
 		return nil
@@ -123,10 +123,7 @@ func init() {
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
 	RootCmd.PersistentFlags().BoolVar(&isRatelimit, "ratelimit", true, "Toggle debug mode.")
 
-	RootCmd.PersistentFlags().BoolVar(&isSubmission, "submit", false, "mark as a final submission")
-	RootCmd.PersistentFlags().BoolVar(&isMilestone2, "m2-submission", false, "mark as a milestone 2 submission")
-	RootCmd.PersistentFlags().BoolVar(&isMilestone3, "m3-submission", false, "mark as a milestone 3 submission")
-	RootCmd.PersistentFlags().BoolVar(&isFinal, "final-submission", false, "mark as a final submission")
+	RootCmd.PersistentFlags().StringVar(&submit, "submit", "", "mark the kind of submission (m2, m3, final)")
 
 	RootCmd.MarkPersistentFlagRequired("path")
 
@@ -134,9 +131,6 @@ func init() {
 	RootCmd.PersistentFlags().MarkHidden("secret")
 	RootCmd.PersistentFlags().MarkHidden("ratelimit")
 	RootCmd.PersistentFlags().MarkHidden("queue")
-	RootCmd.PersistentFlags().MarkHidden("m2-submission")
-	RootCmd.PersistentFlags().MarkHidden("m3-submission")
-	RootCmd.PersistentFlags().MarkHidden("final-submission")
 
 	// viper.BindPFlag("app.secret", RootCmd.PersistentFlags().Lookup("secret"))
 	viper.BindPFlag("app.debug", RootCmd.PersistentFlags().Lookup("debug"))
