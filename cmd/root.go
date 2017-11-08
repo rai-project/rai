@@ -24,6 +24,9 @@ var (
 	isDebug      bool
 	isRatelimit  bool
 	isSubmission bool
+	isMilestone2 bool // milestone 2 submission
+	isMilestone3 bool // miletone 3 submission
+	isFinal      bool // final submission
 )
 
 // RootCmd represents the base command when called without any subcommands
@@ -49,8 +52,14 @@ var RootCmd = &cobra.Command{
 		if !isRatelimit {
 			opts = append(opts, client.DisableRatelimit())
 		}
-		if isSubmission {
-			opts = append(opts, client.IsSubmission(true))
+		if isMilestone2 {
+			opts = append(opts, client.SubmissionKindM2())
+		}
+		if isMilestone3 {
+			opts = append(opts, client.SubmissionKindM3())
+		}
+		if isFinal || isSubmission {
+			opts = append(opts, client.SubmissionKindFinal())
 		}
 
 		client, err := client.New(opts...)
@@ -107,13 +116,17 @@ func init() {
 
 	RootCmd.PersistentFlags().StringVarP(&workingDir, "path", "p", cwd,
 		"Path to the directory you wish to submit. Defaults to the current working directory.")
-	RootCmd.PersistentFlags().StringVarP(&jobQueueName, "queue", "q", "", "Name of the job queue. Iinfers queue from build file by default.")
+	RootCmd.PersistentFlags().StringVarP(&jobQueueName, "queue", "q", "", "Name of the job queue. Infers queue from build file by default.")
 	RootCmd.PersistentFlags().StringVarP(&appSecret, "secret", "s", "", "Pass in application secret.")
 	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", true, "Toggle color output.")
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
 	RootCmd.PersistentFlags().BoolVar(&isRatelimit, "ratelimit", true, "Toggle debug mode.")
+
 	RootCmd.PersistentFlags().BoolVar(&isSubmission, "submit", false, "mark as a final submission")
+	RootCmd.PersistentFlags().BoolVar(&isMilestone2, "m2-submission", false, "mark as a milestone 2 submission")
+	RootCmd.PersistentFlags().BoolVar(&isMilestone3, "m3-submission", false, "mark as a milestone 3 submission")
+	RootCmd.PersistentFlags().BoolVar(&isFinal, "final-submission", false, "mark as a final submission")
 
 	RootCmd.MarkPersistentFlagRequired("path")
 
@@ -121,6 +134,9 @@ func init() {
 	RootCmd.PersistentFlags().MarkHidden("secret")
 	RootCmd.PersistentFlags().MarkHidden("ratelimit")
 	RootCmd.PersistentFlags().MarkHidden("queue")
+	RootCmd.PersistentFlags().MarkHidden("m2-submission")
+	RootCmd.PersistentFlags().MarkHidden("m3-submission")
+	RootCmd.PersistentFlags().MarkHidden("final-submission")
 
 	// viper.BindPFlag("app.secret", RootCmd.PersistentFlags().Lookup("secret"))
 	viper.BindPFlag("app.debug", RootCmd.PersistentFlags().Lookup("debug"))
