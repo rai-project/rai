@@ -47,14 +47,14 @@ var rankingCmd = &cobra.Command{
 		}
 		defer db.Close()
 
-		col, err := model.NewFa2017Ece408RankingCollection(db)
+		col, err := model.NewFa2017Ece408JobCollection(db)
 		if err != nil {
 			return err
 		}
 		defer col.Close()
 
 		// Get submissions
-		var rankings model.Fa2017Ece408Rankings
+		var rankings model.Fa2017Ece408Jobs
 		cond := upper.Or(
 			upper.Cond{
 				"model":       "ece408-high",
@@ -71,7 +71,7 @@ var rankingCmd = &cobra.Command{
 		}
 
 		// Sort by fastest
-		sort.Sort(model.ByOpRuntime(rankings))
+		sort.Sort(model.ByMinOpRuntime(rankings))
 
 		// Keep first instance of every team
 		rankings = model.KeepFirstTeam(rankings) // Keep fastest entry for each team
@@ -92,7 +92,7 @@ var rankingCmd = &cobra.Command{
 		table := tablewriter.NewWriter(os.Stdout)
 		table.SetHeader([]string{"Anonymized Team", "Team's Fastest Conv (ms)"})
 		for _, r := range rankings {
-			table.Append([]string{r.Teamname, strconv.FormatInt(int64(r.OpRuntime/time.Millisecond), 10)})
+			table.Append([]string{r.Teamname, strconv.FormatInt(int64(r.MinOpRuntime()/time.Millisecond), 10)})
 		}
 
 		table.Render()
