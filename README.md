@@ -247,6 +247,13 @@ In your bug report. You can also invoke the `rai` command with verbose and debug
 rai --verbose --debug
 ```
 
+## Usage
+
+-   [ECE408 Fall2017 Project](https://github.com/webgpu/2017fa_ece408_project)
+-   [ECE508 Spring2017 MP](https://github.com/webgpu/ece508-convlayer)
+-   ECE508 Spring2017 Project
+-   [ECE408 Fall2016 Project](https://github.com/webgpu/2016fa_ece408project)
+
 ## Publications
 
 ### Papers
