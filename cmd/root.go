@@ -17,14 +17,15 @@ import (
 )
 
 var (
-	appSecret    string
-	workingDir   string
-	jobQueueName string
-	isColor      bool
-	isVerbose    bool
-	isDebug      bool
-	isRatelimit  bool
-	submit       string
+	appSecret     string
+	workingDir    string
+	jobQueueName  string
+	buildFilePath string
+	isColor       bool
+	isVerbose     bool
+	isDebug       bool
+	isRatelimit   bool
+	submit        string
 )
 
 // RootCmd represents the base command when called without any subcommands
@@ -49,6 +50,9 @@ var RootCmd = &cobra.Command{
 		}
 		if !isRatelimit {
 			opts = append(opts, client.DisableRatelimit())
+		}
+		if buildFilePath != "" {
+			opts = append(opts, client.BuildFilePath(buildFilePath))
 		}
 
 		if submit == "m2" {
@@ -116,6 +120,7 @@ func init() {
 
 	RootCmd.PersistentFlags().StringVarP(&workingDir, "path", "p", cwd,
 		"Path to the directory you wish to submit. Defaults to the current working directory.")
+	RootCmd.PersistentFlags().StringVarP(&buildFilePath, "build", "f", "", "Path to the build file. Defaults to `cwd`/rai_build.yml file.")
 	RootCmd.PersistentFlags().StringVarP(&jobQueueName, "queue", "q", "", "Name of the job queue. Infers queue from build file by default.")
 	RootCmd.PersistentFlags().StringVarP(&appSecret, "secret", "s", "", "Pass in application secret.")
 	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", true, "Toggle color output.")
