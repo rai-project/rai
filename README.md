@@ -35,8 +35,8 @@ go get -u github.com/rai-project/rai
 
 You will need an extra secret key if you build from source.
 
-* Create a `.rai_config.yml` in the `rai` directory. You can copy the existing `rai_config.yml` as a starting point.
-* Run rai with `go run -tags develop main.go -d -v -s <app-secret> -p <project-folder>`
+-   Create a `.rai_config.yml` in the `rai` directory. You can copy the existing `rai_config.yml` as a starting point.
+-   Run rai with `go run -tags develop main.go -d -v -s <app-secret> -p <project-folder>`
 
 Alternatively, you can place the app secret in `~/.rai_secret` and just do
 
@@ -117,7 +117,7 @@ Syntax errors will be reported, and the job will not be executed. You can check 
 
 ## Building Docker Images
 
-Most of the images on [Docker Hub](http://hub.docker.com) are compiled for X86 architectures. If you are using PPC64le, Power 9 architecture, e.g. Minsky, then you will have to build your Docker image from scratch. RAI has support for building Docker images on the host system.
+Most of the images on [Docker Hub](http://hub.docker.com) are compiled for X86 architectures. If you are using PPC64le, Power 8 architecture, e.g. Minsky, then you will have to build your Docker image from scratch. RAI has support for building Docker images on the host system.
 
 1.  Create your Dockerfile we have created some example files that can be used as base and/or inspiration:
     [CUDNN](https://github.com/rai-project/Dockerfiles/tree/master/caffe2),
@@ -139,9 +139,76 @@ commands:
 
 3.  Run `rai` as if you are submitting the project. RAI will build and use the image you've specified.
 
-A repository containing prebuilt Dockerfiles for PPC64le is available on [Github](https://github.com/rai-project/Dockerfiles) and we accept contributions and/or fixes.
+A repository containing prebuilt Dockerfiles for PPC64le is available [Here](https://github.com/rai-project/Dockerfiles) and [Here](https://github.com/rai-project/Dockerfiles-ppc64le) and we accept contributions and/or fixes.
 
-## Profiling
+### Disabling Caching
+
+By default, `rai` will not rebuild a docker image if it has the same name as a preexisting image on the system.
+You can disable that by changing the `nocache` option to `true` in the `rai_build.yml` file.
+
+```yaml
+rai:
+  version: 0.2
+resources:
+  cpu:
+    architecture: ppc64le
+  network: false
+commands:
+  build_image:
+    image_name: rai/cumf:8.0
+    dockerfile: "./Dockerfile"
+    no_cache: true
+```
+
+### Publishing Docker Images
+
+Docker images built using `rai` can be published on DockerHub.
+You will have to explicitly tell `rai` to push the image in the `rai_build` file
+
+```yaml
+rai:
+  version: 0.2
+commands:
+  build_image:
+    image_name: c3sr/celery:4.0.2
+    dockerfile: "./Dockerfile"
+    push:
+      push: true
+```
+
+#### Specifying DockerHub Credentials
+
+There are two ways of specifying the DockerHub credentials. Through the `~/.rai_profile` file (prefered) by adding a `dockerhub` section e.g.
+
+```yaml
+profile:
+  firstname: Abdul
+  lastname: Dakkak
+  ...
+  dockerhub:
+    username: dakkak
+    password: ==AES32==PASS
+```
+
+or by placing it in the `rai_build.yml` file
+
+```yaml
+rai:
+  version: 0.2
+commands:
+  build_image:
+    image_name: c3sr/celery:4.0.2
+    dockerfile: "./Dockerfile"
+    push:
+      push: true
+      credentials:
+        username: dakkak
+        password: ==AES32==PASS
+```
+
+The password can be encrypted using the `rai encrypt` command.
+
+## CUDA Profiling
 
 Profiling can be performed using `nvprof`. Place the following build commands in your `rai-build.yml` file
 
