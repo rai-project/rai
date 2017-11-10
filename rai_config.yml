@@ -21,11 +21,12 @@ client:
   submit_requirements:
     - report.pdf
   job_queue_name: rai_amd64
+  analytics_key: UA-109527708-1
 database:
   endpoints:
     - ec2-54-167-107-36.compute-1.amazonaws.com
   username: rai-client
-  password: ==AES32==PT1BRVMzMj09xQ/h9OZv0UwoqpG3AL30LxJPP5fjgn4STQfGGAAqLGAYtppTkt6r3gZvByk= 
+  password: ==AES32==PT1BRVMzMj09xQ/h9OZv0UwoqpG3AL30LxJPP5fjgn4STQfGGAAqLGAYtppTkt6r3gZvByk=
 auth:
   provider: auth0
   domain: raiproject.auth0.com
