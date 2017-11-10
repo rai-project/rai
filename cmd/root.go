@@ -10,6 +10,7 @@ import (
 	"github.com/rai-project/client"
 	"github.com/rai-project/cmd"
 	"github.com/rai-project/config"
+	log "github.com/rai-project/logger"
 	_ "github.com/rai-project/logger/hooks"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -23,7 +24,7 @@ var (
 	isVerbose    bool
 	isDebug      bool
 	isRatelimit  bool
-	isSubmission bool
+	submit       string
 )
 
 // RootCmd represents the base command when called without any subcommands
@@ -49,8 +50,15 @@ var RootCmd = &cobra.Command{
 		if !isRatelimit {
 			opts = append(opts, client.DisableRatelimit())
 		}
-		if isSubmission {
-			opts = append(opts, client.IsSubmission(true))
+
+		if submit == "m2" {
+			opts = append(opts, client.SubmissionM2())
+		} else if submit == "m3" {
+			opts = append(opts, client.SubmissionM3())
+		} else if submit == "final" {
+			opts = append(opts, client.SubmissionFinal())
+		} else if submit != "" {
+			return errors.New("Must provide a value: --submit=[m2, m3, final]")
 		}
 
 		client, err := client.New(opts...)
@@ -78,6 +86,7 @@ var RootCmd = &cobra.Command{
 			return err
 		}
 		if err := client.RecordRanking(); err != nil {
+			log.WithError(err).Error("job not recorded. If this was a submission, it was not recorded.")
 			return err
 		}
 		return nil
@@ -107,13 +116,14 @@ func init() {
 
 	RootCmd.PersistentFlags().StringVarP(&workingDir, "path", "p", cwd,
 		"Path to the directory you wish to submit. Defaults to the current working directory.")
-	RootCmd.PersistentFlags().StringVarP(&jobQueueName, "queue", "q", "", "Name of the job queue. Iinfers queue from build file by default.")
+	RootCmd.PersistentFlags().StringVarP(&jobQueueName, "queue", "q", "", "Name of the job queue. Infers queue from build file by default.")
 	RootCmd.PersistentFlags().StringVarP(&appSecret, "secret", "s", "", "Pass in application secret.")
 	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", true, "Toggle color output.")
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
 	RootCmd.PersistentFlags().BoolVar(&isRatelimit, "ratelimit", true, "Toggle debug mode.")
-	RootCmd.PersistentFlags().BoolVar(&isSubmission, "submit", false, "mark as a final submission")
+
+	RootCmd.PersistentFlags().StringVar(&submit, "submit", "", "mark the kind of submission (m2, m3, final)")
 
 	RootCmd.MarkPersistentFlagRequired("path")
 

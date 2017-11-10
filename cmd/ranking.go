@@ -47,52 +47,58 @@ var rankingCmd = &cobra.Command{
 		}
 		defer db.Close()
 
-		col, err := model.NewFa2017Ece408RankingCollection(db)
+		col, err := model.NewFa2017Ece408JobCollection(db)
 		if err != nil {
 			return err
 		}
 		defer col.Close()
 
 		// Get submissions
-		var rankings model.Fa2017Ece408Rankings
-		cond := upper.Or(
-			upper.Cond{
-				"model":       "ece408-high",
-				"correctness": 0.8562,
-			},
-			upper.Cond{
-				"model":       "ece408-low",
-				"correctness": 0.629,
-			},
-		)
-		err = col.Find(cond, 0, maxResults, &rankings)
+		var rankings model.Fa2017Ece408Jobs
+		// cond := upper.Or(
+		// 	upper.Cond{
+		// 		"model":       "ece408-high",
+		// 		"correctness": 0.8562,
+		// 	},
+		// 	upper.Cond{
+		// 		"model":       "ece408-low",
+		// 		"correctness": 0.629,
+		// 	},
+		// )
+
+		condInferencesExist := upper.Cond{"inferences.0 $exists": "true"}
+
+		err = col.Find(condInferencesExist, 0, maxResults, &rankings)
 		if err != nil {
 			return err
 		}
 
+		// keep only jobs with correct inferences
+		jobs := model.FilterCorrectInferences(rankings)
+
 		// Sort by fastest
-		sort.Sort(model.ByOpRuntime(rankings))
+		sort.Sort(model.ByMinOpRuntime(jobs))
 
 		// Keep first instance of every team
-		rankings = model.KeepFirstTeam(rankings) // Keep fastest entry for each team
+		jobs = model.KeepFirstTeam(jobs) // Keep fastest entry for each team
 
 		// show only numResults
 		if numResults < 0 {
 			numResults = maxResults
 		}
 		numResults = min(numResults, maxResults)
-		numResults = min(numResults, len(rankings))
+		numResults = min(numResults, len(jobs))
 		rankings = rankings[0:numResults]
 
 		// Anonymize
-		for i, r := range rankings {
-			rankings[i] = r.Anonymize()
+		for i, j := range jobs {
+			jobs[i] = j.Anonymize()
 		}
 
 		table := tablewriter.NewWriter(os.Stdout)
 		table.SetHeader([]string{"Anonymized Team", "Team's Fastest Conv (ms)"})
-		for _, r := range rankings {
-			table.Append([]string{r.Teamname, strconv.FormatInt(int64(r.OpRuntime/time.Millisecond), 10)})
+		for _, j := range jobs {
+			table.Append([]string{j.Teamname, strconv.FormatInt(int64(j.MinOpRuntime()/time.Millisecond), 10)})
 		}
 
 		table.Render()
