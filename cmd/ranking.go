@@ -68,13 +68,16 @@ var rankingCmd = &cobra.Command{
 
 		condInferencesExist := upper.Cond{"inferences.0 $exists": "true"}
 
-		err = col.Find(condInferencesExist, 0, maxResults, &rankings)
+		err = col.Find(condInferencesExist, 0, 0, &rankings)
 		if err != nil {
 			return err
 		}
 
 		// keep only jobs with correct inferences
 		jobs := model.FilterCorrectInferences(rankings)
+
+		// keep only jobs with non-zero runtimes
+		jobs = model.FilterNonZeroTimes(jobs)
 
 		// Sort by fastest
 		sort.Sort(model.ByMinOpRuntime(jobs))
@@ -88,7 +91,7 @@ var rankingCmd = &cobra.Command{
 		}
 		numResults = min(numResults, maxResults)
 		numResults = min(numResults, len(jobs))
-		rankings = rankings[0:numResults]
+		jobs = jobs[0:numResults]
 
 		// Anonymize
 		for i, j := range jobs {
