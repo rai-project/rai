@@ -54,7 +54,7 @@ var rankingCmd = &cobra.Command{
 		defer col.Close()
 
 		// Get submissions
-		var rankings model.Fa2017Ece408Jobs
+		var jobs model.Fa2017Ece408Jobs
 		// cond := upper.Or(
 		// 	upper.Cond{
 		// 		"model":       "ece408-high",
@@ -68,13 +68,13 @@ var rankingCmd = &cobra.Command{
 
 		condInferencesExist := upper.Cond{"inferences.0 $exists": "true"}
 
-		err = col.Find(condInferencesExist, 0, 0, &rankings)
+		err = col.Find(condInferencesExist, 0, 0, &jobs)
 		if err != nil {
 			return err
 		}
 
 		// keep only jobs with correct inferences
-		jobs := model.FilterCorrectInferences(rankings)
+		jobs = model.FilterCorrectInferences(jobs)
 
 		// keep only jobs with non-zero runtimes
 		jobs = model.FilterNonZeroTimes(jobs)
@@ -101,7 +101,7 @@ var rankingCmd = &cobra.Command{
 		table := tablewriter.NewWriter(os.Stdout)
 		table.SetHeader([]string{"Anonymized Team", "Team's Fastest Conv (ms)"})
 		for _, j := range jobs {
-			table.Append([]string{j.Teamname, strconv.FormatInt(int64(j.MinOpRuntime()/time.Millisecond), 10)})
+			table.Append([]string{j.Teamname, strconv.FormatFloat(float64(j.MinOpRuntime())/float64(time.Millisecond), 'f', -1, 64)})
 		}
 
 		table.Render()
