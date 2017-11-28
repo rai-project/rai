@@ -67,8 +67,12 @@ var rankingCmd = &cobra.Command{
 		// )
 
 		condInferencesExist := upper.Cond{"inferences.0 $exists": "true"}
+		cond := upper.And(
+			condInferencesExist,
+			upper.Cond{"is_submission": true},
+		)
 
-		err = col.Find(condInferencesExist, 0, 0, &jobs)
+		err = col.Find(cond, 0, 0, &jobs)
 		if err != nil {
 			return err
 		}
