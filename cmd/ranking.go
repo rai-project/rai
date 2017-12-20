@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"fmt"
 	"os"
 	"sort"
 	"strconv"
@@ -98,8 +99,11 @@ var rankingCmd = &cobra.Command{
 		jobs = jobs[0:numResults]
 
 		// Anonymize
-		for i, j := range jobs {
-			jobs[i] = j.Anonymize()
+		// for i, j := range jobs {
+		// 	jobs[i] = j.Anonymize()
+		// }
+		for _, j := range jobs {
+			fmt.Println(j)
 		}
 
 		table := tablewriter.NewWriter(os.Stdout)

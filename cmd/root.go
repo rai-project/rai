@@ -62,7 +62,10 @@ var RootCmd = &cobra.Command{
 		} else if submit == "final" {
 			opts = append(opts, client.SubmissionFinal())
 		} else if submit != "" {
-			return errors.New("Must provide a value: --submit=[m2, m3, final]")
+			log.Info("custom submission tag: ", submit)
+			opts = append(opts, client.SubmissionCustom(submit))
+		} else {
+			return errors.New("Must supply --submit=[m2,m3,final]")
 		}
 
 		client, err := client.New(opts...)
