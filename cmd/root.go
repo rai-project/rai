@@ -55,17 +55,17 @@ var RootCmd = &cobra.Command{
 			opts = append(opts, client.BuildFilePath(buildFilePath))
 		}
 
-		if submit == "m2" {
-			opts = append(opts, client.SubmissionM2())
-		} else if submit == "m3" {
-			opts = append(opts, client.SubmissionM3())
-		} else if submit == "final" {
-			opts = append(opts, client.SubmissionFinal())
-		} else if submit != "" {
-			log.Info("custom submission tag: ", submit)
-			opts = append(opts, client.SubmissionCustom(submit))
-		} else {
-			return errors.New("Must supply --submit=[m2,m3,final]")
+		if submit != "" {
+			if submit == "m2" {
+				opts = append(opts, client.SubmissionM2())
+			} else if submit == "m3" {
+				opts = append(opts, client.SubmissionM3())
+			} else if submit == "final" {
+				opts = append(opts, client.SubmissionFinal())
+			} else {
+				log.Info("custom submission tag: ", submit)
+				opts = append(opts, client.SubmissionCustom(submit))
+			}
 		}
 
 		client, err := client.New(opts...)
