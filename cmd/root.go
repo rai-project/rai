@@ -56,10 +56,14 @@ var RootCmd = &cobra.Command{
 		}
 
 		if submit != "" {
-			if submit == "m2" {
+			if submit == "m1" {
+				opts = append(opts, client.SubmissionM1())
+			} else if submit == "m2" {
 				opts = append(opts, client.SubmissionM2())
 			} else if submit == "m3" {
 				opts = append(opts, client.SubmissionM3())
+			} else if submit == "m4" {
+				opts = append(opts, client.SubmissionM4())
 			} else if submit == "final" {
 				opts = append(opts, client.SubmissionFinal())
 			} else {
