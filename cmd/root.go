@@ -96,7 +96,7 @@ var RootCmd = &cobra.Command{
 		if err := client.Wait(); err != nil {
 			return err
 		}
-		if err := client.RecordRanking(); err != nil {
+		if err := client.RecordJob(); err != nil {
 			log.WithError(err).Error("job not recorded. If this was a submission, it was not recorded.")
 			return err
 		}
