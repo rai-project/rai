@@ -52,7 +52,11 @@ var RootCmd = &cobra.Command{
 			opts = append(opts, client.DisableRatelimit())
 		}
 		if buildFilePath != "" {
-			opts = append(opts, client.BuildFilePath(buildFilePath))
+      absPath, err := filepath.Abs(buildFilePath)
+      if err != nil {
+        buildFilePath = absPath
+      }
+			opts = append(opts, client.BuildFilePath(absPath))
 		}
 
 		if submit != "" {
@@ -121,13 +125,16 @@ func init() {
 	RootCmd.AddCommand(cmd.BuildTimeCmd)
 
 	cwd, err := os.Getwd()
+  if err == nil {
+    cwd, err = filepath.Abs(cwd)
+  }
 	if err != nil {
 		cwd = ""
 	}
 
 	RootCmd.PersistentFlags().StringVarP(&workingDir, "path", "p", cwd,
 		"Path to the directory you wish to submit. Defaults to the current working directory.")
-	RootCmd.PersistentFlags().StringVarP(&buildFilePath, "build", "f", "", "Path to the build file. Defaults to `cwd`/rai_build.yml file.")
+	RootCmd.PersistentFlags().StringVarP(&ca, "build", "f", "", "Path to the build file. Defaults to `cwd`/rai_build.yml file.")
 	RootCmd.PersistentFlags().StringVarP(&jobQueueName, "queue", "q", "", "Name of the job queue. Infers queue from build file by default.")
 	RootCmd.PersistentFlags().StringVarP(&appSecret, "secret", "s", "", "Pass in application secret.")
 	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", true, "Toggle color output.")
