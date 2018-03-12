@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
-
+"path/filepath"
 	"github.com/Unknwon/com"
 	"github.com/fatih/color"
 	"github.com/rai-project/client"
