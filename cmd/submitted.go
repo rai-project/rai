@@ -42,13 +42,13 @@ var submittedCmd = &cobra.Command{
     }
     defer db.Close()
 
-    col, err := model.NewFa2017Ece408JobCollection(db)
+    col, err := model.NewSp2018Ece408JobCollection(db)
     if err != nil {
       return err
     }
     defer col.Close()
 
-    var jobs model.Fa2017Ece408Jobs
+    var jobs model.Sp2018Ece408Jobs
 
     condInferencesExist := upper.Cond{"inferences.0 $exists": "true"}
     cond := upper.And(
