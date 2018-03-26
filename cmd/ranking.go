@@ -141,8 +141,8 @@ var rankingCmd = &cobra.Command{
         table.Append([]string{tname + " -->", strconv.FormatInt(currentRank, 10), j.Anonymize().Teamname, strconv.FormatFloat(currentMinOpRunTime, 'f', 3, 64)})
       } else {
         table.Append([]string{"", strconv.FormatInt(currentRank, 10), j.Anonymize().Teamname, strconv.FormatFloat(currentMinOpRunTime, 'f', 3, 64)})
-        x++
       }
+      x++
 		}
 
 		table.Render()
