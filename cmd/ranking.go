@@ -127,6 +127,7 @@ var rankingCmd = &cobra.Command{
 		var x int64
 		var currentRank int64
 		var currentMinOpRunTime float64
+
 		x=1
 		currentRank = 1
 		currentMinOpRunTime = 0
@@ -144,8 +145,7 @@ var rankingCmd = &cobra.Command{
       }
       x++
 		}
-
-		table.Render()
+    table.Render()
 		return nil
 	},
 }

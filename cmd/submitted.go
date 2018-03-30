@@ -64,6 +64,11 @@ var submittedCmd = &cobra.Command{
       return err
     }
 
+    if len(jobs) == 0 {
+      print("No jobs associated with userid / teamname. If you have submitted a job, your userid is not associated with a teamname.")
+      return nil
+    }
+
     fmt.Println()
     fmt.Println("Last 5 successful submissions for team: " + tname)
     fmt.Println()
