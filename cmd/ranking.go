@@ -120,6 +120,11 @@ var rankingCmd = &cobra.Command{
 
     tname, err := client.ReturnTeamName(prof.Info().Username)
 
+    if tname=="" {
+      println("No team name for " + prof.Info().Username)
+      return nil
+    }
+
     // Create table of ranking
 		table := tablewriter.NewWriter(os.Stdout)
 		table.SetHeader([]string{"You","Rank", "Anonymized Team", "Fastest Conv (ms)"})

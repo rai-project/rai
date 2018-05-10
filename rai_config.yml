@@ -36,3 +36,12 @@ pubsub:
   endpoints:
     - pubsub.rai-project.com:6379
   password: ==AES32==SnY+X9yvTpvVRWo+hqq1Bjup8vvYEtDURcsO2w==
+logger:
+  level: debug
+  hooks:
+    - kenisis
+    - syslog
+    - logz
+logz:
+  token: OmLzhrMXbNtcInvRARMWyibyHHLLjFZi
+
