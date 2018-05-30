@@ -3,7 +3,7 @@ rai:
   image: nvidia/cuda-ppc64le
 resources:
   cpu:
-    architecture: amd64
+    architecture: ppc64le
   gpu:
     architecture: pascal
     count: 1
