@@ -116,10 +116,17 @@ func Execute() {
 	}
 }
 
+var VersionCmd = cmd.VersionCmd
+
 func init() {
+	VersionCmd.Run = func(c *cobra.Command, args []string) {
+		cmd.VersionCmd.Run(c, args)
+		fmt.Println("ProjectMode: ", projectMode)
+	}
+
 	cobra.OnInitialize(initConfig, initColor)
 
-	RootCmd.AddCommand(cmd.VersionCmd)
+	RootCmd.AddCommand(VersionCmd)
 	RootCmd.AddCommand(cmd.LicenseCmd)
 	RootCmd.AddCommand(cmd.EnvCmd)
 	RootCmd.AddCommand(cmd.GendocCmd)
