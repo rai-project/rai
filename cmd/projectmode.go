@@ -1,7 +1,7 @@
-// +build !projectMode
+// +build projectMode
 
 package cmd
 
 const (
-	projectMode = True
+	projectMode = true
 )

@@ -3,5 +3,5 @@
 package cmd
 
 const (
-	projectMode = False
+	projectMode = false
 )
