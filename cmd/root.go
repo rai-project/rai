@@ -4,7 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"os"
-"path/filepath"
+	"path/filepath"
+
 	"github.com/Unknwon/com"
 	"github.com/fatih/color"
 	"github.com/rai-project/client"
@@ -52,25 +53,26 @@ var RootCmd = &cobra.Command{
 			opts = append(opts, client.DisableRatelimit())
 		}
 		if buildFilePath != "" {
-      absPath, err := filepath.Abs(buildFilePath)
-      if err != nil {
-        buildFilePath = absPath
-      }
+			absPath, err := filepath.Abs(buildFilePath)
+			if err != nil {
+				buildFilePath = absPath
+			}
 			opts = append(opts, client.BuildFilePath(absPath))
 		}
 
-		if submit != "" {
-			if submit == "m1" {
+		if projectMode && submit != "" {
+			switch submit {
+			case "m1":
 				opts = append(opts, client.SubmissionM1())
-			} else if submit == "m2" {
+			case "m2":
 				opts = append(opts, client.SubmissionM2())
-			} else if submit == "m3" {
+			case "m3":
 				opts = append(opts, client.SubmissionM3())
-			} else if submit == "m4" {
+			case "m4":
 				opts = append(opts, client.SubmissionM4())
-			} else if submit == "final" {
+			case "final":
 				opts = append(opts, client.SubmissionFinal())
-			} else {
+			default:
 				log.Info("custom submission tag: ", submit)
 				opts = append(opts, client.SubmissionCustom(submit))
 			}
@@ -125,9 +127,9 @@ func init() {
 	RootCmd.AddCommand(cmd.BuildTimeCmd)
 
 	cwd, err := os.Getwd()
-  if err == nil {
-    cwd, err = filepath.Abs(cwd)
-  }
+	if err == nil {
+		cwd, err = filepath.Abs(cwd)
+	}
 	if err != nil {
 		cwd = ""
 	}
@@ -141,8 +143,9 @@ func init() {
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
 	RootCmd.PersistentFlags().BoolVar(&isRatelimit, "ratelimit", true, "Toggle debug mode.")
-
-	RootCmd.PersistentFlags().StringVar(&submit, "submit", "", "mark the kind of submission (m2, m3, final)")
+	if projectMode {
+		RootCmd.PersistentFlags().StringVar(&submit, "submit", "", "mark the kind of submission (m2, m3, final)")
+	}
 
 	RootCmd.MarkPersistentFlagRequired("path")
 
