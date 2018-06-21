@@ -34,9 +34,9 @@ script:
 - gox -verbose -parallel=4 -cgo=false -osarch="linux/ppc64 linux/ppc64le windows/386 windows/amd64" -ldflags="$(govvv
   -flags) -s -w -X main.AppSecret=${APP_SECRET} -extldflags \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}"
   .
-- gox -verbose -parallel=4 -cgo=false -osarch="linux/arm64" -ldflags="$(govvv
-  -flags) -s -w -X main.AppSecret=${APP_SECRET} -extldflags \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}"
-  .
+#- gox -verbose -parallel=4 -cgo=false -osarch="linux/arm64" -ldflags="$(govvv
+#  -flags) -s -w -X main.AppSecret=${APP_SECRET} -extldflags \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}"
+#  .
 before_deploy:
 - echo "go-selfupdate generating bindiffs"
 - mkdir -p ${DIST}/${VERSION}/binaries
