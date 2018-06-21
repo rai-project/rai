@@ -50,8 +50,8 @@ before_deploy:
   ${TRAVIS_BUILD_DIR}/VERSION
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/linux-armv7    ${DIST}/${VERSION}/linux-armv7/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
   ${TRAVIS_BUILD_DIR}/VERSION
-- tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/linux-arm64    ${DIST}/${VERSION}/linux-arm64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
-  ${TRAVIS_BUILD_DIR}/VERSION
+#- tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/linux-arm64    ${DIST}/${VERSION}/linux-arm64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+#  ${TRAVIS_BUILD_DIR}/VERSION
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/linux-ppc64    ${DIST}/${VERSION}/linux-ppc64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
   ${TRAVIS_BUILD_DIR}/VERSION
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/linux-ppc64le  ${DIST}/${VERSION}/linux-ppc64le/rai     ${TRAVIS_BUILD_DIR}/LICENSE.TXT
@@ -68,7 +68,7 @@ before_deploy:
 - cp ${DIST}/${VERSION}/binaries/linux-armv5   ${DIST}/latest/linux-armv5.tar.gz
 - cp ${DIST}/${VERSION}/binaries/linux-armv6   ${DIST}/latest/linux-armv6.tar.gz
 - cp ${DIST}/${VERSION}/binaries/linux-armv7   ${DIST}/latest/linux-armv7.tar.gz
-- cp ${DIST}/${VERSION}/binaries/linux-arm64   ${DIST}/latest/linux-arm64.tar.gz
+#- cp ${DIST}/${VERSION}/binaries/linux-arm64   ${DIST}/latest/linux-arm64.tar.gz
 - cp ${DIST}/${VERSION}/binaries/linux-ppc64   ${DIST}/latest/linux-ppc64.tar.gz
 - cp ${DIST}/${VERSION}/binaries/linux-ppc64le ${DIST}/latest/linux-ppc64le.tar.gz
 - cp ${DIST}/${VERSION}/binaries/windows-386   ${DIST}/latest/windows-386.tar.gz
