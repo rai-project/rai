@@ -6,7 +6,7 @@ import (
 
 var (
 	// These fields are populated by govvv
-	Version    = "0.2.40"
+	Version    = "0.2.41"
 	BuildDate  string
 	GitCommit  string
 	GitBranch  string
