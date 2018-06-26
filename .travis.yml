@@ -9,8 +9,14 @@ addons:
     - sourceline: ppa:masterminds/glide
     packages:
     - glide
+before_install:
+  - sudo dpkg --add-architecture i386
+  - sudo apt-get install -qq --force-yes build-essential gcc-multilib g++-multilib > /dev/null
+  # setup dependency management tool
+  - curl -L -s https://github.com/golang/dep/releases/download/v0.4.1/dep-linux-amd64 -o $GOPATH/bin/dep
+  - chmod +x $GOPATH/bin/dep
 install:
-- glide install --force
+- dep ensure -update -v
 - rm -fr vendor/github.com/Sirupsen
 - find vendor -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
 - go get github.com/mjibson/esc
@@ -21,8 +27,10 @@ install:
 - go get github.com/laher/bump/...
 - go get github.com/gordonklaus/ineffassign
 - go get github.com/client9/misspell/cmd/misspell
-# go get -u -v github.com/goreleaser/goreleaser
-- gem install fpm
+- gem install --no-ri --no-rdoc fpm
+- curl -sL https://git.io/goreleaser | bash
+- go get -u github.com/goreleaser/nfpm/...
+- github.com/aktau/github-release
 script:
 - echo "Skip tests..."
 - VERSION=$(cat ./VERSION)
