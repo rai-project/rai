@@ -15,12 +15,14 @@ import (
 	_ "github.com/rai-project/logger/hooks"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+  "strconv"
 )
 
 var (
 	appSecret     string
 	workingDir    string
 	jobQueueName  string
+	benchmarkCount string
 	buildFilePath string
 	isColor       bool
 	isVerbose     bool
@@ -43,13 +45,18 @@ var RootCmd = &cobra.Command{
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
+	  var count int
+	  var err   error
+
+	  count, err = strconv.Atoi(benchmarkCount)
+
 		opts := []client.Option{
 			client.Directory(workingDir),
 			client.Stdout(os.Stdout),
 			client.Stderr(os.Stderr),
 			client.JobQueueName(jobQueueName),
 		}
-		if !isRatelimit {
+		if !isRatelimit || benchmarkCount != "1" {
 			opts = append(opts, client.DisableRatelimit())
 		}
 		if buildFilePath != "" {
@@ -83,29 +90,34 @@ var RootCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
+
 		if err := client.Validate(); err != nil {
-			return err
-		}
-		if err := client.Subscribe(); err != nil {
-			return err
-		}
-		if err := client.Upload(); err != nil {
-			return err
-		}
-		if err := client.Publish(); err != nil {
-			return err
-		}
-		if err := client.Connect(); err != nil {
-			return err
-		}
-		defer client.Disconnect()
-		if err := client.Wait(); err != nil {
-			return err
-		}
-		if err := client.RecordJob(); err != nil {
-			log.WithError(err).Error("job not recorded. If this was a submission, it was not recorded.")
-			return err
-		}
+        return err
+      }
+      if err := client.Subscribe(); err != nil {
+        return err
+      }
+      if err := client.Upload(); err != nil {
+        return err
+      }
+
+      for c := count; c > 0; c-- {
+        if err := client.Publish(); err != nil {
+          return err
+        }
+        if err := client.Connect(); err != nil {
+          return err
+        }
+      }
+      defer client.Disconnect()
+      if err := client.Wait(); err != nil {
+        return err
+      }
+      if err := client.RecordJob(); err != nil {
+        log.WithError(err).Error("job not recorded. If this was a submission, it was not recorded.")
+        return err
+      }
+
 		return nil
 	},
 }
@@ -145,6 +157,7 @@ func init() {
 		"Path to the directory you wish to submit. Defaults to the current working directory.")
 	RootCmd.PersistentFlags().StringVarP(&cwd, "build", "f", "", "Path to the build file. Defaults to `cwd`/rai_build.yml file.")
 	RootCmd.PersistentFlags().StringVarP(&jobQueueName, "queue", "q", "", "Name of the job queue. Infers queue from build file by default.")
+  RootCmd.PersistentFlags().StringVarP(&benchmarkCount, "benchmark", "b", "1", "Count used when benchmarking rai server.")
 	RootCmd.PersistentFlags().StringVarP(&appSecret, "secret", "s", "", "Pass in application secret.")
 	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", true, "Toggle color output.")
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
