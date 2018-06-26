@@ -15,7 +15,7 @@ install:
 - find vendor -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
 - go get github.com/mjibson/esc
 - go get github.com/ahmetb/govvv
-- go get github.com/franciscocpg/gox
+- go get github.com/mitchellh/gox
 - go get github.com/tcnksm/ghr
 - go get github.com/sanbornm/go-selfupdate
 - go get github.com/laher/bump/...
