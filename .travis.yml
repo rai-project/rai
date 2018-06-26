@@ -16,9 +16,6 @@ before_install:
   - curl -L -s https://github.com/golang/dep/releases/download/v0.4.1/dep-linux-amd64 -o $GOPATH/bin/dep
   - chmod +x $GOPATH/bin/dep
 install:
-- dep ensure -update -v
-- rm -fr vendor/github.com/Sirupsen
-- find vendor -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
 - go get github.com/mjibson/esc
 - go get github.com/ahmetb/govvv
 - go get github.com/mitchellh/gox
@@ -30,6 +27,9 @@ install:
 - gem install --no-ri --no-rdoc fpm
 - go get -u github.com/goreleaser/nfpm/...
 - github.com/aktau/github-release
+- dep ensure  -v
+- rm -fr vendor/github.com/Sirupsen
+- find vendor -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
 script:
 - echo "Skip tests..."
 - VERSION=$(cat ./VERSION)
