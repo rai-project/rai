@@ -28,7 +28,6 @@ install:
 - go get github.com/gordonklaus/ineffassign
 - go get github.com/client9/misspell/cmd/misspell
 - gem install --no-ri --no-rdoc fpm
-- curl -sL https://git.io/goreleaser | bash
 - go get -u github.com/goreleaser/nfpm/...
 - github.com/aktau/github-release
 script:
@@ -93,6 +92,13 @@ after_deploy:
 - echo "releasing v${VERSION}..."
 - ghr -t "$GITHUB_TOKEN" -u rai-project -r rai --replace "v${VERSION}" "${DIST}/latest"
 - cd ${TRAVIS_BUILD_DIR}
+deploy:
+- provider: script
+  skip_cleanup: true
+  script: curl -sL https://git.io/goreleaser | bash
+  on:
+    tags: true
+    condition: $TRAVIS_OS_NAME = linux
 deploy:
   provider: s3
   access_key_id: AKIAIAFSJLCCOYB5V3EQ
