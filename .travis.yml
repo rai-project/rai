@@ -26,7 +26,7 @@ install:
 - go get github.com/client9/misspell/cmd/misspell
 - gem install --no-ri --no-rdoc fpm
 - go get -u github.com/goreleaser/nfpm/...
-- github.com/aktau/github-release
+- go get github.com/aktau/github-release
 - dep ensure  -v
 - rm -fr vendor/github.com/Sirupsen
 - find vendor -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
