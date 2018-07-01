@@ -1,0 +1,10 @@
+  version: 0.2
+  image: nvidia/cuda-ppc64le
+  resources:
+    cpu:
+      architecture: ppc64le
+    network: false
+ commands:
+   build:
+     - ls -a
+     - df
