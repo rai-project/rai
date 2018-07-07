@@ -29,7 +29,6 @@ build:
     -s -w
     -extldflags \"-static\"
     -x main.GitState=build
-    -X main.Version={{.Version}}
     -X main.GitCommit={{.Commit}}
     -X main.GitTag={{.Tag}}
     -X main.BuildDate={{.Date}}
