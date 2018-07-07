@@ -28,7 +28,7 @@ build:
   ldflags: >
     -s -w
     -extldflags \"-static\"
-    -x main.GitState=build
+    -X main.GitState=build
     -X main.GitCommit={{.Commit}}
     -X main.GitTag={{.Tag}}
     -X main.BuildDate={{.Date}}
