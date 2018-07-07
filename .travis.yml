@@ -21,6 +21,12 @@ install:
 - gem install --no-ri --no-rdoc fpm
 - go get -u github.com/goreleaser/nfpm/...
 - go get github.com/aktau/github-release
+- go get -d github.com/goreleaser/goreleaser
+- cd $GOPATH/src/github.com/goreleaser/goreleaser
+- dep ensure -vendor-only -v
+- make setup build
+- go install
+- cd ${TRAVIS_BUILD_DIR}
 - dep ensure  -v
 - rm -fr vendor/github.com/Sirupsen
 - find vendor -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
