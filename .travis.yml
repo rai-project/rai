@@ -2,7 +2,7 @@ language: go
 go:
 - '1.10.x'
 dist: trusty
-sudo: true
+sudo: required
 before_install:
   - sudo dpkg --print-foreign-architectures
   - sudo dpkg --add-architecture i386
