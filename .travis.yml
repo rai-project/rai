@@ -41,42 +41,42 @@ before_deploy:
 - mkdir -p ${DIST}/${VERSION}/binaries
 - mkdir -p ${DIST}/latest
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/darwin-386     ${DIST}/${VERSION}/darwin-386/rai        ${TRAVIS_BUILD_DIR}/LICENSE.TXT
-  ${TRAVIS_BUILD_DIR}/VERSION
+  ${TRAVIS_BUILD_DIR}/VERSION || travis_terminate 0
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/darwin-amd64   ${DIST}/${VERSION}/darwin-amd64/rai      ${TRAVIS_BUILD_DIR}/LICENSE.TXT
-  ${TRAVIS_BUILD_DIR}/VERSION
+  ${TRAVIS_BUILD_DIR}/VERSION || travis_terminate 0
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/linux-386      ${DIST}/${VERSION}/linux-386/rai         ${TRAVIS_BUILD_DIR}/LICENSE.TXT
-  ${TRAVIS_BUILD_DIR}/VERSION
+  ${TRAVIS_BUILD_DIR}/VERSION || travis_terminate 0
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/linux-amd64    ${DIST}/${VERSION}/linux-amd64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
-  ${TRAVIS_BUILD_DIR}/VERSION
+  ${TRAVIS_BUILD_DIR}/VERSION || travis_terminate 0
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/linux-armv5    ${DIST}/${VERSION}/linux-armv5/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
-  ${TRAVIS_BUILD_DIR}/VERSION
+  ${TRAVIS_BUILD_DIR}/VERSION || travis_terminate 0
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/linux-armv6    ${DIST}/${VERSION}/linux-armv6/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
-  ${TRAVIS_BUILD_DIR}/VERSION
+  ${TRAVIS_BUILD_DIR}/VERSION || travis_terminate 0 
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/linux-armv7    ${DIST}/${VERSION}/linux-armv7/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
-  ${TRAVIS_BUILD_DIR}/VERSION
+  ${TRAVIS_BUILD_DIR}/VERSION || travis_terminate 0
 #- tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/linux-arm64    ${DIST}/${VERSION}/linux-arm64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
-#  ${TRAVIS_BUILD_DIR}/VERSION
+#  ${TRAVIS_BUILD_DIR}/VERSION || travis_terminate 0
 #- tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/linux-ppc64    ${DIST}/${VERSION}/linux-ppc64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
-#  ${TRAVIS_BUILD_DIR}/VERSION
+#  ${TRAVIS_BUILD_DIR}/VERSION || travis_terminate 0
 #- tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/linux-ppc64le  ${DIST}/${VERSION}/linux-ppc64le/rai     ${TRAVIS_BUILD_DIR}/LICENSE.TXT
-#  ${TRAVIS_BUILD_DIR}/VERSION
+#  ${TRAVIS_BUILD_DIR}/VERSION || travis_terminate 0
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/windows-386    ${DIST}/${VERSION}/windows-386/rai.exe   ${TRAVIS_BUILD_DIR}/LICENSE.TXT
-  ${TRAVIS_BUILD_DIR}/VERSION
+  ${TRAVIS_BUILD_DIR}/VERSION || travis_terminate 0
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/windows-amd64  ${DIST}/${VERSION}/windows-amd64/rai.exe
-  ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION
+  ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION || travis_terminate 0
 - go-selfupdate -o ${DIST}/updates ${DIST}/${VERSION}/binaries/ ${VERSION}
-- cp ${DIST}/${VERSION}/binaries/darwin-386    ${DIST}/latest/darwin-386.tar.gz
-- cp ${DIST}/${VERSION}/binaries/darwin-amd64  ${DIST}/latest/darwin-amd64.tar.gz
-- cp ${DIST}/${VERSION}/binaries/linux-386     ${DIST}/latest/linux-386.tar.gz
-- cp ${DIST}/${VERSION}/binaries/linux-amd64   ${DIST}/latest/linux-amd64.tar.gz
-- cp ${DIST}/${VERSION}/binaries/linux-armv5   ${DIST}/latest/linux-armv5.tar.gz
-- cp ${DIST}/${VERSION}/binaries/linux-armv6   ${DIST}/latest/linux-armv6.tar.gz
-- cp ${DIST}/${VERSION}/binaries/linux-armv7   ${DIST}/latest/linux-armv7.tar.gz
-#- cp ${DIST}/${VERSION}/binaries/linux-arm64   ${DIST}/latest/linux-arm64.tar.gz
-#- cp ${DIST}/${VERSION}/binaries/linux-ppc64   ${DIST}/latest/linux-ppc64.tar.gz
-#- cp ${DIST}/${VERSION}/binaries/linux-ppc64le ${DIST}/latest/linux-ppc64le.tar.gz
-- cp ${DIST}/${VERSION}/binaries/windows-386   ${DIST}/latest/windows-386.tar.gz
-- cp ${DIST}/${VERSION}/binaries/windows-amd64 ${DIST}/latest/windows-amd64.tar.gz
+- cp ${DIST}/${VERSION}/binaries/darwin-386    ${DIST}/latest/darwin-386.tar.gz || travis_terminate 0
+- cp ${DIST}/${VERSION}/binaries/darwin-amd64  ${DIST}/latest/darwin-amd64.tar.gz || travis_terminate 0
+- cp ${DIST}/${VERSION}/binaries/linux-386     ${DIST}/latest/linux-386.tar.gz || travis_terminate 0
+- cp ${DIST}/${VERSION}/binaries/linux-amd64   ${DIST}/latest/linux-amd64.tar.gz || travis_terminate 0
+- cp ${DIST}/${VERSION}/binaries/linux-armv5   ${DIST}/latest/linux-armv5.tar.gz || travis_terminate 0
+- cp ${DIST}/${VERSION}/binaries/linux-armv6   ${DIST}/latest/linux-armv6.tar.gz || travis_terminate 0
+- cp ${DIST}/${VERSION}/binaries/linux-armv7   ${DIST}/latest/linux-armv7.tar.gz || travis_terminate 0
+#- cp ${DIST}/${VERSION}/binaries/linux-arm64   ${DIST}/latest/linux-arm64.tar.gz || travis_terminate 0
+#- cp ${DIST}/${VERSION}/binaries/linux-ppc64   ${DIST}/latest/linux-ppc64.tar.gz || travis_terminate 0
+#- cp ${DIST}/${VERSION}/binaries/linux-ppc64le ${DIST}/latest/linux-ppc64le.tar.gz || travis_terminate 0
+- cp ${DIST}/${VERSION}/binaries/windows-386   ${DIST}/latest/windows-386.tar.gz || travis_terminate 0
+- cp ${DIST}/${VERSION}/binaries/windows-amd64 ${DIST}/latest/windows-amd64.tar.gz || travis_terminate 0
 - rm -fr ${DIST}/${VERSION}/binaries
 - echo "Copying latest directory to ${DIST}/${TRAVIS_COMMIT}"
 - cp -r ${DIST}/latest ${DIST}/${TRAVIS_COMMIT}
