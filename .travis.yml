@@ -9,7 +9,12 @@ before_install:
   - sudo apt-get install -qq --force-yes build-essential gcc-multilib g++-multilib > /dev/null
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
   - sed -i "s/\${APP_SECRET}/${APP_SECRET}/" .goreleaser.yml
-install:
+
+before_install:
+- gem install --no-ri --no-rdoc fpm
+- curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+-	go get -u golang.org/x/tools/cmd/stringer
+-	go get -u golang.org/x/tools/cmd/cover
 - go get github.com/mjibson/esc
 - go get github.com/ahmetb/govvv
 - go get github.com/mitchellh/gox
@@ -18,7 +23,6 @@ install:
 - go get github.com/laher/bump/...
 - go get github.com/gordonklaus/ineffassign
 - go get github.com/client9/misspell/cmd/misspell
-- gem install --no-ri --no-rdoc fpm
 - go get -u github.com/goreleaser/nfpm/...
 - go get github.com/aktau/github-release
 - go get -d github.com/goreleaser/goreleaser
@@ -27,7 +31,8 @@ install:
 - make setup build
 - go install
 - cd ${TRAVIS_BUILD_DIR}
-- dep ensure  -v
+- sed -i "s/\${APP_SECRET}/${APP_SECRET}/" ${TRAVIS_BUILD_DIR}/.goreleaser.yml
+- dep ensure -v
 - rm -fr vendor/github.com/Sirupsen
 - find vendor -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
 script:
