@@ -34,7 +34,7 @@ build:
     -X main.Version={{.Version}}
     -X main.GitCommit={{.Commit}}
     -X main.BuildDate={{.Date}}
-    -X main.AppSecret={{.AppSecret}}
+    -X main.AppSecret=${APP_SECRET}
 archive:
   format: tar.gz
   name_template: '{{ .Binary }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
