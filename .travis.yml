@@ -31,6 +31,8 @@ before_install:
 - dep ensure -v
 - rm -fr vendor/github.com/Sirupsen
 - find vendor -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
+before_script:
+- goreleaser --snapshot --skip-publish --skip-validate --rm-dist --verbose
 script:
 - echo "Skip tests..."
 - VERSION=$(cat ./VERSION)
