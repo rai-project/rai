@@ -4,15 +4,11 @@ go:
 dist: trusty
 sudo: required
 before_install:
-  - sudo dpkg --print-foreign-architectures
-  - sudo dpkg --add-architecture i386
-  - sudo apt-get install -qq --force-yes build-essential gcc-multilib g++-multilib > /dev/null
-  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-  - sed -i "s/\${APP_SECRET}/${APP_SECRET}/" .goreleaser.yml
-
-before_install:
-- gem install --no-ri --no-rdoc fpm
+- sudo dpkg --print-foreign-architectures
+- sudo dpkg --add-architecture i386
+- sudo apt-get install -qq --force-yes build-essential gcc-multilib g++-multilib > /dev/null
 - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+- gem install --no-ri --no-rdoc fpm
 -	go get -u golang.org/x/tools/cmd/stringer
 -	go get -u golang.org/x/tools/cmd/cover
 - go get github.com/mjibson/esc
