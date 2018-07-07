@@ -3,18 +3,10 @@ go:
 - '1.10.x'
 dist: trusty
 sudo: false
-addons:
-  apt:
-    sources:
-    - sourceline: ppa:masterminds/glide
-    packages:
-    - glide
 before_install:
   - sudo dpkg --add-architecture i386
   - sudo apt-get install -qq --force-yes build-essential gcc-multilib g++-multilib > /dev/null
-  # setup dependency management tool
-  - curl -L -s https://github.com/golang/dep/releases/download/v0.4.1/dep-linux-amd64 -o $GOPATH/bin/dep
-  - chmod +x $GOPATH/bin/dep
+  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 install:
 - go get github.com/mjibson/esc
 - go get github.com/ahmetb/govvv
