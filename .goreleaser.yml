@@ -25,14 +25,13 @@ build:
     # post: ./script.sh
   env:
     - CGO_ENABLED=0
-  flags: >
-    -extldflags \"-static\""
   ldflags: >
     -s -w
-    -x main.GitBranch={{.Tag}}
+    -extldflags \"-static\"
     -x main.GitState=build
     -X main.Version={{.Version}}
     -X main.GitCommit={{.Commit}}
+    -X main.GitTag={{.Tag}}
     -X main.BuildDate={{.Date}}
     -X main.AppSecret=${APP_SECRET}
 archive:
