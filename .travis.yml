@@ -9,8 +9,8 @@ before_install:
 - sudo apt-get install -qq --force-yes build-essential gcc-multilib g++-multilib > /dev/null
 - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 - gem install --no-ri --no-rdoc fpm
--	go get -u golang.org/x/tools/cmd/stringer
--	go get -u golang.org/x/tools/cmd/cover
+- go get -u golang.org/x/tools/cmd/stringer
+- go get -u golang.org/x/tools/cmd/cover
 - go get github.com/mjibson/esc
 - go get github.com/ahmetb/govvv
 - go get github.com/mitchellh/gox
