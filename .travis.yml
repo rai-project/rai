@@ -2,8 +2,9 @@ language: go
 go:
 - '1.10.x'
 dist: trusty
-sudo: false
+sudo: true
 before_install:
+  - sudo dpkg --print-foreign-architectures
   - sudo dpkg --add-architecture i386
   - sudo apt-get install -qq --force-yes build-essential gcc-multilib g++-multilib > /dev/null
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
