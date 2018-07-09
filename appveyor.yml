@@ -8,9 +8,7 @@ environment:
   GOPATH: C:\gopath
   matrix:
     - environment:
-      GOVERSION: 1.7.x
-    - environment:
-      GOVERSION: 1.8
+      GOVERSION: 1.10.x
 
 platform:
 - x64
@@ -26,11 +24,11 @@ install:
 - set Path=c:\go\bin;c:\gopath\bin;%Path%
 - go version
 - go env
-- go get github.com/Masterminds/glide
+- go get -u github.com/golang/dep/cmd/dep
 
 
 test_script:
-- C:\gopath\bin\glide install
+- C:\gopath\bin\dep ensure -v
 - go build
 
 build: false
