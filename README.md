@@ -1,4 +1,5 @@
-# RAI Client [![Build Status](https://travis-ci.org/rai-project/rai.svg?branch=master)](https://travis-ci.org/rai-project/rai)
+# RAI Client [![Travis Build Status](https://travis-ci.org/rai-project/rai.svg?branch=master)](https://travis-ci.org/rai-project/rai) 
+[![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/h6cmmpaejpo4at8m?svg=true)](https://ci.appveyor.com/project/abduld/rai)
 
 > The RAI client is an executable downloaded by the students and runs on the students' machines.
 > The executable requires no library dependencies and works on all the main operating systems and CPU architectures.
