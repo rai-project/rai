@@ -210,7 +210,7 @@ The password can be encrypted using the `rai encrypt` command.
 
 ## CUDA Profiling
 
-Profiling can be performed using `nvprof`. Place the following build commands in your `rai-build.yml` file
+Profiling can be performed using `nvprof`. Place the following build commands in your `rai_build.yml` file
 
 ```yaml
     - >-
