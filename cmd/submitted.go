@@ -95,5 +95,6 @@ func init() {
 			return nil
 		},
 	}
+	submittedCmd.MarkFlagRequired("path")
 	RootCmd.AddCommand(submittedCmd)
 }
