@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/rai-project/auth/provider"
 	"github.com/spf13/cobra"
@@ -28,22 +29,19 @@ by the rai system administrator usually through an email.`,
 		var lines []string
 		for scn.Scan() {
 			line := scn.Text()
-			if len(lines) > 1 && len(line) == 1 {
-				if line[0] == '\n' {
-					break
-				}
-			}
-			if len(line) == 1 && line[0] == '\n' {
+			if len(lines) == 0 && strings.TrimSpace(line) == "" {
 				continue
+			}
+			if len(lines) > 1 && strings.TrimSpace(line) == "" {
+				break
 			}
 			lines = append(lines, line)
 		}
-		if len(lines) > 0 {
+		profileContent := strings.Join(lines, "\n")
+		if len(profileContent) > 0 {
 			fmt.Println()
-			fmt.Println("Result:")
-			for _, line := range lines {
-				fmt.Println(line)
-			}
+			fmt.Println("Profile:")
+			fmt.Println(profileContent)
 			fmt.Println()
 		}
 
