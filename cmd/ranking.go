@@ -38,15 +38,12 @@ func max(a, b int) int {
 	return b
 }
 
-// rankingCmd represents the ranking command
-var rankingCmd = &cobra.Command{}
-
 func init() {
 	if !projectMode {
 		return
 	}
 	// rankingCmd represents the ranking command
-	rankingCmd = &cobra.Command{
+	rankingCmd := &cobra.Command{
 		Use:   "ranking",
 		Short: "View anonymous rankings.",
 		Long:  `View anonymized convolution performance. Only the fastest result for each team is reported.`,

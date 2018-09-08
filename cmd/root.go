@@ -151,7 +151,7 @@ func init() {
 		RootCmd.PersistentFlags().StringVar(&submit, "submit", "", "mark the kind of submission (m2, m3, final)")
 	}
 
-	RootCmd.MarkPersistentFlagRequired("path")
+	RootCmd.MarkFlagRequired("path")
 
 	// mark secret flag hidden
 	RootCmd.PersistentFlags().MarkHidden("secret")
