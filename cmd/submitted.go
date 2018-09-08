@@ -18,7 +18,7 @@ func init() {
 	if !projectMode {
 		return
 	}
-	submittedCmd = &cobra.Command{
+	submittedCmd := &cobra.Command{
 		Use:   "submitted",
 		Short: "View history of submissions.",
 		Long:  `View history of team submissions associated with user`,
