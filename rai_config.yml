@@ -39,9 +39,7 @@ pubsub:
 logger:
   level: debug
   hooks:
-    - kenisis
-    - syslog
-    - logz
-logz:
-  token: OmLzhrMXbNtcInvRARMWyibyHHLLjFZi
-
+    - graylog
+graylog:
+  address: 34.199.189.82
+  port: 12201

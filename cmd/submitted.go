@@ -14,9 +14,6 @@ import (
 	//"gopkg.in/yaml.v2"
 )
 
-// rankingCmd represents the ranking command
-var submittedCmd = &cobra.Command{}
-
 func init() {
 	if !projectMode {
 		return
@@ -25,6 +22,13 @@ func init() {
 		Use:   "submitted",
 		Short: "View history of submissions.",
 		Long:  `View history of team submissions associated with user`,
+		PreRunE: func(cmd *cobra.Command, args []string) error {
+			if err := checkWorkingDir(); err != nil {
+				return err
+			}
+
+			return nil
+		},
 		RunE: func(cmd *cobra.Command, args []string) error {
 
 			prof, err := provider.New()
