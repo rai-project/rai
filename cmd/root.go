@@ -109,21 +109,21 @@ var RootCmd = &cobra.Command{
 
 func Execute() {
 	if err := RootCmd.Execute(); err != nil {
-		os.Exit(-1)
+		os.Exit(1)
 	}
+	os.Exit(0)
 }
 
-var VersionCmd = cmd.VersionCmd
-
 func init() {
-	VersionCmd.Run = func(c *cobra.Command, args []string) {
+	versionCmd := cmd.VersionCmd
+	versionCmd.Run = func(c *cobra.Command, args []string) {
 		cmd.VersionCmd.Run(c, args)
 		fmt.Println("ProjectMode: ", projectMode)
 	}
 
 	cobra.OnInitialize(initConfig, initColor)
 
-	RootCmd.AddCommand(VersionCmd)
+	RootCmd.AddCommand(versionCmd)
 	RootCmd.AddCommand(cmd.LicenseCmd)
 	RootCmd.AddCommand(cmd.EnvCmd)
 	RootCmd.AddCommand(cmd.GendocCmd)
@@ -156,7 +156,7 @@ func init() {
 	// mark secret flag hidden
 	RootCmd.PersistentFlags().MarkHidden("secret")
 	RootCmd.PersistentFlags().MarkHidden("ratelimit")
-	RootCmd.PersistentFlags().MarkHidden("queue")
+	// RootCmd.PersistentFlags().MarkHidden("queue")
 
 	// viper.BindPFlag("app.secret", RootCmd.PersistentFlags().Lookup("secret"))
 	viper.BindPFlag("app.debug", RootCmd.PersistentFlags().Lookup("debug"))

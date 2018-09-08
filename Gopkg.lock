@@ -10,6 +10,14 @@
   version = "v0.24.0"
 
 [[projects]]
+  branch = "master"
+  digest = "1:eef8210380ea673503a5896d00df18c6a39cd8602213a44007976d6bf35b8ebc"
+  name = "github.com/AlecAivazis/survey"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "f30c5d1830c892f533140f29a1de89141dc217f5"
+
+[[projects]]
   digest = "1:ee907e9ead8d8b090f1e2c07967ff1ec7ed20687c2ffd270d1c6c1b71dff5496"
   name = "github.com/AlekSi/pointer"
   packages = ["."]
@@ -288,6 +296,7 @@
   revision = "c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9"
   version = "v1.4.7"
 
+
 [[projects]]
   digest = "1:fb46255681497314debedde38b64be32a75bae50bad107586c22f1662bf2d352"
   name = "github.com/go-ini/ini"
@@ -453,6 +462,14 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:400e113a367b511b9b09ca642ee11d9885485a93838526d697033af334a2fdde"
+  name = "github.com/kballard/go-shellquote"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "95032a82bc518f77982ea72343cc1ade730072f0"
+
+[[projects]]
+  branch = "master"
   digest = "1:b1bd1209281da2ed86d38ae264a12f4cdd746626ad6e8e7812ca5b3387edf1b5"
   name = "github.com/knq/jwt"
   packages = [
@@ -530,6 +547,14 @@
   pruneopts = "UT"
   revision = "9e777a8366cce605130a531d2cd6363d07ad7317"
   version = "v0.0.2"
+
+[[projects]]
+  branch = "master"
+  digest = "1:2b32af4d2a529083275afc192d1067d8126b578c7a9613b26600e4df9c735155"
+  name = "github.com/mgutz/ansi"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "9520e82c474b0a04dd04f8a40959027271bab992"
 
 [[projects]]
   branch = "master"
@@ -1116,6 +1141,17 @@
   version = "v1.1.0"
 
 [[projects]]
+  digest = "1:b0e2a9ee778a41537e07b6ee0e569c32f73d68832d610b35d5aeb84eed73f4ef"
+  name = "gopkg.in/AlecAivazis/survey.v1"
+  packages = [
+    "core",
+    "terminal",
+  ]
+  pruneopts = "UT"
+  revision = "f30c5d1830c892f533140f29a1de89141dc217f5"
+  version = "v1.6.2"
+
+[[projects]]
   digest = "1:d8cd4f14785b5ae65100524a29ebba8b9dfc5401020fe7504f80b438bb8e8e0d"
   name = "gopkg.in/cheggaaa/pb.v1"
   packages = ["."]
@@ -1218,12 +1254,14 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/AlecAivazis/survey",
     "github.com/GeertJohan/go-sourcepath",
     "github.com/Unknwon/com",
     "github.com/fatih/color",
     "github.com/mitchellh/go-homedir",
     "github.com/olekukonko/tablewriter",
     "github.com/pkg/errors",
+    "github.com/rai-project/auth",
     "github.com/rai-project/auth/provider",
     "github.com/rai-project/client",
     "github.com/rai-project/cmd",
