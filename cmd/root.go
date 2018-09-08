@@ -1,12 +1,10 @@
 package cmd
 
 import (
-	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
 
-	"github.com/Unknwon/com"
 	"github.com/fatih/color"
 	"github.com/rai-project/client"
 	"github.com/rai-project/cmd"
@@ -34,12 +32,11 @@ var RootCmd = &cobra.Command{
 	Use:          "rai",
 	Short:        "The client is used to submit jobs to the server.",
 	SilenceUsage: true,
-	PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
-		if workingDir == "" || !com.IsDir(workingDir) {
-			fmt.Printf("Error:: the directory specified = %s was not found. "+
-				"Use the --path option to specify the directory you want to build.\n", workingDir)
-			return errors.New("Invalid directory")
+	PreRunE: func(cmd *cobra.Command, args []string) error {
+		if err := checkWorkingDir(); err != nil {
+			return err
 		}
+
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
