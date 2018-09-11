@@ -1,27 +1,28 @@
 # Introduction
 
 In a typical programming scenario, different users will need to program for different hardware systems (including GPUs) and
-will have different software package dependent environment. A typical solution would be for system admins to create SSH
-accounts for users to different hardware servers (or create different VMs for different users), and then install 
+will have different software package dependencies. A typical solution would be for system admins to create SSH
+accounts for users in different hardware servers and/or create different VMs for different users, and then install 
 different software packages for different users as required. This practice creates a number of issues, such as the following:
+
 
 - A lot of workload on system Admins who need to maintain those accounts and VMs. This is particularly problematic if
 the number of users are large - think of an on-line education scenario where there can be thousands of students doing
 the programming work, each with a slightly different programming environment (say for their final projects).
 - A hard-to-maintain software dependency environment, especially when users share the same server or VM. System Admins 
 have to either install the union of all software packages for all users (which sometimes is impossible because of the
-potential conflict software version dependency), or maintain a separate virtual installation environment for
-each users.
-- A low utilization of precious system resources - this is especially bad when users sometimes require an exclusive access
+potentially conflicting software version dependencies), or maintain a separate virtual installation environment for
+each user.
+- Inefficient utilization of precious system resources - this is especially bad when users sometimes require an exclusive access
 of the resources (such as GPU) whenever the users need to run their jobs. A common and easy practice is for System Admins
-to allocate those resources to users with exclusive access privilege for a certain period of time (even if the users do
-not necessarily need to run the jobs all the time).
+to allocate those resources to users with exclusive access privilage for a certain period of time (even if the users do
+not necessarily need to run their jobs all the time within the period).
 - A bad user experience for users - as users will have to constantly contact System Admins to make their software installment
 requests and wait for (or waste) some time to get their issues resolved by System Admins. Or users will have to
 install software packages in their own local environment - which most users may not be comfortable doing without System Admin
 like training - not to mentioning the issues of wasting a lot of local storage for installing similar software packages among users.
 
-RAI is a secure and distributed system designed to address some of the issues with easy-of-use in mind. RAI
+RAI is a secure and distributed system designed to address some of the issues with ease-of-use in mind. RAI
 allows a large group of users to do programming work (including GPU programming) 
 for different hardware and software systems in a user-friendly fashion - easy for both users and for system administrators
 to support such activities.
