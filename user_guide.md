@@ -6,15 +6,15 @@ accounts for users to different hardware servers (or create different VMs for di
 different software packages for different users as required. This practice creates a number of issues, such as the following:
 
 - A lot of workload on system Admins who need to maintain those accounts and VMs. This is particularly problematic if
-the number of users are large - think of an on-line education secnario where there can be thousands of students doing
-the programming work, each with a slightly different programming enviroment (say for their final projects).
+the number of users are large - think of an on-line education scenario where there can be thousands of students doing
+the programming work, each with a slightly different programming environment (say for their final projects).
 - A hard-to-maintain software dependency environment, especially when users share the same server or VM. System Admins 
 have to either install the union of all software packages for all users (which sometimes is impossible because of the
 potential conflict software version dependency), or maintain a separate virtual installation environment for
 each users.
 - A low utilization of precious system resources - this is especially bad when users sometimes require an exclusive access
 of the resources (such as GPU) whenever the users need to run their jobs. A common and easy practice is for System Admins
-to allocate those resources to users with exclusive access privilage for a certain period of time (even if the users do
+to allocate those resources to users with exclusive access privilege for a certain period of time (even if the users do
 not necessarily need to run the jobs all the time).
 - A bad user experience for users - as users will have to constantly contact System Admins to make their software installment
 requests and wait for (or waste) some time to get their issues resolved by System Admins. Or users will have to
@@ -23,7 +23,7 @@ like training - not to mentioning the issues of wasting a lot of local storage f
 
 RAI is a secure and distributed system designed to address some of the issues with easy-of-use in mind. RAI
 allows a large group of users to do programming work (including GPU programming) 
-for different hardware and software systems in a user-friendly fashion - easy for both users and for system adminstrators
+for different hardware and software systems in a user-friendly fashion - easy for both users and for system administrators
 to support such activities.
 
 
@@ -31,12 +31,12 @@ to support such activities.
 # How to Setup RAI - a User's Perspective
 
 > As this is a User Guide, we only discuss the steps as needed from a user perspective. People interested in setting up
-> the RAI system should refer to the more comprehesnive [RAID service](https://github.com/rai-project/raid) and 
+> the RAI system should refer to the more comprehensive [RAID service](https://github.com/rai-project/raid) and 
 > [RAI client](https://github.com/rai-project/rai) development guides. In the following, we assume the RAID service
-has already been setup on the desired hardware systems (such as POWER 8, POWER 9, X86/AMD etc with or wihtou GPUs) 
+has already been setup on the desired hardware systems (such as POWER 8, POWER 9, X86/AMD etc with or without GPUs) 
 by a RAI System Admin.
 
-There are only two simple steps to setup a user's enviornment to use RAI. 
+There are only two simple steps to setup a user's environment to use RAI. 
 
 1.  Download a required RAI client binary (without any dependency) that is specific to the user's local machine.
 
@@ -90,8 +90,8 @@ profile:
 There are three simple steps involved to user RAI.
 
 1. Create a new project directory in the user's local machine for each programming project, including the source code & the data.
-Users can edit the program locally for as long as they like. When writting the programs, the user should presume that he/she
-is programming against a specific programming enviornment that can be described by a docker image. We will discuss more details
+Users can edit the program locally for as long as they like. When writing the programs, the user should presume that he/she
+is programming against a specific programming environment that can be described by a docker image. We will discuss more details
 on this later.
 
 2. Create a special `makefile`-like configuration file for RAI, which we call **Project Build Specification**
@@ -104,7 +104,7 @@ file and has the following structure.
 rai:
   version: 0.2 # this is required
   image: nimbix/ubuntu-cuda-ppc64le:latest # nimbix/ubuntu-cuda-ppc64le:latest is a docker image
-                                           # Users can specify any docker image found on dockerhub
+                                           # Users can specify any docker image found on Docker Hub
 resources:
   cpu:
     architecture: ppc64le
@@ -167,7 +167,7 @@ where `rai_queue_name` is the specified queue name from the RAI System Admin.
 > On Windows, it might be useful to disable the colored output. You can do that by using the `-c=false` option
 
 The user should see in his/her local machine's screen whatever messages / information he/she would normally see had he/she been
-running the compilation steps as specified in `rai_build.yml` on the desired hardware system. In this examplar case, the 
+running the compilation steps as specified in `rai_build.yml` on the desired hardware system. In this example, the 
 system is a POWER system (`architecture: ppc64le`) running Ubuntu with Cuda (`nimbix/ubuntu-cuda-ppc64le:latest`).
 One (`count: 1`) PASCAL GPU (`architecture: pascal`) is needed and the Networking is disabled (`network: false`)
 on the execution server.
@@ -239,7 +239,7 @@ their project), they can do so in two ways.
 that docker image name in the `rai_build.yml` file (for example,  `image: nimbix/ubuntu-cuda-ppc64le:latest`).
 
 2. Create a docker image by themselves. This sometimes may create a problem if users do not have
-access to a deseired system with docker installed (such as a POWER server). Fortunately, RAI has
+access to a desired system with docker installed (such as a POWER server). Fortunately, RAI has
 also provided a solution for that. Interested users should check out the section of 
 [Building Docker Images](https://github.com/rai-project/rai#building-docker-images).
 from the original RAI client document.
