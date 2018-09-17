@@ -9,6 +9,7 @@ different software packages for different users as required. This practice creat
 - A lot of workload on system Admins who need to maintain those accounts and VMs. This is particularly problematic if
 the number of users are large - think of an on-line education scenario where there can be thousands of students doing
 the programming work, each with a slightly different programming environment (say for their final projects).
+- System security issues, especially considering of sharing system resources that sit behind a firewall. Sharing systems behind a firewall with external people is particularly problematic. System Admins either have to provide VPN access to these external people (who may not necessarily have the privilage to access the internal network otherwise) or setup some special zones for these shared system resources for this particular purpose. Either way causes a significant security concern (and not to mention the extra workloads on System Admins).
 - A hard-to-maintain software dependency environment, especially when users share the same server or VM. System Admins 
 have to either install the union of all software packages for all users (which sometimes is impossible because of the
 potentially conflicting software version dependencies), or maintain a separate virtual installation environment for
