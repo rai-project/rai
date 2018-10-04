@@ -1,13 +1,14 @@
 package cmd
 
 import (
+	"github.com/k0kubun/pp"
+	"fmt"
 	"os"
 	"path/filepath"
 	"sync"
 
 	"github.com/Jeffail/tunny"
 	"github.com/rai-project/client"
-	log "github.com/rai-project/logger"
 	_ "github.com/rai-project/logger/hooks"
 	"github.com/spf13/cobra"
 	"gopkg.in/cheggaaa/pb.v1"
@@ -56,43 +57,50 @@ var benchCmd = &cobra.Command{
 		defer progress.FinishPrint("finished benchmarking")
 
 		var wg sync.WaitGroup
-		runClient := func() error {
+
+		runClient := func() {
 			defer wg.Done()
-			for ii := 0; ii < iterationCount; ii++ {
-				wg.Add(1)
-				go func() {
-					defer wg.Done()
-					if err := client.Validate(); err != nil {
-						return err
-					}
-					if err := client.Subscribe(); err != nil {
-						return err
-					}
-					if err := client.Upload(); err != nil {
-						return err
-					}
-					if err := client.Publish(); err != nil {
-						return err
-					}
-					if err := client.Connect(); err != nil {
-						return err
-					}
-					defer client.Disconnect()
-					if err := client.Wait(); err != nil {
-						return err
-					}
-					if err := client.RecordJob(); err != nil {
-						log.WithError(err).Error("job not recorded. If this was a submission, it was not recorded.")
-						return err
-					}
-				}()
-			}
-			return nil
+			wg.Add(1)
+			go func() {
+				defer wg.Done()
+				if err := client.Validate(); err != nil {
+				return nil
+				}
+				if err := client.Subscribe(); err != nil {
+          return nil
+				}
+				if err := client.Upload(); err != nil {
+          return nil
+				}
+				if err := client.Publish(); err != nil {
+				return nil
+				}
+				if err := client.Connect(); err != nil {
+				return nil
+				}
+				defer client.Disconnect()
+				if err := client.Wait(); err != nil {
+				return nil
+				}
+				if err := client.RecordJob(); err != nil {
+				return nil
+				}
+      }()
 		}
 
-		execPool := tunny.NewFunc(concurrentCount, runClient)
-		defer execPool.Close()
-		execPool.Process()
+		execPool := tunny.NewFunc(concurrencyCount, runClient)
+    defer execPool.Close()
+
+    for ii := 0; ii < iterationCount; ii++ {
+      wg.Add(1)
+      go func() {
+        execPool.Process()
+      }
+    }
+
+    wg.Wait()
+
+    pp.Println("done")
 
 		return nil
 	},
