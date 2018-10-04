@@ -1,11 +1,11 @@
 package cmd
 
 import (
-	"github.com/k0kubun/pp"
-	"fmt"
 	"os"
 	"path/filepath"
 	"sync"
+
+	"github.com/k0kubun/pp"
 
 	"github.com/Jeffail/tunny"
 	"github.com/rai-project/client"
@@ -58,49 +58,50 @@ var benchCmd = &cobra.Command{
 
 		var wg sync.WaitGroup
 
-		runClient := func() {
+		runClient := func(arg interface{}) interface{} {
 			defer wg.Done()
 			wg.Add(1)
 			go func() {
 				defer wg.Done()
 				if err := client.Validate(); err != nil {
-				return nil
+					return
 				}
 				if err := client.Subscribe(); err != nil {
-          return nil
+					return
 				}
 				if err := client.Upload(); err != nil {
-          return nil
+					return
 				}
 				if err := client.Publish(); err != nil {
-				return nil
+					return
 				}
 				if err := client.Connect(); err != nil {
-				return nil
+					return
 				}
 				defer client.Disconnect()
 				if err := client.Wait(); err != nil {
-				return nil
+					return
 				}
 				if err := client.RecordJob(); err != nil {
-				return nil
+					return
 				}
-      }()
+			}()
+			return nil
 		}
 
 		execPool := tunny.NewFunc(concurrencyCount, runClient)
-    defer execPool.Close()
+		defer execPool.Close()
 
-    for ii := 0; ii < iterationCount; ii++ {
-      wg.Add(1)
-      go func() {
-        execPool.Process()
-      }
-    }
+		for ii := 0; ii < iterationCount; ii++ {
+			wg.Add(1)
+			go func() {
+				execPool.Process(nil)
+			}()
+		}
 
-    wg.Wait()
+		wg.Wait()
 
-    pp.Println("done")
+		pp.Println("done")
 
 		return nil
 	},
