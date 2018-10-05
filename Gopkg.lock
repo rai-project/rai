@@ -702,11 +702,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:3724773de1829d27609baabdbfc68846f1a1ebfac5e869a822c2cb734e967783"
+  digest = "1:f60b93a5a1a969f9cd7eb1dd5446de361ccca1ffd80eba18010d1947a8e7e7c0"
   name = "github.com/rai-project/client"
   packages = ["."]
   pruneopts = "UT"
-  revision = "70e050c6f21a532f352a69cf28ed4798aadd6f96"
+  revision = "a56d9506bd6f237098efe9a781422f053b40c794"
 
 [[projects]]
   branch = "master"
@@ -1243,7 +1243,6 @@
     "github.com/Jeffail/tunny",
     "github.com/Unknwon/com",
     "github.com/fatih/color",
-    "github.com/k0kubun/pp",
     "github.com/mitchellh/go-homedir",
     "github.com/olekukonko/tablewriter",
     "github.com/pkg/errors",
