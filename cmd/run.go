@@ -9,6 +9,10 @@ import (
 )
 
 func newClient(extraOpts ...client.Option) (*client.Client, error) {
+	if wd, err := filepath.Abs(workingDir); err == nil {
+		workingDir = sanitize(wd)
+	}
+
 	opts := []client.Option{
 		client.Directory(workingDir),
 		client.Stdout(os.Stdout),
