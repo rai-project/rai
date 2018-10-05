@@ -8,4 +8,4 @@ commands:
   build_image:
     image_name: sample/cuda_ppc64le:runtime-9.2
     dockerfile: "./Dockerfile"
-    # no_cache: true
+    no_cache: true
