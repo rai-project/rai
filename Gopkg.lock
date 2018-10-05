@@ -702,11 +702,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:f60b93a5a1a969f9cd7eb1dd5446de361ccca1ffd80eba18010d1947a8e7e7c0"
+  digest = "1:e86bf04e112074886fdadbed06621320e910f7ec8f9512727df17c4b2dc4d454"
   name = "github.com/rai-project/client"
   packages = ["."]
   pruneopts = "UT"
-  revision = "a56d9506bd6f237098efe9a781422f053b40c794"
+  revision = "965c6072ad9cf5a2ebe0e5029a0f3c3f401c5dc8"
 
 [[projects]]
   branch = "master"
@@ -811,11 +811,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:ab6982c798232f720fe0fce48de2206acb49a73b822b88079802b156efc7cab5"
+  digest = "1:71ee6e92ef6bc5e4484cc035400aa4c9daa95115457a6736c125d656cd0345ee"
   name = "github.com/rai-project/ratelimit"
   packages = ["."]
   pruneopts = "UT"
-  revision = "47d66b9cc350896963ee35c324a364fcac8f89db"
+  revision = "9c6239956f7a758c22c69ea41b0c20c3df5b5e05"
 
 [[projects]]
   branch = "master"
