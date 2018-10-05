@@ -225,6 +225,15 @@ You could change the input and test datasets. This will output two files `timeli
 
 _NOTE:_ `nvvp` will only show performance metrics for GPU invocations, so it may not show any analysis when you only have serial code.
 
+## Benchmark
+
+```
+export GOTRACEBACK=all
+go build -tags=bench
+./rai bench --concurrency_count=10 --iteration_count=100 -s <<SECRET>> -p ./_fixtures/cuda_runtime |& panicparse
+```
+
+
 ## Reporting Issues
 
 Please use the [Github issue manager] to report any issues or suggestions.

@@ -8,7 +8,7 @@ import (
 	log "github.com/rai-project/logger"
 )
 
-func newClient() (*client.Client, error) {
+func newClient(extraOpts ...client.Option) (*client.Client, error) {
 	opts := []client.Option{
 		client.Directory(workingDir),
 		client.Stdout(os.Stdout),
@@ -18,6 +18,7 @@ func newClient() (*client.Client, error) {
 	if !isRatelimit {
 		opts = append(opts, client.DisableRatelimit())
 	}
+
 	if buildFilePath != "" {
 		absPath, err := filepath.Abs(buildFilePath)
 		if err != nil {
@@ -43,6 +44,8 @@ func newClient() (*client.Client, error) {
 			opts = append(opts, client.SubmissionCustom(submit))
 		}
 	}
+
+	opts = append(opts, extraOpts...)
 
 	return client.New(opts...)
 }

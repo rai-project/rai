@@ -5,9 +5,8 @@ package cmd
 import (
 	"sync"
 
-	"github.com/k0kubun/pp"
-
 	"github.com/Jeffail/tunny"
+	"github.com/rai-project/client"
 	_ "github.com/rai-project/logger/hooks"
 	"github.com/spf13/cobra"
 	"gopkg.in/cheggaaa/pb.v1"
@@ -20,8 +19,8 @@ var (
 
 func init() {
 	RootCmd.AddCommand(benchCmd)
-	benchCmd.PersistentFlags().IntVar(&iterationCount, "iteration_count", 100, "Number of iterations.")
-	benchCmd.PersistentFlags().IntVar(&concurrencyCount, "concurrency_count", 10, "Number of concurrent runs")
+	benchCmd.PersistentFlags().IntVar(&iterationCount, "iteration_count", 1000, "Number of iterations.")
+	benchCmd.PersistentFlags().IntVar(&concurrencyCount, "concurrency_count", 100, "Number of concurrent runs")
 }
 
 // benchmark the server
@@ -30,7 +29,10 @@ var benchCmd = &cobra.Command{
 	Short:        "Bench",
 	SilenceUsage: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		client, err := newClient()
+		client, err := newClient(
+			client.Stdout(nil),
+			client.Stderr(nil),
+		)
 		if err != nil {
 			return err
 		}
@@ -42,11 +44,8 @@ var benchCmd = &cobra.Command{
 
 		runClient := func(arg interface{}) interface{} {
 			defer wg.Done()
-			wg.Add(1)
-			go func() {
-				defer wg.Done()
-				runClient(client)
-			}()
+			defer progress.Increment()
+			runClient(client)
 			return nil
 		}
 
@@ -55,14 +54,10 @@ var benchCmd = &cobra.Command{
 
 		for ii := 0; ii < iterationCount; ii++ {
 			wg.Add(1)
-			go func() {
-				execPool.Process(nil)
-			}()
+			go execPool.Process(nil)
 		}
 
 		wg.Wait()
-
-		pp.Println("done")
 
 		return nil
 	},
