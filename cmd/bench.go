@@ -29,13 +29,6 @@ var benchCmd = &cobra.Command{
 	Short:        "Bench",
 	SilenceUsage: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		client, err := newClient(
-			client.Stdout(nil),
-			client.Stderr(nil),
-		)
-		if err != nil {
-			return err
-		}
 
 		progress := pb.StartNew(iterationCount)
 		defer progress.FinishPrint("finished benchmarking")
@@ -45,6 +38,16 @@ var benchCmd = &cobra.Command{
 		runClient := func(arg interface{}) interface{} {
 			defer wg.Done()
 			defer progress.Increment()
+			client, err := newClient(
+				client.Stdout(nil),
+				client.Stderr(nil),
+				client.DisableRatelimit(),
+			)
+			if err != nil {
+				return err
+			}
+			defer client.Disconnect()
+
 			runClient(client)
 			return nil
 		}

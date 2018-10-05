@@ -66,7 +66,6 @@ func runClient(client *client.Client) error {
 	if err := client.Connect(); err != nil {
 		return err
 	}
-	defer client.Disconnect()
 	if err := client.Wait(); err != nil {
 		return err
 	}
