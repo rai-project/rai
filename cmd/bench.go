@@ -1,3 +1,5 @@
+// +build bench
+
 package cmd
 
 import (
@@ -19,7 +21,7 @@ var (
 func init() {
 	RootCmd.AddCommand(benchCmd)
 	benchCmd.PersistentFlags().IntVar(&iterationCount, "iteration_count", 100, "Number of iterations.")
-	benchCmd.PersistentFlags().IntVar(&concurrencyCount, "concrrency_count", 10, "Number of concurrent runs")
+	benchCmd.PersistentFlags().IntVar(&concurrencyCount, "concurrency_count", 10, "Number of concurrent runs")
 }
 
 // benchmark the server
