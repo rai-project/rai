@@ -38,6 +38,7 @@ var benchCmd = &cobra.Command{
 		runClient := func(arg interface{}) interface{} {
 			defer wg.Done()
 			defer progress.Increment()
+
 			client, err := newClient(
 				client.Stdout(nil),
 				client.Stderr(nil),
