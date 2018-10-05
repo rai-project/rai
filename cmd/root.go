@@ -8,10 +8,8 @@ import (
 
 	"github.com/Unknwon/com"
 	"github.com/fatih/color"
-	"github.com/rai-project/client"
 	"github.com/rai-project/cmd"
 	"github.com/rai-project/config"
-	log "github.com/rai-project/logger"
 	_ "github.com/rai-project/logger/hooks"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -43,70 +41,11 @@ var RootCmd = &cobra.Command{
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		opts := []client.Option{
-			client.Directory(workingDir),
-			client.Stdout(os.Stdout),
-			client.Stderr(os.Stderr),
-			client.JobQueueName(jobQueueName),
-		}
-		if !isRatelimit {
-			opts = append(opts, client.DisableRatelimit())
-		}
-		if buildFilePath != "" {
-			absPath, err := filepath.Abs(buildFilePath)
-			if err != nil {
-				buildFilePath = absPath
-			}
-			opts = append(opts, client.BuildFilePath(absPath))
-		}
-
-		if projectMode && submit != "" {
-			switch submit {
-			case "m1":
-				opts = append(opts, client.SubmissionM1())
-			case "m2":
-				opts = append(opts, client.SubmissionM2())
-			case "m3":
-				opts = append(opts, client.SubmissionM3())
-			case "m4":
-				opts = append(opts, client.SubmissionM4())
-			case "final":
-				opts = append(opts, client.SubmissionFinal())
-			default:
-				log.Info("custom submission tag: ", submit)
-				opts = append(opts, client.SubmissionCustom(submit))
-			}
-		}
-
-		client, err := client.New(opts...)
-
+		client, err := newClient()
 		if err != nil {
 			return err
 		}
-		if err := client.Validate(); err != nil {
-			return err
-		}
-		if err := client.Subscribe(); err != nil {
-			return err
-		}
-		if err := client.Upload(); err != nil {
-			return err
-		}
-		if err := client.Publish(); err != nil {
-			return err
-		}
-		if err := client.Connect(); err != nil {
-			return err
-		}
-		defer client.Disconnect()
-		if err := client.Wait(); err != nil {
-			return err
-		}
-		if err := client.RecordJob(); err != nil {
-			log.WithError(err).Error("job not recorded. If this was a submission, it was not recorded.")
-			return err
-		}
-		return nil
+		return runClient(client)
 	},
 }
 

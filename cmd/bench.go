@@ -1,14 +1,11 @@
 package cmd
 
 import (
-	"os"
-	"path/filepath"
 	"sync"
 
 	"github.com/k0kubun/pp"
 
 	"github.com/Jeffail/tunny"
-	"github.com/rai-project/client"
 	_ "github.com/rai-project/logger/hooks"
 	"github.com/spf13/cobra"
 	"gopkg.in/cheggaaa/pb.v1"
@@ -31,24 +28,7 @@ var benchCmd = &cobra.Command{
 	Short:        "Bench",
 	SilenceUsage: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		opts := []client.Option{
-			client.Directory(workingDir),
-			client.Stdout(os.Stdout),
-			client.Stderr(os.Stderr),
-			client.JobQueueName(jobQueueName),
-			client.DisableRatelimit(),
-			client.SubmissionCustom("bench"),
-		}
-
-		if buildFilePath != "" {
-			absPath, err := filepath.Abs(buildFilePath)
-			if err != nil {
-				buildFilePath = absPath
-			}
-			opts = append(opts, client.BuildFilePath(absPath))
-		}
-
-		client, err := client.New(opts...)
+		client, err := newClient()
 		if err != nil {
 			return err
 		}
@@ -63,28 +43,7 @@ var benchCmd = &cobra.Command{
 			wg.Add(1)
 			go func() {
 				defer wg.Done()
-				if err := client.Validate(); err != nil {
-					return
-				}
-				if err := client.Subscribe(); err != nil {
-					return
-				}
-				if err := client.Upload(); err != nil {
-					return
-				}
-				if err := client.Publish(); err != nil {
-					return
-				}
-				if err := client.Connect(); err != nil {
-					return
-				}
-				defer client.Disconnect()
-				if err := client.Wait(); err != nil {
-					return
-				}
-				if err := client.RecordJob(); err != nil {
-					return
-				}
+				runClient(client)
 			}()
 			return nil
 		}

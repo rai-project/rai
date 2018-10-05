@@ -48,13 +48,13 @@ func init() {
 			}
 			defer db.Close()
 
-			col, err := model.NewSp2018Ece408JobCollection(db)
+			col, err := model.NewEce408JobCollection(db)
 			if err != nil {
 				return err
 			}
 			defer col.Close()
 
-			var jobs model.Sp2018Ece408Jobs
+			var jobs model.Ece408Jobs
 
 			condInferencesExist := upper.Cond{"inferences.0 $exists": "true"}
 			cond := upper.And(

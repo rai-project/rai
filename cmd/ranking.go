@@ -58,24 +58,13 @@ func init() {
 			}
 			defer db.Close()
 
-			col, err := model.NewSp2018Ece408JobCollection(db)
+			col, err := model.NewEce408JobCollection(db)
 			if err != nil {
 				return err
 			}
 			defer col.Close()
 
 			// Get submissions
-			var jobs model.Sp2018Ece408Jobs
-			// cond := upper.Or(
-			// 	upper.Cond{
-			// 		"model":       "ece408-high",
-			// 		"correctness": 0.8562,
-			// 	},
-			// 	upper.Cond{
-			// 		"model":       "ece408-low",
-			// 		"correctness": 0.629,
-			// 	},
-			// )
 
 			condInferencesExist := upper.Cond{"inferences.0 $exists": "true"}
 			cond := upper.And(
@@ -85,6 +74,7 @@ func init() {
 					"inferences.correctness": 0.8451},
 			)
 
+			var jobs model.Ece408Jobs
 			err = col.Find(cond, 0, 0, &jobs)
 			if err != nil {
 				return err
