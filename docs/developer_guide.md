@@ -123,3 +123,22 @@ rai-srcmanager update --public
 ```
 
 Now all the relevant repositories should now be in `$GOPATH/src/github.com/rai-project`.
+
+## GO Resources
+
+
+* [50 Shades of Go](http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/) - Traps, Gotchas, and Common Mistakes for New Golang Devs.
+* [A Tour of Go](http://tour.golang.org/) - Interactive tour of Go.
+* [Build web application with Golang](https://github.com/astaxie/build-web-application-with-golang) - Golang ebook intro how to build a web app with golang.
+* [Building Go Web Applications and Microservices Using Gin](https://semaphoreci.com/community/tutorials/building-go-web-applications-and-microservices-using-gin) - Get familiar with Gin and find out how it can help you reduce boilerplate code and build a request handling pipeline.
+* [Games With Go](http://gameswithgo.org/) - A video series teaching programming and game development.
+* [Go By Example](https://gobyexample.com/) - Hands-on introduction to Go using annotated example programs.
+* [Go Cheat Sheet](https://github.com/a8m/go-lang-cheat-sheet) - Go's reference card.
+* [Go database/sql tutorial](http://go-database-sql.org/) - Introduction to database/sql.
+* [Golangbot](https://golangbot.com/learn-golang-series/) - Tutorials to get started with programming in Go.
+* [Hackr.io](https://hackr.io/tutorials/learn-golang) - Learn Go from the best online golang tutorials submitted & voted by the golang programming community.
+* [How to Use Godog for Behavior-driven Development in Go](https://semaphoreci.com/community/tutorials/how-to-use-godog-for-behavior-driven-development-in-go) - Get started with Godog — a Behavior-driven development framework for building and testing Go applications.
+* [Learn Go with TDD](https://github.com/quii/learn-go-with-tests) - Learn Go with test-driven development.
+* [Working with Go](https://github.com/mkaz/working-with-go) - Intro to go for experienced programmers.
+* [Your basic Go](http://yourbasic.org/golang) - Huge collection of tutorials and how to's
+* [Awesome Go](https://github.com/avelino/awesome-go)
