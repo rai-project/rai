@@ -97,8 +97,8 @@ go get github.com/koron/iferr; go install github.com/koron/iferr
 ### Install Dependency Manager
 
 ```
-go get github.com/Masterminds/glide
-go get github.com/golang/dep
+go get github.com/Masterminds/glide ; go install github.com/Masterminds/glide
+go get github.com/golang/dep ; go install github.com/golang/dep
 ```
 
 ### Install linter
