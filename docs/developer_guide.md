@@ -95,7 +95,7 @@ go get honnef.co/go/tools/cmd/keyify && go install honnef.co/go/tools/cmd/keyify
 go get github.com/fatih/motion && go install github.com/fatih/motion
 go get github.com/koron/iferr && go install github.com/koron/iferr
 go get github.com/maruel/panicparse/cmd/pp && go install github.com/maruel/panicparse/cmd/pp
-go get github.com/maruel/panicparse && go install go get github.com/maruel/panicparse
+go get github.com/maruel/panicparse && go install github.com/maruel/panicparse
 go get github.com/DATA-DOG/goup && go install github.com/DATA-DOG/goup
 ```
 
