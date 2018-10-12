@@ -71,7 +71,9 @@ Install [VimGo](https://github.com/fatih/vim-go)
 
 Install [VSCode](https://code.visualstudio.com/) with [Golang](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go) extension.
 
-### Install Golang linters
+### Install Golang Tools (Optional)
+
+>> It's ok if some of these do not install on your system
 
 ```
 go get github.com/klauspost/asmfmt/cmd/asmfmt && go install github.com/klauspost/asmfmt/cmd/asmfmt
