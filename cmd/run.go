@@ -35,23 +35,7 @@ func newClient(extraOpts ...client.Option) (*client.Client, error) {
 		opts = append(opts, client.BuildFilePath(absPath))
 	}
 
-	if ece408ProjectMode && submit != "" {
-		switch submit {
-		case "m1":
-			opts = append(opts, client.SubmissionM1())
-		case "m2":
-			opts = append(opts, client.SubmissionM2())
-		case "m3":
-			opts = append(opts, client.SubmissionM3())
-		case "m4":
-			opts = append(opts, client.SubmissionM4())
-		case "final":
-			opts = append(opts, client.SubmissionFinal())
-		default:
-			log.Info("custom submission tag: ", submit)
-			opts = append(opts, client.SubmissionCustom(submit))
-		}
-	}
+	opts = extraClientOptions()
 
 	opts = append(opts, extraOpts...)
 
@@ -60,6 +44,9 @@ func newClient(extraOpts ...client.Option) (*client.Client, error) {
 
 func runClient(client *client.Client) error {
 	if err := client.Validate(); err != nil {
+		return err
+	}
+	if err := client.Authenticate(); err != nil {
 		return err
 	}
 	if err := client.Subscribe(); err != nil {

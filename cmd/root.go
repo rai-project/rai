@@ -10,7 +10,7 @@ import (
 	"github.com/fatih/color"
 	"github.com/rai-project/cmd"
 	"github.com/rai-project/config"
-	_ "github.com/rai-project/logger/hooks"
+	_ "github.com/rai-project/logger/hooks" // include all logging hooks
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -24,7 +24,7 @@ var (
 	isVerbose       bool
 	isDebug         bool
 	isRatelimit     bool
-	submit          string
+	submitionName   string
 	outputDirectory string
 	forceOutput     bool
 )
@@ -62,6 +62,15 @@ var RootCmd = &cobra.Command{
 }
 
 func Execute() {
+  defer func() {
+		if r := recover(); r != nil {
+			if v, ok := r.(*client.ValidationError) {
+        fmt.Println("Error: %s", v.Message)
+        return
+      }
+      pp.Println(r)
+		}
+	}()
 	if err := RootCmd.Execute(); err != nil {
 		os.Exit(1)
 	}
@@ -105,7 +114,7 @@ func init() {
 	RootCmd.PersistentFlags().BoolVarP(&forceOutput, "force", "f", false, "Toggle to force overwriting output directory.")
 	RootCmd.PersistentFlags().BoolVar(&isRatelimit, "ratelimit", true, "Toggle debug mode.")
 	if ece408ProjectMode {
-		RootCmd.PersistentFlags().StringVar(&submit, "submit", "", "mark the kind of submission (m2, m3, final)")
+		RootCmd.PersistentFlags().StringVar(&submitionName, "submit", "", "The kind of submission (m2, m3, final)")
 	}
 
 	RootCmd.MarkPersistentFlagRequired("path")
