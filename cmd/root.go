@@ -33,7 +33,16 @@ var RootCmd = &cobra.Command{
 	Short:        "The client is used to submit jobs to the server.",
 	SilenceUsage: true,
 	PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
-		if workingDir == "" || !com.IsDir(workingDir) {
+		if workingDir == "" {
+			cwd, err := os.Getwd()
+			if err == nil {
+				cwd, err = filepath.Abs(cwd)
+				if err == nil {
+					workingDir = cwd
+				}
+			}
+		}
+		if !com.IsDir(workingDir) {
 			fmt.Printf("Error:: the directory specified = %s was not found. "+
 				"Use the --path option to specify the directory you want to build.\n", workingDir)
 			return errors.New("Invalid directory")
@@ -54,6 +63,7 @@ func Execute() {
 	if err := RootCmd.Execute(); err != nil {
 		os.Exit(-1)
 	}
+	os.Exit(1)
 }
 
 var VersionCmd = cmd.VersionCmd
