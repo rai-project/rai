@@ -16,15 +16,17 @@ import (
 )
 
 var (
-	appSecret     string
-	workingDir    string
-	jobQueueName  string
-	buildFilePath string
-	isColor       bool
-	isVerbose     bool
-	isDebug       bool
-	isRatelimit   bool
-	submit        string
+	appSecret       string
+	workingDir      string
+	jobQueueName    string
+	buildFilePath   string
+	isColor         bool
+	isVerbose       bool
+	isDebug         bool
+	isRatelimit     bool
+	submit          string
+	outputDirectory string
+	forceOutput     bool
 )
 
 // RootCmd represents the base command when called without any subcommands
@@ -71,7 +73,7 @@ var VersionCmd = cmd.VersionCmd
 func init() {
 	VersionCmd.Run = func(c *cobra.Command, args []string) {
 		cmd.VersionCmd.Run(c, args)
-		fmt.Println("ProjectMode: ", projectMode)
+		fmt.Println("ECE408ProjectMode: ", ece408ProjectMode)
 	}
 
 	cobra.OnInitialize(initConfig, initColor)
@@ -99,8 +101,10 @@ func init() {
 	RootCmd.PersistentFlags().BoolVarP(&isColor, "color", "c", true, "Toggle color output.")
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
+	RootCmd.PersistentFlags().StringVarP(&outputDirectory, "output", "o", "", "Set to output directory.")
+	RootCmd.PersistentFlags().BoolVarP(&forceOutput, "force", "f", false, "Toggle to force overwriting output directory.")
 	RootCmd.PersistentFlags().BoolVar(&isRatelimit, "ratelimit", true, "Toggle debug mode.")
-	if projectMode {
+	if ece408ProjectMode {
 		RootCmd.PersistentFlags().StringVar(&submit, "submit", "", "mark the kind of submission (m2, m3, final)")
 	}
 

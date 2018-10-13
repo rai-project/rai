@@ -42,7 +42,7 @@ func max(a, b int) int {
 var rankingCmd = &cobra.Command{}
 
 func init() {
-	if !projectMode {
+	if !ece408ProjectMode {
 		return
 	}
 	// rankingCmd represents the ranking command

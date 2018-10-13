@@ -1,7 +1,7 @@
-// +build !projectMode
+// +build !ece408ProjectMode
 
 package cmd
 
 const (
-	projectMode = false
+	ece408ProjectMode = false
 )

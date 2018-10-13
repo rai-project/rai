@@ -23,6 +23,10 @@ func newClient(extraOpts ...client.Option) (*client.Client, error) {
 		opts = append(opts, client.DisableRatelimit())
 	}
 
+	if outputDirectory {
+		opts = append(opts, client.OutputDirectory(outputDirectory, forceOutput))
+	}
+
 	if buildFilePath != "" {
 		absPath, err := filepath.Abs(buildFilePath)
 		if err != nil {
@@ -31,7 +35,7 @@ func newClient(extraOpts ...client.Option) (*client.Client, error) {
 		opts = append(opts, client.BuildFilePath(absPath))
 	}
 
-	if projectMode && submit != "" {
+	if ece408ProjectMode && submit != "" {
 		switch submit {
 		case "m1":
 			opts = append(opts, client.SubmissionM1())

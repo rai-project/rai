@@ -1,3 +1,5 @@
+// +build ece408ProjectMode
+
 package cmd
 
 import (
@@ -18,7 +20,7 @@ import (
 var submittedCmd = &cobra.Command{}
 
 func init() {
-	if !projectMode {
+	if !ece408ProjectMode {
 		return
 	}
 	submittedCmd = &cobra.Command{
