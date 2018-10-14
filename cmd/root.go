@@ -8,13 +8,12 @@ import (
 
 	"github.com/Unknwon/com"
 	"github.com/fatih/color"
-	"github.com/k0kubun/pp"
-	"github.com/rai-project/client"
 	"github.com/rai-project/cmd"
 	"github.com/rai-project/config"
 	_ "github.com/rai-project/logger/hooks" // include all logging hooks
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/xlab/catcher"
 )
 
 var (
@@ -63,23 +62,42 @@ var RootCmd = &cobra.Command{
 	},
 }
 
-func Execute() {
-	defer func() {
-		if r := recover(); r != nil {
-			if v, ok := r.(*client.ValidationError); ok {
-				fmt.Println("Error: %s", v.Message)
-				return
-			}
-			if v, ok := r.(error); ok {
-				fmt.Println(v)
-				return
-			}
-			pp.Println(r)
-		}
-	}()
+// safeCall is an example of a function that uses two receivers.
+// First one will put the panic message into the error value;
+// second one will yield the message to the stderr without the stracktrace.
+func safeCall() (err error) {
+	defer catcher.Catch(
+		catcher.RecvError(&err),
+		catcher.RecvWrite(os.Stderr),
+	)
+
 	if err := RootCmd.Execute(); err != nil {
 		os.Exit(1)
 	}
+
+	return
+}
+
+func Execute() {
+
+	defer catcher.Catch(
+		catcher.RecvWrite(os.Stderr, false),
+	)
+
+	// defer func() {
+	// 	if r := recover(); r != nil {
+	// 		if v, ok := r.(*client.ValidationError); ok {
+	// 			fmt.Println("Error: %s", v.Message)
+	// 			return
+	// 		}
+	// 		if v, ok := r.(error); ok {
+	// 			fmt.Println(v)
+	// 			return
+	// 		}
+	// 		pp.Println(r)
+	// 	}
+	// }()
+	safeCall()
 	os.Exit(0)
 }
 
