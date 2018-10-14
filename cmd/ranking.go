@@ -15,7 +15,6 @@ import (
 	"github.com/rai-project/client"
 	"github.com/rai-project/config"
 	"github.com/rai-project/database/mongodb"
-	"github.com/rai-project/model"
 	"github.com/spf13/cobra"
 	upper "upper.io/db.v3"
 )
@@ -60,7 +59,7 @@ func init() {
 			}
 			defer db.Close()
 
-			col, err := model.NewEce408JobCollection(db)
+			col, err := client.NewEce408JobResponseBodyCollection(db)
 			if err != nil {
 				return err
 			}
@@ -76,20 +75,20 @@ func init() {
 					"inferences.correctness": 0.8451},
 			)
 
-			var jobs model.Ece408Jobs
+			var jobs client.Ece408JobResponseBodys
 			err = col.Find(cond, 0, 0, &jobs)
 			if err != nil {
 				return err
 			}
 
 			// keep only jobs with non-zero runtimes
-			jobs = model.FilterNonZeroTimes(jobs)
+			jobs = client.FilterNonZeroTimes(jobs)
 
 			// Sort by fastest
-			sort.Sort(model.ByMinOpRuntime(jobs))
+			sort.Sort(client.ByMinOpRuntime(jobs))
 
 			// Keep first instance of every team
-			jobs = model.KeepFirstTeam(jobs) // Keep fastest entry for each team
+			jobs = client.KeepFirstTeam(jobs) // Keep fastest entry for each team
 
 			// show only numResults
 			if numResults < 0 {
@@ -117,7 +116,7 @@ func init() {
 				return errors.Errorf("cannot authenticate using the credentials in %v", prof.Options().ProfilePath)
 			}
 
-			tname, err := client.ReturnTeamName(prof.Info().Username)
+			tname, err := client.FindTeamName(prof.Info().Username)
 
 			if tname == "" {
 				println("No team name for " + prof.Info().Username)

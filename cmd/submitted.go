@@ -10,7 +10,6 @@ import (
 	"github.com/rai-project/client"
 	"github.com/rai-project/config"
 	"github.com/rai-project/database/mongodb"
-	"github.com/rai-project/model"
 	"github.com/spf13/cobra"
 	upper "upper.io/db.v3"
 	//"gopkg.in/yaml.v2"
@@ -42,7 +41,10 @@ func init() {
 				return errors.Errorf("cannot authenticate using the credentials in %v", prof.Options().ProfilePath)
 			}
 
-			tname, err := client.ReturnTeamName(prof.Info().Username)
+			tname, err := client.FindTeamName(prof.Info().Username)
+			if err != nil {
+				return err
+			}
 
 			db, err := mongodb.NewDatabase(config.App.Name)
 			if err != nil {
@@ -50,13 +52,12 @@ func init() {
 			}
 			defer db.Close()
 
-			col, err := model.NewEce408JobCollection(db)
+			col, err := client.NewFa2017Ece408TeamCollection(db)
 			if err != nil {
 				return err
 			}
-			defer col.Close()
 
-			var jobs model.Ece408Jobs
+			var jobs client.Ece408JobResponseBodys
 
 			condInferencesExist := upper.Cond{"inferences.0 $exists": "true"}
 			cond := upper.And(
