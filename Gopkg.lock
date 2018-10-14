@@ -545,6 +545,14 @@
 [[projects]]
   branch = "master"
   digest = "0:"
+  name = "github.com/rai-project/acl"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "923986ee52c5bc4602763a0adc9b574136787887"
+
+[[projects]]
+  branch = "master"
+  digest = "0:"
   name = "github.com/rai-project/archive"
   packages = ["."]
   pruneopts = "UT"
@@ -562,7 +570,7 @@
     "secret",
   ]
   pruneopts = "UT"
-  revision = "11483ad8ad670bb21ed29ad817596011697e8c44"
+  revision = "03ebf120b0fa0780f733dce7186dce58e79c2c40"
 
 [[projects]]
   branch = "master"
@@ -589,7 +597,7 @@
   name = "github.com/rai-project/client"
   packages = ["."]
   pruneopts = "UT"
-  revision = "f7af2d4dc0c97398f3b9630f69f66ef7f03a955b"
+  revision = "09035dcc96ff59843a993ce52cb1d441abb7a5ea"
 
 [[projects]]
   branch = "master"
@@ -660,7 +668,7 @@
   name = "github.com/rai-project/model"
   packages = ["."]
   pruneopts = "UT"
-  revision = "83bd37bf6f01fbb9ad6b7b918833533950dc3f81"
+  revision = "21eb33068eebfa9cb3dc6dc35ce1efb1363e9978"
 
 [[projects]]
   branch = "master"
@@ -725,11 +733,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:b5441fd85b3c8e145b8bf0c2f8e09eb8160bab94fe51c3dc506f1329af637fb7"
+  digest = "0:"
   name = "github.com/rai-project/utils"
   packages = ["."]
   pruneopts = "UT"
-  revision = "ce3f0d62f06c39aef110fb693747dda95fcb631a"
+  revision = "6708a9c28d4e0c3c6bd19213f4920a16f43865d4"
 
 [[projects]]
   branch = "master"
@@ -870,6 +878,22 @@
   packages = ["."]
   pruneopts = "UT"
   revision = "5d0a5ae867b354cbbbd2a9ab8d66b4f96cfaa741"
+
+[[projects]]
+  branch = "master"
+  digest = "0:"
+  name = "github.com/xlab/catcher"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "4ce3d20cbee2caa664035992053198cf62bd960f"
+
+[[projects]]
+  branch = "master"
+  digest = "0:"
+  name = "github.com/xlab/closer"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "89cd22812c4fd5188746092cd10992caeffc75ab"
 
 [[projects]]
   branch = "master"
@@ -1116,7 +1140,6 @@
     "github.com/Jeffail/tunny",
     "github.com/Unknwon/com",
     "github.com/fatih/color",
-    "github.com/k0kubun/pp",
     "github.com/mitchellh/go-homedir",
     "github.com/olekukonko/tablewriter",
     "github.com/pkg/errors",
@@ -1127,11 +1150,12 @@
     "github.com/rai-project/database/mongodb",
     "github.com/rai-project/logger",
     "github.com/rai-project/logger/hooks",
-    "github.com/rai-project/model",
     "github.com/rai-project/utils",
     "github.com/sanbornm/go-selfupdate/selfupdate",
     "github.com/spf13/cobra",
     "github.com/spf13/viper",
+    "github.com/xlab/catcher",
+    "github.com/xlab/closer",
     "gopkg.in/cheggaaa/pb.v1",
     "gopkg.in/yaml.v2",
     "upper.io/db.v3",

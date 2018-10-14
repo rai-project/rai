@@ -6,6 +6,7 @@ import (
 
 	"github.com/rai-project/client"
 	log "github.com/rai-project/logger"
+	"github.com/xlab/closer"
 )
 
 func newClient(inputOpts ...client.Option) (*client.Client, error) {
@@ -39,7 +40,15 @@ func newClient(inputOpts ...client.Option) (*client.Client, error) {
 
 	opts = append(opts, inputOpts...)
 
-	return client.New(opts...)
+	clnt, err := client.New(opts...)
+
+	if err == nil {
+		closer.Bind(func() {
+			clnt.Disconnect()
+		})
+	}
+
+	return clnt, err
 }
 
 func runClient(client *client.Client) error {

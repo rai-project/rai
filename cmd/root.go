@@ -67,18 +67,17 @@ var RootCmd = &cobra.Command{
 // second one will yield the message to the stderr without the stracktrace.
 func safeCall() (err error) {
 	defer catcher.Catch(
-		catcher.RecvError(&err),
+		catcher.RecvError(&err, isDebug),
+		catcher.RecvDie(1, true),
 		catcher.RecvWrite(os.Stderr),
 	)
 
-	if err := RootCmd.Execute(); err != nil {
-		os.Exit(1)
-	}
+	err = RootCmd.Execute()
 
 	return
 }
 
-func Execute() {
+func Execute() error {
 
 	defer catcher.Catch(
 		catcher.RecvWrite(os.Stderr, false),
@@ -97,8 +96,7 @@ func Execute() {
 	// 		pp.Println(r)
 	// 	}
 	// }()
-	safeCall()
-	os.Exit(0)
+	return safeCall()
 }
 
 var VersionCmd = cmd.VersionCmd

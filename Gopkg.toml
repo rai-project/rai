@@ -75,10 +75,6 @@
 
 [[constraint]]
   branch = "master"
-  name = "github.com/rai-project/model"
-
-[[constraint]]
-  branch = "master"
   name = "github.com/rai-project/utils"
 
 [[constraint]]
@@ -104,3 +100,11 @@
 [prune]
   go-tests = true
   unused-packages = true
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/xlab/catcher"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/xlab/closer"
