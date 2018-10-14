@@ -2,20 +2,12 @@
 
 
 [[projects]]
-  digest = "1:5c3894b2aa4d6bead0ceeea6831b305d62879c871780e7b76296ded1b004bc57"
+  digest = "0:"
   name = "cloud.google.com/go"
   packages = ["compute/metadata"]
   pruneopts = "UT"
-  revision = "6cb29e61d96723a38dcac44d4c15c36744d96d07"
-  version = "v0.29.0"
-
-[[projects]]
-  digest = "1:ee907e9ead8d8b090f1e2c07967ff1ec7ed20687c2ffd270d1c6c1b71dff5496"
-  name = "github.com/AlekSi/pointer"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "08a25bac605b3fcb6cc27f3917b2c2c87451963d"
-  version = "v1.0.0"
+  revision = "dfffe386c33fb24c34ee501e5723df5b97b98514"
+  version = "v0.30.0"
 
 [[projects]]
   branch = "master"
@@ -40,22 +32,6 @@
   pruneopts = "UT"
   revision = "97e4973ce50b2ff5f09635a57e2b88a037aae829"
   version = "v0.4.11"
-
-[[projects]]
-  digest = "1:d1665c44bd5db19aaee18d1b6233c99b0b9a986e8bccb24ef54747547a48027f"
-  name = "github.com/PuerkitoBio/purell"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "0bcb03f4b4d0a9428594752bd2a3b9aa0a9d4bd4"
-  version = "v1.1.0"
-
-[[projects]]
-  branch = "master"
-  digest = "1:c739832d67eb1e9cc478a19cc1a1ccd78df0397bf8a32978b759152e205f644b"
-  name = "github.com/PuerkitoBio/urlesc"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "de5bf2ad457846296e2031421a34e2568e304e35"
 
 [[projects]]
   digest = "1:f033a81755b461d605dd88a4eaaf35542db9b425ee504ef44cef810ff2b0f9d2"
@@ -85,15 +61,7 @@
   revision = "eb2c6b5be1b66bab83016e0b05f01b8d5496ffbd"
 
 [[projects]]
-  digest = "1:320e7ead93de9fd2b0e59b50fd92a4d50c1f8ab455d96bc2eb083267453a9709"
-  name = "github.com/asaskevich/govalidator"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "ccb8e960c48f04d6935e72476ae4a51028f9e22f"
-  version = "v9"
-
-[[projects]]
-  digest = "1:34fab333667e413407f96e654fe0d588b8de9f08f815b29aac86e1b76bc27436"
+  digest = "0:"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -136,8 +104,8 @@
     "service/sts",
   ]
   pruneopts = "UT"
-  revision = "3c7ce80a3b6d9b952022a6c5e5dd758486ff4de1"
-  version = "v1.15.48"
+  revision = "bf8067ceb6e7f51e150c218972dccfeeed892b85"
+  version = "v1.15.54"
 
 [[projects]]
   digest = "1:5627be48bc0061b4ed6a158e593112cd3eb6322da6ec91f73b5c70a7c9cfb01a"
@@ -164,7 +132,7 @@
   revision = "be9bd761db19d4fc551d40be908f02e00487511d"
 
 [[projects]]
-  digest = "1:ece8cff953ed3dbbbf5d5aa41e24f61ac4c1b601004aea9d56d572af363b71e7"
+  digest = "0:"
   name = "github.com/coreos/etcd"
   packages = [
     "client",
@@ -174,8 +142,8 @@
     "version",
   ]
   pruneopts = "UT"
-  revision = "fca8add78a9d926166eb739b8e4a124434025ba3"
-  version = "v3.3.9"
+  revision = "27fc7e2296f506182f58ce846e48f36b34fe6842"
+  version = "v3.3.10"
 
 [[projects]]
   digest = "1:0ef770954bca104ee99b3b6b7f9b240605ac03517d9f98cbc1893daa03f3c038"
@@ -211,7 +179,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:35dba5c0cf7328f03d37c44552aa3989bf8f1ddda08e917af079ca10f318384b"
+  digest = "0:"
   name = "github.com/docker/docker"
   packages = [
     "pkg/archive",
@@ -224,7 +192,7 @@
     "pkg/system",
   ]
   pruneopts = "UT"
-  revision = "c77cfbfef5a8c2764256ef0979e0fb0f26f8e8c1"
+  revision = "ee6fc90b2c80b742915131e1ba32169083fab038"
 
 [[projects]]
   digest = "1:6f82cacd0af5921e99bf3f46748705239b36489464f4529a1589bc895764fb18"
@@ -275,12 +243,12 @@
   version = "v1.7.0"
 
 [[projects]]
-  digest = "1:ca82a3b99694824c627573c2a76d0e49719b4a9c02d1d85a2ac91f1c1f52ab9b"
+  digest = "0:"
   name = "github.com/fatih/structs"
   packages = ["."]
   pruneopts = "UT"
-  revision = "a720dfa8df582c51dee1b36feabb906bde1588bd"
-  version = "v1.0"
+  revision = "4966fc68f5b7593aafa6cbbba2d65ec6e1416047"
+  version = "v1.1.0"
 
 [[projects]]
   digest = "1:1a1fda2eefc60b9b047b3812b26be4779352aa80cab966b77e6fe77b157a7a4b"
@@ -307,96 +275,23 @@
   version = "v1.38.3"
 
 [[projects]]
-  digest = "1:50d6bc4aa3e70803230bb98a4b0e0f1331fefc2eb324e087adf7e986b8da082e"
-  name = "github.com/go-openapi/analysis"
+  digest = "0:"
+  name = "github.com/go-playground/locales"
   packages = [
     ".",
-    "internal",
+    "currency",
   ]
   pruneopts = "UT"
-  revision = "7c1bef8f6d9fa6148ce0d8a0ebf5339a084a6639"
-  version = "0.16.0"
+  revision = "f63010822830b6fe52288ee52d5a1151088ce039"
+  version = "v0.12.1"
 
 [[projects]]
-  digest = "1:7a90552bf0ad97b41a4ac036d42aad77956c19b28398188ff7a5cc70b0c8bbf4"
-  name = "github.com/go-openapi/errors"
+  digest = "0:"
+  name = "github.com/go-playground/universal-translator"
   packages = ["."]
   pruneopts = "UT"
-  revision = "b2b2befaf267d082d779bcef52d682a47c779517"
-  version = "0.16.0"
-
-[[projects]]
-  digest = "1:2997679181d901ac8aaf4330d11138ecf3974c6d3334995ff36f20cbd597daf8"
-  name = "github.com/go-openapi/jsonpointer"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "3a0015ad55fa9873f41605d3e8f28cd279c32ab2"
-  version = "0.16.0"
-
-[[projects]]
-  digest = "1:1ae3f233d75a731b164ca9feafd8ed646cbedf1784095876ed6988ce8aa88b1f"
-  name = "github.com/go-openapi/jsonreference"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "3fb327e6747da3043567ee86abd02bb6376b6be2"
-  version = "0.16.0"
-
-[[projects]]
-  digest = "1:ff04019588fc028ac28c3c565ce5316461a4641df197555041ee66cf45d213e3"
-  name = "github.com/go-openapi/loads"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "2a2b323bab96e6b1fdee110e57d959322446e9c9"
-  version = "0.16.0"
-
-[[projects]]
-  digest = "1:c25a920b07bc286d3cf03cf32bfdf97c3281ec3638dac77658b6bbbb4c8c61a8"
-  name = "github.com/go-openapi/runtime"
-  packages = [
-    ".",
-    "client",
-    "logger",
-    "middleware",
-    "middleware/denco",
-    "middleware/header",
-    "middleware/untyped",
-    "security",
-  ]
-  pruneopts = "UT"
-  revision = "9a3091f566c0811ef4d54b535179bc0fc484a11f"
-  version = "0.16.0"
-
-[[projects]]
-  digest = "1:3e5bdbd2a071c72c778c28fd7b5dfde95cdfbcef412f364377e031877205e418"
-  name = "github.com/go-openapi/spec"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "384415f06ee238aae1df5caad877de6ceac3a5c4"
-  version = "0.16.0"
-
-[[projects]]
-  digest = "1:c19e41854708ff52816cff12f30d454135f350a1e4fe6ab62a8be8df75458eb0"
-  name = "github.com/go-openapi/strfmt"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "913ee058e387ac83a67e2d9f13acecdcd5769fc6"
-  version = "0.16.0"
-
-[[projects]]
-  digest = "1:c80984d4a9bb79539743aff5af91b595d84f513700150b0ed73c1697d1200d54"
-  name = "github.com/go-openapi/swag"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "becd2f08beafcca035645a8a101e0e3e18140458"
-  version = "0.16.0"
-
-[[projects]]
-  digest = "1:b0fa3721f1aeaf3aca9678376b393dffdfdd7415d65db9207ca7bcaf3f893f7f"
-  name = "github.com/go-openapi/validate"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "7c1911976134d3a24d0c03127505163c9f16aa3b"
-  version = "0.16.0"
+  revision = "b32fa301c9fe55953584134cb6853a13c87ec0a1"
+  version = "v0.16.0"
 
 [[projects]]
   digest = "1:97df918963298c287643883209a2c3f642e6593379f97ab400c2a2e219ab647d"
@@ -518,9 +413,10 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:84a5a2b67486d5d67060ac393aa255d05d24ed5ee41daecd5635ec22657b6492"
+  digest = "0:"
   name = "github.com/mailru/easyjson"
   packages = [
+    ".",
     "buffer",
     "jlexer",
     "jwriter",
@@ -586,19 +482,6 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:f5f9f2618d72a3bc093b60fb04c20ae31d987b4b040aba10a7dc3a1038011758"
-  name = "github.com/olebedev/go-gamp"
-  packages = [
-    ".",
-    "client",
-    "client/gampops",
-    "models",
-  ]
-  pruneopts = "UT"
-  revision = "516fda659f48d4c14c1566024e2e2ee6853c81ff"
-
-[[projects]]
-  branch = "master"
   digest = "1:f611266e3ac01ab4adb6f1d67f6c1be82998d02f452faff450596658712d860b"
   name = "github.com/olekukonko/tablewriter"
   packages = ["."]
@@ -661,15 +544,15 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:0ad04505c681bdf3f8807e381796118a12dd75068f24a5dc814f14600510b51f"
+  digest = "0:"
   name = "github.com/rai-project/archive"
   packages = ["."]
   pruneopts = "UT"
-  revision = "953c5663ed18966b3913a148269ca5879ffbe3ab"
+  revision = "ef2c5965e3d16253818c28ac764c248cafc8e67f"
 
 [[projects]]
   branch = "master"
-  digest = "1:94449534983636387417f4b95e004dcc7e1179e777bbacbdf56c4e3857d7cb84"
+  digest = "0:"
   name = "github.com/rai-project/auth"
   packages = [
     ".",
@@ -679,15 +562,15 @@
     "secret",
   ]
   pruneopts = "UT"
-  revision = "044e87fd0a9d79c81f7098be42fd8da02861aadd"
+  revision = "11483ad8ad670bb21ed29ad817596011697e8c44"
 
 [[projects]]
   branch = "master"
-  digest = "1:e93a64146133383c78c8b4c1f1facc7406a5ab4f2463c74033ca97cc3d90739f"
+  digest = "0:"
   name = "github.com/rai-project/aws"
   packages = ["."]
   pruneopts = "UT"
-  revision = "f84032626a6b6a7b0dd8c6585bd148a6429f49e3"
+  revision = "648d87fdbecb675bbf68c01b794861c987f6f847"
 
 [[projects]]
   branch = "master"
@@ -702,11 +585,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:e86bf04e112074886fdadbed06621320e910f7ec8f9512727df17c4b2dc4d454"
+  digest = "0:"
   name = "github.com/rai-project/client"
   packages = ["."]
   pruneopts = "UT"
-  revision = "965c6072ad9cf5a2ebe0e5029a0f3c3f401c5dc8"
+  revision = "f7af2d4dc0c97398f3b9630f69f66ef7f03a955b"
 
 [[projects]]
   branch = "master"
@@ -773,15 +656,15 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:3c098a3ac50ac15ffc718ebde5dd8a2f58b10fdc4d4a2133c948a9a080a5cc04"
+  digest = "0:"
   name = "github.com/rai-project/model"
   packages = ["."]
   pruneopts = "UT"
-  revision = "aa80d7b06c4afea7a59dac09bd9daef86ab95a0c"
+  revision = "83bd37bf6f01fbb9ad6b7b918833533950dc3f81"
 
 [[projects]]
   branch = "master"
-  digest = "1:ef0027328cf835b08371798e78b8c4552ea8b8f19fe615e1380073179b892904"
+  digest = "0:"
   name = "github.com/rai-project/passlib"
   packages = [
     ".",
@@ -796,7 +679,7 @@
     "hash/sha2crypt/raw",
   ]
   pruneopts = "UT"
-  revision = "d8fc10d54a26dc0287e013edf727fe8171175d11"
+  revision = "cdf39dc0b8eaeadaaff6d1911c3ab40d9db62162"
 
 [[projects]]
   branch = "master"
@@ -819,7 +702,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:8b18861e7656a075ab00b26f3dbe40d236a074e9370e0689a4bf14dbb0ffc837"
+  digest = "0:"
   name = "github.com/rai-project/serializer"
   packages = [
     ".",
@@ -827,7 +710,7 @@
     "json",
   ]
   pruneopts = "UT"
-  revision = "30658704c2ab038b2f3c6193d511f99f0537962a"
+  revision = "17f0f01644c8653b8e61bc83cd33706c6dbe3dc9"
 
 [[projects]]
   branch = "master"
@@ -897,15 +780,15 @@
   version = "v0.5.0"
 
 [[projects]]
-  digest = "1:1374bb56917596c8b858a6c150ead3a8dd2cbbea1c26b85d45c23f7e79c116dd"
+  digest = "0:"
   name = "github.com/sirupsen/logrus"
   packages = [
     ".",
     "hooks/syslog",
   ]
   pruneopts = "UT"
-  revision = "a67f783a3814b8729bd2dac5780b5f78f8dbd64d"
-  version = "v1.1.0"
+  revision = "ad15b42461921f1fb3529b058c6786c6a45d5162"
+  version = "v1.1.1"
 
 [[projects]]
   digest = "1:6a4a11ba764a56d2758899ec6f3848d24698d48442ebce85ee7a3f63284526cd"
@@ -1004,7 +887,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:510a2a7516b0c2e1b14492da14f7f28ae1c31afd8fe08b2842d359db568fc716"
+  digest = "0:"
   name = "golang.org/x/crypto"
   packages = [
     "argon2",
@@ -1023,19 +906,18 @@
     "ssh/terminal",
   ]
   pruneopts = "UT"
-  revision = "e3636079e1a4c1f337f212cc5cd2aca108f6c900"
+  revision = "a92615f3c49003920a58dedcf32cf55022cefb8d"
 
 [[projects]]
   branch = "master"
-  digest = "1:ccdd1ad197b5b65f3b2320a4ed3f2d7b97fdfd41a59f1511fd4f28a3c2310556"
+  digest = "0:"
   name = "golang.org/x/net"
   packages = [
     "context",
     "context/ctxhttp",
-    "idna",
   ]
   pruneopts = "UT"
-  revision = "146acd28ed5894421fb5aac80ca93bc1b1f46f87"
+  revision = "49bb7cea24b1df9410e1712aa6433dae904ff66a"
 
 [[projects]]
   branch = "master"
@@ -1061,7 +943,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:c7fca7fb607a610caae0ea941ef3843a8022f6abb69b6cd646406253f1ed36f7"
+  digest = "0:"
   name = "golang.org/x/sys"
   packages = [
     "cpu",
@@ -1069,27 +951,18 @@
     "windows",
   ]
   pruneopts = "UT"
-  revision = "4497e2df6f9e69048a54498c7affbbec3294ad47"
+  revision = "fa43e7bc11baaae89f3f902b2b4d832b68234844"
 
 [[projects]]
-  digest = "1:0c56024909189aee3364b7f21a95a27459f718aa7c199a5c111c36cfffd9eaef"
+  digest = "0:"
   name = "golang.org/x/text"
   packages = [
-    "collate",
-    "collate/build",
-    "internal/colltab",
     "internal/gen",
-    "internal/tag",
     "internal/triegen",
     "internal/ucd",
-    "language",
-    "secure/bidirule",
     "transform",
-    "unicode/bidi",
     "unicode/cldr",
     "unicode/norm",
-    "unicode/rangetable",
-    "width",
   ]
   pruneopts = "UT"
   revision = "f21a4dfb5e38f5895301dc265a8def02365cc3d0"
@@ -1097,15 +970,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:c9e7a4b4d47c0ed205d257648b0e5b0440880cb728506e318f8ac7cd36270bc4"
-  name = "golang.org/x/time"
-  packages = ["rate"]
-  pruneopts = "UT"
-  revision = "fbb02b2291d28baffd63558aa44b4b56f178d650"
-
-[[projects]]
-  branch = "master"
-  digest = "1:81d0d5a5207beffb4418e29803744d82444c906b7778cfe06f355cac6f03e930"
+  digest = "0:"
   name = "google.golang.org/api"
   packages = [
     "clouderrorreporting/v1beta1",
@@ -1115,7 +980,7 @@
     "logging/v2",
   ]
   pruneopts = "UT"
-  revision = "f5c49d98d21cc639f7ba8c7e4b127e88ee2af7ed"
+  revision = "72df7e5ac770e49326116145ee04771cf1913a73"
 
 [[projects]]
   digest = "1:193950893ea275f89ed92e5da11ed8fa1436872f755a9ea5d4afa83dc9d9c3a8"
@@ -1158,6 +1023,14 @@
   pruneopts = "UT"
   revision = "c4a7de647eaaac00ffea599b7773e5e6804fa3b7"
   version = "v2.0.7"
+
+[[projects]]
+  digest = "0:"
+  name = "gopkg.in/go-playground/validator.v9"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "e69e9a28bb62b977fdc58d051f1bb477b7cbe486"
+  version = "v9.21.0"
 
 [[projects]]
   digest = "1:174d05aec0155083f9b461f21a0a5c94f396c3cdb44f62445009ca05eef1372b"
@@ -1243,6 +1116,7 @@
     "github.com/Jeffail/tunny",
     "github.com/Unknwon/com",
     "github.com/fatih/color",
+    "github.com/k0kubun/pp",
     "github.com/mitchellh/go-homedir",
     "github.com/olekukonko/tablewriter",
     "github.com/pkg/errors",
