@@ -70,13 +70,17 @@ func Execute() {
 				fmt.Println("Error: %s", v.Message)
 				return
 			}
+			if v, ok := r.(error); ok {
+				fmt.Println(v)
+				return
+			}
 			pp.Println(r)
 		}
 	}()
 	if err := RootCmd.Execute(); err != nil {
 		os.Exit(1)
 	}
-	os.Exit(1)
+	os.Exit(0)
 }
 
 var VersionCmd = cmd.VersionCmd
@@ -113,7 +117,7 @@ func init() {
 	RootCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Toggle verbose mode.")
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
 	RootCmd.PersistentFlags().StringVarP(&outputDirectory, "output", "o", "", "Set to output directory.")
-	RootCmd.PersistentFlags().BoolVarP(&forceOutput, "force", "f", false, "Toggle to force overwriting output directory.")
+	RootCmd.PersistentFlags().BoolVar(&forceOutput, "force", false, "Toggle to force overwriting output directory.")
 	RootCmd.PersistentFlags().BoolVar(&isRatelimit, "ratelimit", true, "Toggle debug mode.")
 	if ece408ProjectMode {
 		RootCmd.PersistentFlags().StringVar(&submitionName, "submit", "", "The kind of submission (m2, m3, final)")
