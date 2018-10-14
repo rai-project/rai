@@ -1,3 +1,5 @@
+// +build ece408ProjectMode
+
 package cmd
 
 import (

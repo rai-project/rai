@@ -8,6 +8,8 @@ import (
 
 	"github.com/Unknwon/com"
 	"github.com/fatih/color"
+	"github.com/k0kubun/pp"
+	"github.com/rai-project/client"
 	"github.com/rai-project/cmd"
 	"github.com/rai-project/config"
 	_ "github.com/rai-project/logger/hooks" // include all logging hooks
@@ -62,13 +64,13 @@ var RootCmd = &cobra.Command{
 }
 
 func Execute() {
-  defer func() {
+	defer func() {
 		if r := recover(); r != nil {
-			if v, ok := r.(*client.ValidationError) {
-        fmt.Println("Error: %s", v.Message)
-        return
-      }
-      pp.Println(r)
+			if v, ok := r.(*client.ValidationError); ok {
+				fmt.Println("Error: %s", v.Message)
+				return
+			}
+			pp.Println(r)
 		}
 	}()
 	if err := RootCmd.Execute(); err != nil {
