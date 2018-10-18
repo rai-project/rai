@@ -26,7 +26,7 @@ func init() {
 // benchmark the server
 var benchCmd = &cobra.Command{
 	Use:          "bench",
-	Short:        "Bench",
+	Short:        "stress testing the rai server by concurrently submitting many jobs to the server",
 	SilenceUsage: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
 
