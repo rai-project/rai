@@ -1,9 +1,9 @@
 # RAI Client [![Travis Build Status](https://travis-ci.org/rai-project/rai.svg?branch=master)](https://travis-ci.org/rai-project/rai) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/h6cmmpaejpo4at8m?svg=true)](https://ci.appveyor.com/project/abduld/rai)
 
-> The RAI client is an executable downloaded by the students and runs on the students' machines.
+> The RAI client is an executable downloaded by the users and runs on the user' machines.
 > The executable requires no library dependencies and works on all the main operating systems and CPU architectures.
-> Both features reduce the likelihood that students will have technical difficulties running the client.
-> Students use the RAI client to interact with a distributed elastic system to submit jobs.
+> Both features reduce the likelihood that users will have technical difficulties running the client.
+> Users use the RAI client to interact with a distributed elastic system to submit jobs.
 
 ## Demo
 
@@ -35,8 +35,8 @@ go get -u github.com/rai-project/rai
 
 You will need an extra secret key if you build from source.
 
--   Create a `.rai_config.yml` in the `rai` directory. You can copy the existing `rai_config.yml` as a starting point.
--   Run rai with `go run -tags develop main.go -d -v -s <app-secret> -p <project-folder>`
+- Create a `.rai_config.yml` in the `rai` directory. You can copy the existing `rai_config.yml` as a starting point.
+- Run rai with `go run -tags develop main.go -d -v -s <app-secret> -p <project-folder>`
 
 Alternatively, you can place the app secret in `~/.rai_secret` and just do
 
@@ -90,8 +90,9 @@ The `rai_build.yml` is written as a [Yaml](http://yaml.org/) ([Spec](http://www.
 ```yaml
 rai:
   version: 0.2 # this is required
-  image: nimbix/ubuntu-cuda-ppc64le:latest # nimbix/ubuntu-cuda-ppc64le:latest is a docker image
-                                           # You can specify any image found on dockerhub
+  image:
+    nimbix/ubuntu-cuda-ppc64le:latest # nimbix/ubuntu-cuda-ppc64le:latest is a docker image
+    # You can specify any image found on dockerhub
 resources:
   cpu:
     architecture: ppc64le
@@ -213,12 +214,12 @@ The password can be encrypted using the `rai encrypt` command.
 Profiling can be performed using `nvprof`. Place the following build commands in your `rai_build.yml` file
 
 ```yaml
-    - >-
-      nvprof --cpu-profiling on --export-profile timeline.nvprof --
-      ./mybinary -i input1,input2 -o output
-    - >-
-      nvprof --cpu-profiling on --export-profile analysis.nvprof --analysis-metrics --
-      ./mybinary -i input1,input2 -o output
+- >-
+  nvprof --cpu-profiling on --export-profile timeline.nvprof --
+  ./mybinary -i input1,input2 -o output
+- >-
+  nvprof --cpu-profiling on --export-profile analysis.nvprof --analysis-metrics --
+  ./mybinary -i input1,input2 -o output
 ```
 
 You could change the input and test datasets. This will output two files `timeline.nvprof` and `analysis.nvprof` which can be viewed using the `nvvp` tool (by performing a `file>import`). You will have to install the nvvp viewer on your machine to view these files.
@@ -232,7 +233,6 @@ export GOTRACEBACK=all
 go build -tags=bench
 ./rai bench --concurrency_count=10 --iteration_count=100 -s <<SECRET>> -p ./_fixtures/cuda_runtime |& panicparse
 ```
-
 
 ## Reporting Issues
 
@@ -258,21 +258,22 @@ rai --verbose --debug
 
 ## Usage
 
--   [PUMPS 2018 Summer School](https://github.com/illinois-impact/pumps-ai)
--   [ECE408 Fall2017 Project](https://github.com/webgpu/2017fa_ece408_project)
--   [ECE508 Spring2017 MP](https://github.com/webgpu/ece508-convlayer)
--   ECE508 Spring2017 Project
--   [ECE408 Fall2016 Project](https://github.com/webgpu/2016fa_ece408project)
+- [PUMPS 2018 Summer School](https://github.com/illinois-impact/pumps-ai)
+- [ECE408 Fall2018 Project](https://github.com/webgpu/2017fa_ece408_project)
+- [ECE408 Fall2017 Project](https://github.com/illinois-impact/ece408_project/tree/2017fa)
+- [ECE508 Spring2017 MP](https://github.com/webgpu/ece508-convlayer)
+- ECE508 Spring2017 Project
+- [ECE408 Fall2016 Project](https://github.com/webgpu/2016fa_ece408project)
 
 ## Publications
 
 ### Papers
 
--   [Dakkak, Abdul et al. “RAI: A Scalable Project Submission System for Parallel Programming Courses.” (2017).](docs/assets/rai-edupar17.pdf)
+- [Dakkak, Abdul et al. “RAI: A Scalable Project Submission System for Parallel Programming Courses.” (2017).](docs/assets/rai-edupar17.pdf)
 
 ### Posters
 
--   [![GTC 2017](assets/gtc-rai-poster.png)](docs/assets/gtc-rai-poster.png)
+- [![GTC 2017](assets/gtc-rai-poster.png)](docs/assets/gtc-rai-poster.png)
 
 ### Presentations
 
