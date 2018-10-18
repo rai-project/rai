@@ -52,27 +52,41 @@ func newClient(inputOpts ...client.Option) (*client.Client, error) {
 }
 
 func runClient(client *client.Client) error {
+	// validate the rai_build.yml file and user privileges
 	if err := client.Validate(); err != nil {
 		return err
 	}
+	// authenticate the user, but connecting it to the
+	// various backend and creating session tokens
 	if err := client.Authenticate(); err != nil {
 		return err
 	}
+	// subscribe to the redis queue. the redis queue
+	// is used to gather stdout/stderr from the server
 	if err := client.Subscribe(); err != nil {
 		return err
 	}
+	// upload the user directory to the storage server
+	// the client first creates an archive stream and
+	// uploads that stream to the storage server
 	if err := client.Upload(); err != nil {
 		return err
 	}
+	// publish the job to the queue server
 	if err := client.Publish(); err != nil {
 		return err
 	}
+	//
 	if err := client.Connect(); err != nil {
 		return err
 	}
+	// wait until we receive an end signal
 	if err := client.Wait(); err != nil {
 		return err
 	}
+	// we record the job into the database.
+	// this is used to store information such as
+	// ranking
 	if err := client.RecordJob(); err != nil {
 		log.WithError(err).Error("job not recorded. If this was a submission, it was not recorded.")
 		return err

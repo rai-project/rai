@@ -27,12 +27,12 @@ func init() {
 		Short: "View history of submissions.",
 		Long:  `View history of team submissions associated with user`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-
+			// Read the profile (e.g. ~/rai_profile.yml)
 			prof, err := provider.New()
 			if err != nil {
 				return err
 			}
-
+			// Verify the profile
 			ok, err := prof.Verify()
 			if err != nil {
 				return err
@@ -46,12 +46,14 @@ func init() {
 				return err
 			}
 
+			// Create a database  using mongodb with the `config.App.Name` name
 			db, err := mongodb.NewDatabase(config.App.Name)
 			if err != nil {
 				return err
 			}
 			defer db.Close()
 
+			// Create the Fall2017 collection (mongodb's nomenclature for tables)
 			col, err := client.NewFa2017Ece408TeamCollection(db)
 			if err != nil {
 				return err
@@ -68,6 +70,9 @@ func init() {
 				},
 			)
 
+			// find all jobs which are both submissions and have the
+			// team name equal to teamname. This would fill the
+			// jobs list with the entries found within the collection
 			err = col.Find(cond, 0, 0, &jobs)
 			if err != nil {
 				return err
@@ -82,6 +87,8 @@ func init() {
 			fmt.Println("Last 5 successful submissions for team: " + tname)
 			fmt.Println()
 
+			// not sure what the heck this is doing
+			// TODO: can use a slice
 			x := 0
 			for _, i := range jobs {
 				//Skip items before last 5

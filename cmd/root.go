@@ -53,62 +53,55 @@ var RootCmd = &cobra.Command{
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
+		// create a new rai client
 		client, err := newClient()
 		if err != nil {
 			return err
 		}
+		// destroy the client before exiting the function
 		defer client.Disconnect()
+		// run the client steps
 		return runClient(client)
 	},
 }
 
-// safeCall is an example of a function that uses two receivers.
-// First one will put the panic message into the error value;
-// second one will yield the message to the stderr without the stracktrace.
 func safeCall() (err error) {
+	// First one will put the panic message into the error value;
+	// second one will yield the message to the stderr without the stracktrace.
 	defer catcher.Catch(
 		catcher.RecvError(&err, isDebug),
 		catcher.RecvDie(1, true),
 		catcher.RecvWrite(os.Stderr),
 	)
 
+	// run the main executable
 	err = RootCmd.Execute()
 
 	return
 }
 
 func Execute() error {
-
+	// make sure to capture panics
 	defer catcher.Catch(
-		catcher.RecvWrite(os.Stderr, false),
+		catcher.RecvWrite(os.Stderr, isVerbose),
 	)
-
-	// defer func() {
-	// 	if r := recover(); r != nil {
-	// 		if v, ok := r.(*client.ValidationError); ok {
-	// 			fmt.Println("Error: %s", v.Message)
-	// 			return
-	// 		}
-	// 		if v, ok := r.(error); ok {
-	// 			fmt.Println(v)
-	// 			return
-	// 		}
-	// 		pp.Println(r)
-	// 	}
-	// }()
 	return safeCall()
 }
 
 var VersionCmd = cmd.VersionCmd
 
 func init() {
+	// The version information command
 	VersionCmd.Run = func(c *cobra.Command, args []string) {
 		cmd.VersionCmd.Run(c, args)
-		fmt.Println("ECE408ProjectMode: ", ece408ProjectMode)
+		if ece408ProjectMode {
+			fmt.Println("ECE408ProjectMode: ", ece408ProjectMode)
+		}
 	}
 
 	cobra.OnInitialize(initConfig, initColor)
 
+	// add the commands
 	RootCmd.AddCommand(VersionCmd)
 	RootCmd.AddCommand(cmd.LicenseCmd)
 	RootCmd.AddCommand(cmd.EnvCmd)
@@ -134,7 +127,7 @@ func init() {
 	RootCmd.PersistentFlags().BoolVarP(&isDebug, "debug", "d", false, "Toggle debug mode.")
 	RootCmd.PersistentFlags().StringVarP(&outputDirectory, "output", "o", "", "Set to output directory.")
 	RootCmd.PersistentFlags().BoolVar(&forceOutput, "force", false, "Toggle to force overwriting output directory.")
-	RootCmd.PersistentFlags().BoolVar(&isRatelimit, "ratelimit", true, "Toggle debug mode.")
+	RootCmd.PersistentFlags().BoolVar(&isRatelimit, "ratelimit", true, "Toggle rate limiter.")
 	if ece408ProjectMode {
 		RootCmd.PersistentFlags().StringVar(&submitionName, "submit", "", "The kind of submission (m2, m3, final)")
 	}
@@ -146,7 +139,7 @@ func init() {
 	RootCmd.PersistentFlags().MarkHidden("ratelimit")
 	RootCmd.PersistentFlags().MarkHidden("queue")
 
-	// viper.BindPFlag("app.secret", RootCmd.PersistentFlags().Lookup("secret"))
+	// bind the flags specified to the configuration file
 	viper.BindPFlag("app.debug", RootCmd.PersistentFlags().Lookup("debug"))
 	viper.BindPFlag("app.verbose", RootCmd.PersistentFlags().Lookup("verbose"))
 	viper.BindPFlag("app.color", RootCmd.PersistentFlags().Lookup("color"))

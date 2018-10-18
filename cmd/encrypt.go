@@ -11,8 +11,10 @@ import (
 // encryptCmd represents the encrypt command
 var encryptCmd = &cobra.Command{
 	Use:          "encrypt",
+	Short:        "encrypts an input string using the system's secret",
 	Hidden:       true,
 	SilenceUsage: true,
+	Args:         cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) != 1 {
 			return errors.Errorf("expected one argument, got %v", len(args))
