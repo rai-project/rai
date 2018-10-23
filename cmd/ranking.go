@@ -125,8 +125,8 @@ func init() {
 			table.SetHeader([]string{"You", "Rank", "Anonymized Team", "Fastest (ms)"})
 
 
-      currentRank = int64(1)
-      currentMinOpRunTime = time.Duration(0)
+      currentRank := int64(1)
+      currentMinOpRunTime := time.Duration(0)
 
 			for ii, job := range jobs {
 				if currentMinOpRunTime != job.MinOpRuntime() {
