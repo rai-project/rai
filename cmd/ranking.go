@@ -25,19 +25,6 @@ const (
 	maxResults = 100
 )
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 
 // rankingCmd represents the ranking command
 var rankingCmd = &cobra.Command{}
@@ -53,6 +40,19 @@ func init() {
 		Long:  `View anonymized convolution performance. Only the fastest result for each team is reported.`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 
+      min := func (a, b int) int {
+        if a < b {
+          return a
+        }
+        return b
+      }
+
+      max := func (a, b int) int {
+        if a > b {
+          return a
+        }
+        return b
+      }
 			db, err := mongodb.NewDatabase(config.App.Name)
 			if err != nil {
 				return err
@@ -94,14 +94,9 @@ func init() {
 			if numResults < 0 {
 				numResults = maxResults
 			}
-			numResults = min(numResults, maxResults)
+      
 			numResults = min(numResults, len(jobs))
-			//jobs = jobs[0:numResults]
-
-			//for _, j := range jobs {
-			//	fmt.Println(j)
-			//}
-
+      
 			// Get current user details
 			prof, err := provider.New()
 			if err != nil {
@@ -117,36 +112,38 @@ func init() {
 			}
 
 			tname, err := client.FindTeamName(prof.Info().Username)
+      if err != nil {
+        return err 
+      }
 
 			if tname == "" {
-				println("No team name for " + prof.Info().Username)
-				return nil
+        return errors.Errorf("No team name for %v", prof.Info().Username)
 			}
 
 			// Create table of ranking
 			table := tablewriter.NewWriter(os.Stdout)
-			table.SetHeader([]string{"You", "Rank", "Anonymized Team", "Fastest Conv (ms)"})
+			table.SetHeader([]string{"You", "Rank", "Anonymized Team", "Fastest (ms)"})
 
-			var x int64
-			var currentRank int64
-			var currentMinOpRunTime float64
 
-			x = 1
-			currentRank = 1
-			currentMinOpRunTime = 0
+      currentRank = int64(1)
+      currentMinOpRunTime = time.Duration(0)
 
-			for _, j := range jobs {
-				if currentMinOpRunTime != float64(j.MinOpRuntime())/float64(time.Millisecond) {
-					currentMinOpRunTime = float64(j.MinOpRuntime()) / float64(time.Millisecond)
-					currentRank = x
+			for ii, job := range jobs {
+				if currentMinOpRunTime != job.MinOpRuntime() {
+					currentMinOpRunTime = job.MinOpRuntime()
+					currentRank = ii
 				}
-
+        
+        srank := strconv.FormatInt(currentRank, 10)
+        sMinOpTime := fmt.Sprintf("%v", currentMinOpRunTime)
+        anonymizedTeamName := job.Anonymize().Teamname
+        
+        row := []string{tname + " -->", srank, anonymizedTeamName, sMinOpTime}
+        
 				if tname == j.Teamname {
-					table.Append([]string{tname + " -->", strconv.FormatInt(currentRank, 10), j.Anonymize().Teamname, strconv.FormatFloat(currentMinOpRunTime, 'f', 3, 64)})
-				} else {
-					table.Append([]string{"", strconv.FormatInt(currentRank, 10), j.Anonymize().Teamname, strconv.FormatFloat(currentMinOpRunTime, 'f', 3, 64)})
-				}
-				x++
+					row[0] = ""
+				} 
+        table.Append(row)
 			}
 			table.Render()
 			return nil
