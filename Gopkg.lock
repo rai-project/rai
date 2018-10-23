@@ -81,6 +81,7 @@
     "aws/request",
     "aws/session",
     "aws/signer/v4",
+    "internal/ini",
     "internal/s3err",
     "internal/sdkio",
     "internal/sdkrand",
@@ -104,16 +105,16 @@
     "service/sts",
   ]
   pruneopts = "UT"
-  revision = "bf8067ceb6e7f51e150c218972dccfeeed892b85"
-  version = "v1.15.54"
+  revision = "58fbceeaf77b78c7aa2d44b7a93431eba0468917"
+  version = "v1.15.60"
 
 [[projects]]
-  digest = "1:5627be48bc0061b4ed6a158e593112cd3eb6322da6ec91f73b5c70a7c9cfb01a"
+  digest = "0:"
   name = "github.com/briandowns/spinner"
   packages = ["."]
   pruneopts = "UT"
-  revision = "bbeb66ec3653684a0afb3031087f790a5b7d7bdf"
-  version = "1.3"
+  revision = "dd69c579ff204842e8962816987f838e2c2c18d8"
+  version = "1.4"
 
 [[projects]]
   digest = "1:2209584c0f7c9b68c23374e659357ab546e1b70eec2761f03280f69a8fd23d77"
@@ -192,7 +193,7 @@
     "pkg/system",
   ]
   pruneopts = "UT"
-  revision = "ee6fc90b2c80b742915131e1ba32169083fab038"
+  revision = "f7e5154f37a45dc2e576abbef404f3032e9823bf"
 
 [[projects]]
   digest = "1:6f82cacd0af5921e99bf3f46748705239b36489464f4529a1589bc895764fb18"
@@ -265,14 +266,6 @@
   pruneopts = "UT"
   revision = "c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9"
   version = "v1.4.7"
-
-[[projects]]
-  digest = "1:b98e7574fc27ec166fb31195ec72c3bd0bffd73926d3612eb4c929bc5236f75b"
-  name = "github.com/go-ini/ini"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "7b294651033cd7d9e7f0d9ffa1b75ed1e198e737"
-  version = "v1.38.3"
 
 [[projects]]
   digest = "0:"
@@ -381,11 +374,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:8e4108562efbf12090baf6312b4a120dec7a8355512e6edc7a8ee648d48625ed"
+  digest = "0:"
   name = "github.com/knq/sdhook"
   packages = ["."]
   pruneopts = "UT"
-  revision = "65f48aa54165c608094aacc03485fb61fc6b61d8"
+  revision = "8b9f536cef4f4286cb1a9cf1dada024c106c9632"
 
 [[projects]]
   digest = "1:0a69a1c0db3591fcefb47f115b224592c8dfa4368b7ba9fae509d5e16cdc95c8"
@@ -570,7 +563,7 @@
     "secret",
   ]
   pruneopts = "UT"
-  revision = "03ebf120b0fa0780f733dce7186dce58e79c2c40"
+  revision = "404e1c137be4257bb57917ed702772a6f3032b9c"
 
 [[projects]]
   branch = "master"
@@ -597,7 +590,7 @@
   name = "github.com/rai-project/client"
   packages = ["."]
   pruneopts = "UT"
-  revision = "09035dcc96ff59843a993ce52cb1d441abb7a5ea"
+  revision = "e24ebb7b56cb943ab235759f8b59c0275d968a2d"
 
 [[projects]]
   branch = "master"
@@ -819,14 +812,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:b6f8ebdd3a700fb81b871364bf14ea6a1075d9acb638e628794e098ab5935b11"
+  digest = "0:"
   name = "github.com/spf13/cobra"
   packages = [
     ".",
     "doc",
   ]
   pruneopts = "UT"
-  revision = "8d114be902bc9f08717804830a55c48378108a28"
+  revision = "fe5e611709b0c57fa4a89136deaa8e1d4004d053"
 
 [[projects]]
   branch = "master"
@@ -930,7 +923,7 @@
     "ssh/terminal",
   ]
   pruneopts = "UT"
-  revision = "a92615f3c49003920a58dedcf32cf55022cefb8d"
+  revision = "0c41d7ab0a0ee717d4590a44bcb987dfd9e183eb"
 
 [[projects]]
   branch = "master"
@@ -941,11 +934,11 @@
     "context/ctxhttp",
   ]
   pruneopts = "UT"
-  revision = "49bb7cea24b1df9410e1712aa6433dae904ff66a"
+  revision = "04a2e542c03f1d053ab3e4d6e5abcd4b66e2be8e"
 
 [[projects]]
   branch = "master"
-  digest = "1:39273b3e6c96fed52bd8f7793fc463c40b1a27a7caa51302b81d45306b9646b4"
+  digest = "0:"
   name = "golang.org/x/oauth2"
   packages = [
     ".",
@@ -955,7 +948,7 @@
     "jwt",
   ]
   pruneopts = "UT"
-  revision = "c57b0facaced709681d9f90397429b9430a74754"
+  revision = "9dcd33a902f40452422c2367fefcb95b54f9f8f8"
 
 [[projects]]
   branch = "master"
@@ -975,7 +968,7 @@
     "windows",
   ]
   pruneopts = "UT"
-  revision = "fa43e7bc11baaae89f3f902b2b4d832b68234844"
+  revision = "8a28ead16f52c8aaeffbf79239b251dfdf6c4f96"
 
 [[projects]]
   digest = "0:"
@@ -1004,7 +997,7 @@
     "logging/v2",
   ]
   pruneopts = "UT"
-  revision = "72df7e5ac770e49326116145ee04771cf1913a73"
+  revision = "a2651947f503a1793446d4058bb073a6fdf99e53"
 
 [[projects]]
   digest = "1:193950893ea275f89ed92e5da11ed8fa1436872f755a9ea5d4afa83dc9d9c3a8"
@@ -1026,12 +1019,12 @@
   version = "v1.2.0"
 
 [[projects]]
-  digest = "1:d8cd4f14785b5ae65100524a29ebba8b9dfc5401020fe7504f80b438bb8e8e0d"
+  digest = "0:"
   name = "gopkg.in/cheggaaa/pb.v1"
   packages = ["."]
   pruneopts = "UT"
-  revision = "2af8bbdea9e99e83b3ac400d8f6b6d1b8cbbf338"
-  version = "v1.0.25"
+  revision = "007b75a044e968336a69a6c0c617251ab62ac14c"
+  version = "v1.0.26"
 
 [[projects]]
   digest = "1:e72266fe8f18b56d1150d83ac28d14220052507904daf1e02677a765d2770005"
