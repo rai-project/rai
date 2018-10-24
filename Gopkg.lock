@@ -6,8 +6,8 @@
   name = "cloud.google.com/go"
   packages = ["compute/metadata"]
   pruneopts = "UT"
-  revision = "dfffe386c33fb24c34ee501e5723df5b97b98514"
-  version = "v0.30.0"
+  revision = "debcad1964693daf8ef4bc06292d7e828e075130"
+  version = "v0.31.0"
 
 [[projects]]
   branch = "master"
@@ -105,8 +105,8 @@
     "service/sts",
   ]
   pruneopts = "UT"
-  revision = "58fbceeaf77b78c7aa2d44b7a93431eba0468917"
-  version = "v1.15.60"
+  revision = "9a79cc876234949427d966249a09fc98e7864bde"
+  version = "v1.15.61"
 
 [[projects]]
   digest = "0:"
@@ -126,11 +126,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:4a029051269e04c040c092eb4ddd92732f8f3a3921a8b43b82b30804e00f3357"
+  digest = "0:"
   name = "github.com/containerd/continuity"
   packages = ["pathdriver"]
   pruneopts = "UT"
-  revision = "be9bd761db19d4fc551d40be908f02e00487511d"
+  revision = "c220ac4f01b8a301edcb9c9c05d7600249138cfa"
 
 [[projects]]
   digest = "0:"
@@ -193,7 +193,7 @@
     "pkg/system",
   ]
   pruneopts = "UT"
-  revision = "f7e5154f37a45dc2e576abbef404f3032e9823bf"
+  revision = "785fe99bdb7c004acd57d5d65d57ceb256d87ef1"
 
 [[projects]]
   digest = "1:6f82cacd0af5921e99bf3f46748705239b36489464f4529a1589bc895764fb18"
@@ -590,7 +590,7 @@
   name = "github.com/rai-project/client"
   packages = ["."]
   pruneopts = "UT"
-  revision = "e24ebb7b56cb943ab235759f8b59c0275d968a2d"
+  revision = "e2e789e5aae6d6c8296fa7002f3bc273e20e784a"
 
 [[projects]]
   branch = "master"
@@ -934,7 +934,7 @@
     "context/ctxhttp",
   ]
   pruneopts = "UT"
-  revision = "04a2e542c03f1d053ab3e4d6e5abcd4b66e2be8e"
+  revision = "9b4f9f5ad5197c79fd623a3638e70d8b26cef344"
 
 [[projects]]
   branch = "master"
@@ -968,7 +968,7 @@
     "windows",
   ]
   pruneopts = "UT"
-  revision = "8a28ead16f52c8aaeffbf79239b251dfdf6c4f96"
+  revision = "44b849a8bc13eb42e95e6c6c5e360481b73ec710"
 
 [[projects]]
   digest = "0:"
