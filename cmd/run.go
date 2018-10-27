@@ -1,9 +1,12 @@
 package cmd
 
 import (
+	"errors"
+	"fmt"
 	"os"
 	"path/filepath"
 
+	"github.com/Unknwon/com"
 	"github.com/rai-project/client"
 	log "github.com/rai-project/logger"
 	"github.com/xlab/closer"
@@ -52,6 +55,13 @@ func newClient(inputOpts ...client.Option) (*client.Client, error) {
 }
 
 func runClient(client *client.Client) error {
+
+	if !com.IsDir(workingDir) {
+		fmt.Printf("Error:: the directory specified = %s was not found. "+
+			"Use the --path option to specify the directory you want to build.\n", workingDir)
+		return errors.New("Invalid directory")
+	}
+
 	// validate the rai_build.yml file and user privileges
 	if err := client.Validate(); err != nil {
 		return err

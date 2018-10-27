@@ -1,4 +1,4 @@
-// +build !develop
+// +build !debug
 
 package cmd
 

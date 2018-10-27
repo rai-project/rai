@@ -1,12 +1,10 @@
 package cmd
 
 import (
-	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
 
-	"github.com/Unknwon/com"
 	"github.com/fatih/color"
 	"github.com/rai-project/cmd"
 	"github.com/rai-project/config"
@@ -45,10 +43,8 @@ var RootCmd = &cobra.Command{
 				}
 			}
 		}
-		if !com.IsDir(workingDir) {
-			fmt.Printf("Error:: the directory specified = %s was not found. "+
-				"Use the --path option to specify the directory you want to build.\n", workingDir)
-			return errors.New("Invalid directory")
+		if jobQueueName == "" && ece408ProjectMode {
+			jobQueueName = "rai_amd64_ece408"
 		}
 		return nil
 	},
@@ -71,11 +67,14 @@ func safeCall() (err error) {
 	defer catcher.Catch(
 		catcher.RecvError(&err, isDebug),
 		catcher.RecvDie(1, true),
-		catcher.RecvWrite(os.Stderr),
+		catcher.RecvWrite(os.Stderr, isVerbose),
 	)
 
 	// run the main executable
 	err = RootCmd.Execute()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 
 	return
 }

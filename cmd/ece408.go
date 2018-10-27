@@ -2,7 +2,9 @@
 
 package cmd
 
-import "github.com/rai-project/client"
+import (
+	"github.com/rai-project/client"
+)
 
 func validateEce408Options() error {
 	return nil

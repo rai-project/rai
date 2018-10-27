@@ -10,5 +10,5 @@ func cleanup() {
 
 func main() {
 	closer.Bind(cleanup)
-	closer.Checked(cmd.Execute, false)
+	closer.Checked(cmd.Execute, isDebug)
 }
