@@ -42,6 +42,14 @@
   version = "v1"
 
 [[projects]]
+  branch = "master"
+  digest = "0:"
+  name = "github.com/acarl005/stripansi"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "5a71ef0e047df0427e87a79f27009029921f1f9b"
+
+[[projects]]
   digest = "1:027f5cf24555c769c5039982c5218d3ae77d750a6908f3c3c0db87623e40473b"
   name = "github.com/airbrake/gobrake"
   packages = [
@@ -105,8 +113,8 @@
     "service/sts",
   ]
   pruneopts = "UT"
-  revision = "9a79cc876234949427d966249a09fc98e7864bde"
-  version = "v1.15.61"
+  revision = "34ab03ee1a2b90b3baf97ff666397c8fb9b8714b"
+  version = "v1.15.64"
 
 [[projects]]
   digest = "0:"
@@ -193,7 +201,7 @@
     "pkg/system",
   ]
   pruneopts = "UT"
-  revision = "785fe99bdb7c004acd57d5d65d57ceb256d87ef1"
+  revision = "b8e87cfdad8daa6ef782ddb90691a259483bc8e4"
 
 [[projects]]
   digest = "1:6f82cacd0af5921e99bf3f46748705239b36489464f4529a1589bc895764fb18"
@@ -475,11 +483,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:f611266e3ac01ab4adb6f1d67f6c1be82998d02f452faff450596658712d860b"
+  digest = "0:"
   name = "github.com/olekukonko/tablewriter"
   packages = ["."]
   pruneopts = "UT"
-  revision = "be2c049b30ccd4d3fd795d6bf7dce74e42eeedaa"
+  revision = "e6d60cf7ba1f42d86d54cdf5508611c4aafb3970"
 
 [[projects]]
   digest = "1:ee4d4af67d93cc7644157882329023ce9a7bcfce956a079069a9405521c7cc8d"
@@ -563,7 +571,7 @@
     "secret",
   ]
   pruneopts = "UT"
-  revision = "404e1c137be4257bb57917ed702772a6f3032b9c"
+  revision = "eb801fd23813029ffea891a6ad9252bb4195f165"
 
 [[projects]]
   branch = "master"
@@ -571,7 +579,7 @@
   name = "github.com/rai-project/aws"
   packages = ["."]
   pruneopts = "UT"
-  revision = "648d87fdbecb675bbf68c01b794861c987f6f847"
+  revision = "1c8789f64378727de2e0c1a912c874ad74e922c1"
 
 [[projects]]
   branch = "master"
@@ -590,7 +598,7 @@
   name = "github.com/rai-project/client"
   packages = ["."]
   pruneopts = "UT"
-  revision = "e2e789e5aae6d6c8296fa7002f3bc273e20e784a"
+  revision = "c0b8940b07bda466aff1c8cc2faf8d7dee3b2268"
 
 [[projects]]
   branch = "master"
@@ -618,14 +626,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:05ab398fb004165be5bc1c91de8f6df98d19f670a1c8f92bd810c75b5ce465cb"
+  digest = "0:"
   name = "github.com/rai-project/database"
   packages = [
     ".",
     "mongodb",
   ]
   pruneopts = "UT"
-  revision = "38879ae961d31e4353f407fbfd1523792c901446"
+  revision = "4df12c64307246116f505284e77f9dc66fbe9fad"
 
 [[projects]]
   branch = "master"
@@ -661,7 +669,7 @@
   name = "github.com/rai-project/model"
   packages = ["."]
   pruneopts = "UT"
-  revision = "21eb33068eebfa9cb3dc6dc35ce1efb1363e9978"
+  revision = "ac2d1d1ff12d765797a4157f59c57c9c91a36ed0"
 
 [[projects]]
   branch = "master"
@@ -803,12 +811,12 @@
   version = "v1.1.2"
 
 [[projects]]
-  digest = "1:516e71bed754268937f57d4ecb190e01958452336fa73dbac880894164e91c1f"
+  digest = "0:"
   name = "github.com/spf13/cast"
   packages = ["."]
   pruneopts = "UT"
-  revision = "8965335b8c7107321228e3e3702cab9832751bac"
-  version = "v1.2.0"
+  revision = "8c9545af88b134710ab1cd196795e7f2388358d7"
+  version = "v1.3.0"
 
 [[projects]]
   branch = "master"
@@ -923,7 +931,7 @@
     "ssh/terminal",
   ]
   pruneopts = "UT"
-  revision = "0c41d7ab0a0ee717d4590a44bcb987dfd9e183eb"
+  revision = "e84da0312774c21d64ee2317962ef669b27ffb41"
 
 [[projects]]
   branch = "master"
@@ -968,7 +976,7 @@
     "windows",
   ]
   pruneopts = "UT"
-  revision = "44b849a8bc13eb42e95e6c6c5e360481b73ec710"
+  revision = "95b1ffbd15a57cc5abb3f04402b9e8ec0016a52c"
 
 [[projects]]
   digest = "0:"
@@ -997,7 +1005,7 @@
     "logging/v2",
   ]
   pruneopts = "UT"
-  revision = "a2651947f503a1793446d4058bb073a6fdf99e53"
+  revision = "511bab8e55decfbe784cd2d1868fa5cda62dc6c1"
 
 [[projects]]
   digest = "1:193950893ea275f89ed92e5da11ed8fa1436872f755a9ea5d4afa83dc9d9c3a8"
@@ -1046,8 +1054,8 @@
   name = "gopkg.in/go-playground/validator.v9"
   packages = ["."]
   pruneopts = "UT"
-  revision = "e69e9a28bb62b977fdc58d051f1bb477b7cbe486"
-  version = "v9.21.0"
+  revision = "f8af4b15dbe132b53d3a53e7c3724271040e82e7"
+  version = "v9.21.1"
 
 [[projects]]
   digest = "1:174d05aec0155083f9b461f21a0a5c94f396c3cdb44f62445009ca05eef1372b"
@@ -1145,6 +1153,7 @@
     "github.com/rai-project/logger/hooks",
     "github.com/rai-project/utils",
     "github.com/sanbornm/go-selfupdate/selfupdate",
+    "github.com/spf13/cast",
     "github.com/spf13/cobra",
     "github.com/spf13/viper",
     "github.com/xlab/catcher",
