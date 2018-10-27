@@ -571,7 +571,7 @@
     "secret",
   ]
   pruneopts = "UT"
-  revision = "eb801fd23813029ffea891a6ad9252bb4195f165"
+  revision = "f06ec209b357d87f7a7966622200ea7fae172257"
 
 [[projects]]
   branch = "master"
@@ -579,7 +579,7 @@
   name = "github.com/rai-project/aws"
   packages = ["."]
   pruneopts = "UT"
-  revision = "1c8789f64378727de2e0c1a912c874ad74e922c1"
+  revision = "c2385f07f2959d2dce9c4ccfa3e087664387ab51"
 
 [[projects]]
   branch = "master"
@@ -598,7 +598,7 @@
   name = "github.com/rai-project/client"
   packages = ["."]
   pruneopts = "UT"
-  revision = "c0b8940b07bda466aff1c8cc2faf8d7dee3b2268"
+  revision = "9df99572296a7dff7dcda4faa406be803569757f"
 
 [[projects]]
   branch = "master"
