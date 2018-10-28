@@ -66,8 +66,7 @@ func init() {
 			cond := upper.And(
 				condInferencesExist,
 				upper.Cond{
-					"is_submission":          true,
-					"inferences.correctness": 0.8451},
+					"inferences.correctness": 0.8171},
 			)
 
 			var jobs client.Ece408JobResponseBodys
