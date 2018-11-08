@@ -54,7 +54,7 @@ func init() {
 			defer db.Close()
 
 			// Create the Fall2017 collection (mongodb's nomenclature for tables)
-			col, err := client.NewFa2017Ece408TeamCollection(db)
+			col, err := client.NewEce408JobResponseBodyCollection(db)
 			if err != nil {
 				return err
 			}

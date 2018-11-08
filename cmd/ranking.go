@@ -133,7 +133,7 @@ func init() {
 
 				row := []string{tname + " -->", srank, anonymizedTeamName, sMinOpTime}
 
-				if tname == job.Teamname {
+				if tname != job.Teamname {
 					row[0] = ""
 				}
 				table.Append(row)
