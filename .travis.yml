@@ -2,15 +2,6 @@ dist: trusty
 sudo: required
 language: go
 go: '1.11.x'
-services:
-  - docker
-addons:
-  apt:
-    packages:
-    - rpm
-    - snapd
-env:
-  - PATH=/snap/bin:$PATH GO111MODULE=on
     
 before_install:
 - sudo dpkg --print-foreign-architectures
