@@ -40,9 +40,9 @@ You will need an extra secret key if you build from source.
 
 Alternatively, you can place the app secret in `~/.rai_secret` and just do
 
-    go run -tags develop main.go -d -v -p <project-folder>
+    go run -tags debug main.go -d -v -p <project-folder>
 
-The `-tags develop` casuses rai to read the local configuration instead of using an embedded one.
+The `-tags debug` casuses rai to read the local configuration instead of using an embedded one.
 
 ## Usage
 
