@@ -113,8 +113,8 @@
     "service/sts",
   ]
   pruneopts = "UT"
-  revision = "65d3a00e127da62728a742722df4258ae4206ffc"
-  version = "v1.15.72"
+  revision = "cf00ea20983ce38df17ab0a0814463ab8838459f"
+  version = "v1.15.73"
 
 [[projects]]
   digest = "0:"
@@ -201,7 +201,7 @@
     "pkg/system",
   ]
   pruneopts = "UT"
-  revision = "1e7c43dfae3f2edd063b71f9dbb79e6dd7efc9a9"
+  revision = "279452feddbcd49f3cf455defff26f9ae0aa7dd1"
 
 [[projects]]
   digest = "1:6f82cacd0af5921e99bf3f46748705239b36489464f4529a1589bc895764fb18"

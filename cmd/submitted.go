@@ -65,8 +65,8 @@ func init() {
 			cond := upper.And(
 				condInferencesExist,
 				upper.Cond{
-					"is_submission": true,
-					"teamname":      tname,
+					//"is_submission": true,
+					"teamname": tname,
 				},
 			)
 
@@ -84,7 +84,7 @@ func init() {
 			}
 
 			fmt.Println()
-			fmt.Println("Last 5 successful submissions for team: " + tname)
+			fmt.Println("Last 10 successful runs for team: " + tname)
 			fmt.Println()
 
 			// not sure what the heck this is doing
@@ -92,8 +92,12 @@ func init() {
 			x := 0
 			for _, i := range jobs {
 				//Skip items before last 5
-				if x > len(jobs)-6 {
-					fmt.Println(i.SubmissionTag + " - " + i.CreatedAt.String() + " (Submitted by: " + i.Username + ")")
+				if x > len(jobs)-11 {
+					subtag := i.SubmissionTag
+					if subtag == "" {
+						subtag = "  "
+					}
+					fmt.Println(subtag + " - " + i.CreatedAt.String() + " (Submitted by: " + i.Username + ")" + "\n     " + i.ProjectURL + "\n")
 				}
 				x++
 			}
