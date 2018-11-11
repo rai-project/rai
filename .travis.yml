@@ -1,16 +1,16 @@
-language: go
-go:
-- '1.11.x'
 dist: trusty
 sudo: required
-
+language: go
+go: '1.11.x'
+services:
+  - docker
 addons:
   apt:
     packages:
-    # needed for the nfpm pipe:
     - rpm
-    # needed for the snap pipe:
-    - snapcraft
+    - snapd
+env:
+  - PATH=/snap/bin:$PATH GO111MODULE=on
     
 before_install:
 - sudo dpkg --print-foreign-architectures
