@@ -3,11 +3,21 @@ go:
 - '1.11.x'
 dist: trusty
 sudo: required
+
+addons:
+  apt:
+    packages:
+    # needed for the nfpm pipe:
+    - rpm
+    # needed for the snap pipe:
+    - snapcraft
+    
 before_install:
 - sudo dpkg --print-foreign-architectures
 - sudo dpkg --add-architecture i386
 - sudo apt-get install -qq --force-yes build-essential gcc-multilib g++-multilib > /dev/null
 - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+- curl -sL https://git.io/goreleaser | bash
 - gem install --no-ri --no-rdoc fpm
 - go get -u golang.org/x/tools/cmd/stringer
 - go get -u golang.org/x/tools/cmd/cover
@@ -21,11 +31,6 @@ before_install:
 - go get github.com/client9/misspell/cmd/misspell
 - go get -u github.com/goreleaser/nfpm/...
 - go get github.com/aktau/github-release
-# - go get -d github.com/goreleaser/goreleaser
-# - cd $GOPATH/src/github.com/goreleaser/goreleaser
-# - dep ensure -vendor-only -v
-# - make setup build
-# - go install
 - cd ${TRAVIS_BUILD_DIR}
 - sed -i "s/\${APP_SECRET}/${APP_SECRET}/" ${TRAVIS_BUILD_DIR}/.goreleaser.yml
 - dep ensure -v
