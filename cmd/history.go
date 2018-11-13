@@ -16,16 +16,16 @@ import (
 )
 
 // rankingCmd represents the ranking command
-var submittedCmd = &cobra.Command{}
+var historyCmd = &cobra.Command{}
 
 func init() {
 	if !ece408ProjectMode {
 		return
 	}
-	submittedCmd = &cobra.Command{
-		Use:   "submitted",
-		Short: "View history of submissions.",
-		Long:  `View history of team submissions associated with user`,
+	historyCmd = &cobra.Command{
+		Use:   "history",
+		Short: "View history of runs.",
+		Long:  `View history of runs associated with user`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			// Read the profile (e.g. ~/rai_profile.yml)
 			prof, err := provider.New()
@@ -39,11 +39,6 @@ func init() {
 			}
 			if !ok {
 				return errors.Errorf("cannot authenticate using the credentials in %v", prof.Options().ProfilePath)
-			}
-
-			tname, err := client.FindTeamName(prof.Info().Username)
-			if err != nil {
-				return err
 			}
 
 			// Create a database  using mongodb with the `config.App.Name` name
@@ -65,8 +60,8 @@ func init() {
 			cond := upper.And(
 				condInferencesExist,
 				upper.Cond{
-					"is_submission": true,
-					"teamname":      tname,
+					//"is_submission": true,
+					"username": prof.Info().Username,
 				},
 			)
 
@@ -84,7 +79,7 @@ func init() {
 			}
 
 			fmt.Println()
-			fmt.Println("Last 5 successful submissions for team: " + tname)
+			fmt.Println("Last 10 successful runs for user: " + prof.Info().Username)
 			fmt.Println()
 
 			// not sure what the heck this is doing
@@ -92,12 +87,12 @@ func init() {
 			x := 0
 			for _, i := range jobs {
 				//Skip items before last 10
-				if x > len(jobs)-6 {
+				if x > len(jobs)-11 {
 					subtag := i.SubmissionTag
 					if subtag == "" {
 						subtag = "  "
 					}
-					fmt.Println(subtag + " - " + i.CreatedAt.String() + " (Submitted by: " + i.Username + ")" + "\n     " + i.ProjectURL + "\n")
+					fmt.Println(subtag + " - " + i.CreatedAt.String() + "\n     " + i.ProjectURL + "\n")
 				}
 				x++
 			}
@@ -105,5 +100,5 @@ func init() {
 			return nil
 		},
 	}
-	RootCmd.AddCommand(submittedCmd)
+	RootCmd.AddCommand(historyCmd)
 }
