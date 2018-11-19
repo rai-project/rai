@@ -61,12 +61,14 @@ func init() {
 			defer col.Close()
 
 			// Get submissions
-
-			condInferencesExist := upper.Cond{"inferences.0 $exists": "true"}
 			cond := upper.And(
-				condInferencesExist,
+				//condInferencesExist,
 				upper.Cond{
-					"inferences.correctness": 0.8171},
+					"inferences.0.correctness":      0.8171,
+					"inferences.1 $exists":          false,
+					"inferences.0.opruntimes.0 $gt": 0,
+					"inferences.0.opruntimes.1 $gt": 0,
+				},
 			)
 
 			var jobs client.Ece408JobResponseBodys
@@ -116,7 +118,7 @@ func init() {
 
 			// Create table of ranking
 			table := tablewriter.NewWriter(os.Stdout)
-			table.SetHeader([]string{"You", "Rank", "Anonymized Team", "Fastest (ms)"})
+			table.SetHeader([]string{"You", "Rank", "Anonymized Team", "Fastest (ms)", "Verified"})
 
 			currentRank := 1
 			currentMinOpRunTime := time.Duration(0)
@@ -136,6 +138,13 @@ func init() {
 				if tname != job.Teamname {
 					row[0] = ""
 				}
+
+				if job.SubmissionTag != "m4" {
+					if job.SubmissionTag != "Final" {
+						row[4] = ""
+					}
+				}
+
 				table.Append(row)
 			}
 			table.Render()

@@ -24,7 +24,7 @@ func init() {
 	}
 	submittedCmd = &cobra.Command{
 		Use:   "submitted",
-		Short: "View history of submissions.",
+		Short: "View history of team submissions.",
 		Long:  `View history of team submissions associated with user`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			// Read the profile (e.g. ~/rai_profile.yml)

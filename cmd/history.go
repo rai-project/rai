@@ -74,7 +74,7 @@ func init() {
 			}
 
 			if len(jobs) == 0 {
-				print("No jobs associated with userid / teamname. If you have submitted a job, your userid is not associated with a teamname.")
+				print("No jobs associated with userid.")
 				return nil
 			}
 
