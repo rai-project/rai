@@ -1,8 +1,8 @@
-dist: trusty
+dist: xenial
 sudo: required
 language: go
 go: '1.11.x'
-    
+
 before_install:
 - sudo dpkg --print-foreign-architectures
 - sudo dpkg --add-architecture i386
@@ -24,8 +24,6 @@ before_install:
 - cd ${TRAVIS_BUILD_DIR}
 - sed -i "s/\${APP_SECRET}/${APP_SECRET}/" ${TRAVIS_BUILD_DIR}/.goreleaser.yml
 - dep ensure -v
-- rm -fr vendor/github.com/Sirupsen
-- find vendor -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
 script:
 - echo "Skip tests..."
 - VERSION=$(cat ./VERSION)
