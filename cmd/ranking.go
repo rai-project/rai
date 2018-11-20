@@ -64,10 +64,8 @@ func init() {
 			cond := upper.And(
 				//condInferencesExist,
 				upper.Cond{
-					"inferences.0.correctness":      0.8171,
-					"inferences.1 $exists":          false,
-					"inferences.0.opruntimes.0 $gt": 0,
-					"inferences.0.opruntimes.1 $gt": 0,
+					"ranking_valid":            true,
+					"inferences.0.correctness": 0.8171,
 				},
 			)
 
@@ -118,7 +116,7 @@ func init() {
 
 			// Create table of ranking
 			table := tablewriter.NewWriter(os.Stdout)
-			table.SetHeader([]string{"You", "Rank", "Anonymized Team", "Fastest (ms)", "Verified"})
+			table.SetHeader([]string{"You", "Rank", "Anonymized Team", "Fastest (ms)"})
 
 			currentRank := 1
 			currentMinOpRunTime := time.Duration(0)
@@ -137,12 +135,6 @@ func init() {
 
 				if tname != job.Teamname {
 					row[0] = ""
-				}
-
-				if job.SubmissionTag != "m4" {
-					if job.SubmissionTag != "Final" {
-						row[4] = ""
-					}
 				}
 
 				table.Append(row)
