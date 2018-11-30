@@ -6,8 +6,8 @@
   name = "cloud.google.com/go"
   packages = ["compute/metadata"]
   pruneopts = "UT"
-  revision = "1fd54cf41e6e0e178ffe3c52b0e2260281f603e3"
-  version = "v0.32.0"
+  revision = "74b12019e2aa53ec27882158f59192d7cd6d1998"
+  version = "v0.33.1"
 
 [[projects]]
   branch = "master"
@@ -113,8 +113,8 @@
     "service/sts",
   ]
   pruneopts = "UT"
-  revision = "cf00ea20983ce38df17ab0a0814463ab8838459f"
-  version = "v1.15.73"
+  revision = "ceab7b7ac6f535d1397f124620720b5145f1ad59"
+  version = "v1.15.88"
 
 [[projects]]
   digest = "0:"
@@ -125,12 +125,12 @@
   version = "1.4"
 
 [[projects]]
-  digest = "1:2209584c0f7c9b68c23374e659357ab546e1b70eec2761f03280f69a8fd23d77"
+  digest = "0:"
   name = "github.com/cenkalti/backoff"
   packages = ["."]
   pruneopts = "UT"
-  revision = "2ea60e5f094469f9e65adb9cd103795b73ae743e"
-  version = "v2.0.0"
+  revision = "62661b46c4093e2c1f38d943e663db1a29873e80"
+  version = "v2.1.0"
 
 [[projects]]
   branch = "master"
@@ -201,7 +201,7 @@
     "pkg/system",
   ]
   pruneopts = "UT"
-  revision = "279452feddbcd49f3cf455defff26f9ae0aa7dd1"
+  revision = "baab736a364959f10a5ef86f0cd8a8e44bdcc576"
 
 [[projects]]
   digest = "1:6f82cacd0af5921e99bf3f46748705239b36489464f4529a1589bc895764fb18"
@@ -549,7 +549,7 @@
   name = "github.com/rai-project/acl"
   packages = ["."]
   pruneopts = "UT"
-  revision = "a9995d5d1e6f234ce959f181c08ed8e2e119ef68"
+  revision = "037e0eb4d7466ce4ce0800836f87f6204fd7a1e3"
 
 [[projects]]
   branch = "master"
@@ -557,7 +557,7 @@
   name = "github.com/rai-project/archive"
   packages = ["."]
   pruneopts = "UT"
-  revision = "ef2c5965e3d16253818c28ac764c248cafc8e67f"
+  revision = "a0a579624334f20ed93f83d7b5bf7d0610ac03d2"
 
 [[projects]]
   branch = "master"
@@ -571,7 +571,7 @@
     "secret",
   ]
   pruneopts = "UT"
-  revision = "f06ec209b357d87f7a7966622200ea7fae172257"
+  revision = "65e8b04f453bf5ed229613bb81eb0221b70a8a6e"
 
 [[projects]]
   branch = "master"
@@ -579,7 +579,7 @@
   name = "github.com/rai-project/aws"
   packages = ["."]
   pruneopts = "UT"
-  revision = "c2385f07f2959d2dce9c4ccfa3e087664387ab51"
+  revision = "0989b18a4aeb9277319b28080a614a5161c3934e"
 
 [[projects]]
   branch = "master"
@@ -590,7 +590,7 @@
     "sqs",
   ]
   pruneopts = "UT"
-  revision = "7a9cf2b9fbcda060a0c760ebbd9846c136fce6db"
+  revision = "2aa8f364fa763bc6554250b49a23a6353f0c8422"
 
 [[projects]]
   branch = "master"
@@ -598,31 +598,31 @@
   name = "github.com/rai-project/client"
   packages = ["."]
   pruneopts = "UT"
-  revision = "41431f5d1a1f7622ce79652f9d4e6d6ef0524ff0"
+  revision = "e014fc836c2589ac0e811e1d97f8a1b526fb00e7"
 
 [[projects]]
   branch = "master"
-  digest = "1:07f56732de1b856666aababc99b0423b52c955461ede28be5d58ea1c5dea11fe"
+  digest = "0:"
   name = "github.com/rai-project/cmd"
   packages = ["."]
   pruneopts = "UT"
-  revision = "bcb7a61ab8feb570c70570972cb239ba9de53134"
+  revision = "69f8e596de1c7e6d9aee7e68d24a7ccb3acd5cfd"
 
 [[projects]]
   branch = "master"
-  digest = "1:891b35d08a51249bb4f5c95076a9ef781b9ef2cbe352b9413969ec72ff03ebde"
+  digest = "0:"
   name = "github.com/rai-project/config"
   packages = ["."]
   pruneopts = "UT"
-  revision = "628ac79ac6e3bc58c01dc06e9c2fd0220094ed32"
+  revision = "4d0de45fe6c1a55b23670fb8d402451709cf21ba"
 
 [[projects]]
   branch = "master"
-  digest = "1:96bede400fa0e1a700ff170c62a95fcafbedbcec1f3ae45392011a9dbc2da47b"
+  digest = "0:"
   name = "github.com/rai-project/context"
   packages = ["."]
   pruneopts = "UT"
-  revision = "3f58e510bd73afd645d96659f71f65f72ab85a3f"
+  revision = "fab459fa9005ecd9ab0440a32c4f28aaa833bbbf"
 
 [[projects]]
   branch = "master"
@@ -633,7 +633,7 @@
     "mongodb",
   ]
   pruneopts = "UT"
-  revision = "5ab33e426a17cd0d2fffcdbb94e4d58d4605ef51"
+  revision = "460c9cf6ee9ff85b91220358648023379ccd7bf7"
 
 [[projects]]
   branch = "master"
@@ -645,15 +645,15 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:c6297c7697315ce633a9f91f165ecf4cc2aad156cbbae4d794a51ae14395baeb"
+  digest = "0:"
   name = "github.com/rai-project/googlecloud"
   packages = ["."]
   pruneopts = "UT"
-  revision = "901a6506eab9da69609bd6d67ac6260cf75f8a69"
+  revision = "8938dc83da610b96d2ddbca3abf88b79f895ebe7"
 
 [[projects]]
   branch = "master"
-  digest = "1:1e6e1c5e51c0d34e119725d5982976d3972b4f16db34000735034de8f213d2c2"
+  digest = "0:"
   name = "github.com/rai-project/logger"
   packages = [
     ".",
@@ -661,7 +661,7 @@
     "hooks/logruzio",
   ]
   pruneopts = "UT"
-  revision = "1489285c3ccf666d2983e3746486db940813c60d"
+  revision = "3edfaed4af1c2be49ae65399a82fab15780e6549"
 
 [[projects]]
   branch = "master"
@@ -669,7 +669,7 @@
   name = "github.com/rai-project/model"
   packages = ["."]
   pruneopts = "UT"
-  revision = "ac2d1d1ff12d765797a4157f59c57c9c91a36ed0"
+  revision = "66be2e1deaae639c80884b7007a450ca353b69a3"
 
 [[projects]]
   branch = "master"
@@ -692,22 +692,22 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:920d36df0011109d5d016df16ebeb1d3860031420abcce380d723c4109be3a99"
+  digest = "0:"
   name = "github.com/rai-project/pubsub"
   packages = [
     ".",
     "redis",
   ]
   pruneopts = "UT"
-  revision = "e8325a5d893bcfc9b849d14b8289a457a89c341a"
+  revision = "54382750f3610c03da0a5b324ac23ce0a8a56a5e"
 
 [[projects]]
   branch = "master"
-  digest = "1:71ee6e92ef6bc5e4484cc035400aa4c9daa95115457a6736c125d656cd0345ee"
+  digest = "0:"
   name = "github.com/rai-project/ratelimit"
   packages = ["."]
   pruneopts = "UT"
-  revision = "9c6239956f7a758c22c69ea41b0c20c3df5b5e05"
+  revision = "9dbd0ff98234f15d0238058b55cba718c6f54084"
 
 [[projects]]
   branch = "master"
@@ -719,7 +719,7 @@
     "json",
   ]
   pruneopts = "UT"
-  revision = "17f0f01644c8653b8e61bc83cd33706c6dbe3dc9"
+  revision = "c73b52fef2017617905a08210dcc65f0880cf11e"
 
 [[projects]]
   branch = "master"
@@ -730,7 +730,7 @@
     "s3",
   ]
   pruneopts = "UT"
-  revision = "b3d230c5555408f4fb09cf6025410cd7f424b9dc"
+  revision = "25bd1ae26c9554d7c53a983ff5dd745c61fed1f8"
 
 [[projects]]
   branch = "master"
@@ -738,23 +738,23 @@
   name = "github.com/rai-project/utils"
   packages = ["."]
   pruneopts = "UT"
-  revision = "6708a9c28d4e0c3c6bd19213f4920a16f43865d4"
+  revision = "be23e9dad62b9c5de665f502450144abd61d31a6"
 
 [[projects]]
   branch = "master"
-  digest = "1:c8f62d669f1bd33ae87eb61289b3ee8545d7214ee3476198c9fc8b52def8fe14"
+  digest = "0:"
   name = "github.com/rai-project/uuid"
   packages = ["."]
   pruneopts = "UT"
-  revision = "9408958525cb3486f7ef41bf5691d4d9e081b08e"
+  revision = "2a4c8b922cc6a17bd16f236d4bb06134972289f2"
 
 [[projects]]
   branch = "master"
-  digest = "1:8c26f76a7bc9f93cc7c5bf90c06f50364c9eba927514f49f51a0192c620cbac1"
+  digest = "0:"
   name = "github.com/rai-project/vipertags"
   packages = ["."]
   pruneopts = "UT"
-  revision = "8dc2a1a8a7a32a0a2d482d545cc579e5fe839356"
+  revision = "8cbaab517f5d43e2d0bb7f1b237a0dfdc551cc81"
 
 [[projects]]
   digest = "1:b36a0ede02c4c2aef7df7f91cbbb7bb88a98b5d253509d4f997dda526e50c88c"
@@ -827,7 +827,7 @@
     "doc",
   ]
   pruneopts = "UT"
-  revision = "fe5e611709b0c57fa4a89136deaa8e1d4004d053"
+  revision = "d2d81d9a96e23f0255397222bb0b4e3165e492dc"
 
 [[projects]]
   branch = "master"
@@ -854,7 +854,7 @@
     "remote",
   ]
   pruneopts = "UT"
-  revision = "ae103d7e593e371c69e832d5eb3347e2b80cbbc9"
+  revision = "06c7c0d9b3c7cfca13deff6e353a052e08828ad4"
 
 [[projects]]
   digest = "1:eaa6698f44de8f2977e93c9b946e60a8af75f565058658aad2df8032b55c84e5"
@@ -931,7 +931,7 @@
     "ssh/terminal",
   ]
   pruneopts = "UT"
-  revision = "e4dc69e5b2fd71dcaf8bd5d054eb936deb78d1fa"
+  revision = "eb0de9b17e854e9b1ccd9963efafc79862359959"
 
 [[projects]]
   branch = "master"
@@ -942,7 +942,7 @@
     "context/ctxhttp",
   ]
   pruneopts = "UT"
-  revision = "03003ca0c849e57b6ea29a4bab8d3cb6e4d568fe"
+  revision = "fae4c4e3ad76c295c3d6d259f898136b4bf833a8"
 
 [[projects]]
   branch = "master"
@@ -956,7 +956,7 @@
     "jwt",
   ]
   pruneopts = "UT"
-  revision = "f42d05182288abf10faef86d16c0d07b8d40ea2d"
+  revision = "28207608b83849a028d4f12e46533a6b6894ecaf"
 
 [[projects]]
   branch = "master"
@@ -976,7 +976,7 @@
     "windows",
   ]
   pruneopts = "UT"
-  revision = "66b7b1311ac80bbafcd2daeef9a5e6e2cd1e2399"
+  revision = "4ed8d59d0b35e1e29334a206d1b3f38b1e5dfb31"
 
 [[projects]]
   digest = "0:"
@@ -1005,7 +1005,7 @@
     "logging/v2",
   ]
   pruneopts = "UT"
-  revision = "cfbc873f6b93790282bed8e31e7f7df417caee1b"
+  revision = "af4fc4062c262223ddc2d92f5f35a93690db383a"
 
 [[projects]]
   digest = "0:"
@@ -1114,12 +1114,12 @@
   version = "v5.2.9"
 
 [[projects]]
-  digest = "1:342378ac4dcb378a5448dd723f0784ae519383532f5e70ade24132c4c8693202"
+  digest = "0:"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
   pruneopts = "UT"
-  revision = "5420a8b6744d3b0345ab293f6fcba19c978f1183"
-  version = "v2.2.1"
+  revision = "51d6538a90f86fe93ac480b35f37b2be17fef232"
+  version = "v2.2.2"
 
 [[projects]]
   digest = "1:569fa3cc6b9fe25e402a3def65a0b222659f8aee13e339030eebe7acff4229cc"
