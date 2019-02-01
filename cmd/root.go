@@ -26,6 +26,7 @@ var (
 	submitionName   string
 	outputDirectory string
 	forceOutput     bool
+	serverArch      string
 )
 
 // RootCmd represents the base command when called without any subcommands
@@ -127,6 +128,7 @@ func init() {
 	RootCmd.PersistentFlags().StringVarP(&outputDirectory, "output", "o", "", "Set to output directory.")
 	RootCmd.PersistentFlags().BoolVar(&forceOutput, "force", false, "Toggle to force overwriting output directory.")
 	RootCmd.PersistentFlags().BoolVar(&isRatelimit, "ratelimit", true, "Toggle rate limiter.")
+	RootCmd.PersistentFlags().StringVarP(&serverArch, "arch", "", "ppc64le", "RAID server architecture.")
 	if ece408ProjectMode {
 		RootCmd.PersistentFlags().StringVar(&submitionName, "submit", "", "The kind of submission (m2, m3, final)")
 	}

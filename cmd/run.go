@@ -22,6 +22,7 @@ func newClient(inputOpts ...client.Option) (*client.Client, error) {
 		client.Stdout(os.Stdout),
 		client.Stderr(os.Stderr),
 		client.JobQueueName(jobQueueName),
+		client.ServerArch(serverArch),
 	}
 	if !isRatelimit {
 		opts = append(opts, client.DisableRatelimit())
