@@ -134,7 +134,7 @@ Most of the images on [Docker Hub](http://hub.docker.com) are compiled for X86 a
 commands:
   build_image:
   image_name: your_user_name/your_image_name:your_image_version # example dakkak/cudnn:6.0
-    dockerfile: "./Dockerfile" # the location of the Dockerfile on your local file system
+  dockerfile: "./Dockerfile" # the location of the Dockerfile on your local file system
   build: ...
 ```
 
