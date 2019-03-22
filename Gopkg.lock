@@ -114,8 +114,8 @@
     "service/sts",
   ]
   pruneopts = "UT"
-  revision = "fcb19ead441f7659dd7d7589ff3fb0b45a24d863"
-  version = "v1.18.6"
+  revision = "4a2b0831f1351f3ece1962805a88fcc667cedd3e"
+  version = "v1.19.0"
 
 [[projects]]
   digest = "0:"
@@ -215,7 +215,7 @@
     "pkg/system",
   ]
   pruneopts = "UT"
-  revision = "86ef34b5216c87b97b0c75358ba8319fd307bafb"
+  revision = "7c197c18d30e1683767709d69397ad1c0a5b2164"
 
 [[projects]]
   digest = "1:6f82cacd0af5921e99bf3f46748705239b36489464f4529a1589bc895764fb18"
@@ -620,7 +620,7 @@
     "sqs",
   ]
   pruneopts = "UT"
-  revision = "1b22a7e7867718412e5f289cae07fbf21aeb914f"
+  revision = "e229512f1af216179e018eaae48b9343ad9dd929"
 
 [[projects]]
   branch = "master"
@@ -644,7 +644,7 @@
   name = "github.com/rai-project/config"
   packages = ["."]
   pruneopts = "UT"
-  revision = "3c09b31a40ed970b6ea95172df4c178add79dfa6"
+  revision = "d39524e3455d07b7db0a954c359e3ec64dda852a"
 
 [[projects]]
   branch = "master"
@@ -787,12 +787,12 @@
   revision = "8cbaab517f5d43e2d0bb7f1b237a0dfdc551cc81"
 
 [[projects]]
+  branch = "master"
   digest = "0:"
   name = "github.com/russross/blackfriday"
   packages = ["."]
   pruneopts = "UT"
-  revision = "d3b5b032dc8e8927d31a5071b56e14c89f045135"
-  version = "v2.0.1"
+  revision = "a477dd1646916742841ed20379f941cfa6c5bb6f"
 
 [[projects]]
   branch = "master"
@@ -817,14 +817,6 @@
   pruneopts = "UT"
   revision = "3e0cec4266ddf583aecef51bb8e9badc3cca5314"
   version = "v0.5.0"
-
-[[projects]]
-  digest = "0:"
-  name = "github.com/shurcooL/sanitized_anchor_name"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "7bfe4c7ecddb3666a94b053b422cdd8f5aaa3615"
-  version = "v1.0.0"
 
 [[projects]]
   digest = "0:"
@@ -1017,7 +1009,7 @@
     "windows",
   ]
   pruneopts = "UT"
-  revision = "f7bb7a8bee54210937e93ec56d007d892c1f0580"
+  revision = "f49334f85ddcf0f08d7fb6dd7363e9e6d6b777eb"
 
 [[projects]]
   digest = "0:"

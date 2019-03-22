@@ -108,3 +108,7 @@
 [[constraint]]
   branch = "master"
   name = "github.com/xlab/closer"
+
+[[override]]
+  branch = "master"
+  name = "github.com/russross/blackfriday"
