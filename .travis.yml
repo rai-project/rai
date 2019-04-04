@@ -75,6 +75,30 @@ before_deploy:
     ${TRAVIS_BUILD_DIR}/VERSION || true
   - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/windows-amd64  ${DIST}/${VERSION}/windows-amd64/rai.exe
     ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION || true
+  - tar --transform 's/.*\///g' -czvf ${DIST_CLASS}/${VERSION}/binaries/darwin-386     ${DIST_CLASS}/${VERSION}/darwin-386/rai        ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+    ${TRAVIS_BUILD_DIR}/VERSION || true
+  - tar --transform 's/.*\///g' -czvf ${DIST_CLASS}/${VERSION}/binaries/darwin-amd64   ${DIST_CLASS}/${VERSION}/darwin-amd64/rai      ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+    ${TRAVIS_BUILD_DIR}/VERSION || true
+  - tar --transform 's/.*\///g' -czvf ${DIST_CLASS}/${VERSION}/binaries/linux-386      ${DIST_CLASS}/${VERSION}/linux-386/rai         ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+    ${TRAVIS_BUILD_DIR}/VERSION || true
+  - tar --transform 's/.*\///g' -czvf ${DIST_CLASS}/${VERSION}/binaries/linux-amd64    ${DIST_CLASS}/${VERSION}/linux-amd64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+    ${TRAVIS_BUILD_DIR}/VERSION || true
+  - tar --transform 's/.*\///g' -czvf ${DIST_CLASS}/${VERSION}/binaries/linux-armv5    ${DIST_CLASS}/${VERSION}/linux-armv5/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+    ${TRAVIS_BUILD_DIR}/VERSION || true
+  - tar --transform 's/.*\///g' -czvf ${DIST_CLASS}/${VERSION}/binaries/linux-armv6    ${DIST_CLASS}/${VERSION}/linux-armv6/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+    ${TRAVIS_BUILD_DIR}/VERSION || true
+  - tar --transform 's/.*\///g' -czvf ${DIST_CLASS}/${VERSION}/binaries/linux-armv7    ${DIST_CLASS}/${VERSION}/linux-armv7/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+    ${TRAVIS_BUILD_DIR}/VERSION || true
+  - tar --transform 's/.*\///g' -czvf ${DIST_CLASS}/${VERSION}/binaries/linux-arm64    ${DIST_CLASS}/${VERSION}/linux-arm64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+    ${TRAVIS_BUILD_DIR}/VERSION || true
+  - tar --transform 's/.*\///g' -czvf ${DIST_CLASS}/${VERSION}/binaries/linux-ppc64    ${DIST_CLASS}/${VERSION}/linux-ppc64/rai       ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+    ${TRAVIS_BUILD_DIR}/VERSION || true
+  - tar --transform 's/.*\///g' -czvf ${DIST_CLASS}/${VERSION}/binaries/linux-ppc64le  ${DIST_CLASS}/${VERSION}/linux-ppc64le/rai     ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+    ${TRAVIS_BUILD_DIR}/VERSION || true
+  - tar --transform 's/.*\///g' -czvf ${DIST_CLASS}/${VERSION}/binaries/windows-386    ${DIST_CLASS}/${VERSION}/windows-386/rai.exe   ${TRAVIS_BUILD_DIR}/LICENSE.TXT
+    ${TRAVIS_BUILD_DIR}/VERSION || true
+  - tar --transform 's/.*\///g' -czvf ${DIST_CLASS}/${VERSION}/binaries/windows-amd64  ${DIST_CLASS}/${VERSION}/windows-amd64/rai.exe
+    ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION || true
   - cp ${DIST}/${VERSION}/binaries/darwin-386    ${DIST}/latest/darwin-386.tar.gz || true
   - cp ${DIST}/${VERSION}/binaries/darwin-amd64  ${DIST}/latest/darwin-amd64.tar.gz || true
   - cp ${DIST}/${VERSION}/binaries/linux-386     ${DIST}/latest/linux-386.tar.gz || true
