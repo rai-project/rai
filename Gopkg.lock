@@ -664,7 +664,7 @@
   name = "github.com/rai-project/client"
   packages = ["."]
   pruneopts = "UT"
-  revision = "57e919a4a9a12a725baf60e63b3629700873544c"
+  revision = "f90517b3aea5561d65226f3a53c96a7a34315537"
 
 [[projects]]
   branch = "master"
