@@ -5,10 +5,6 @@
 > Both features reduce the likelihood that users will have technical difficulties running the client.
 > Users use the RAI client to interact with a distributed elastic system to submit jobs.
 
-## Demo
-
-[![asciicast](https://asciinema.org/a/6k5e96itnqu6ekbji60c3kgy4.png)](https://asciinema.org/a/6k5e96itnqu6ekbji60c3kgy4)
-
 ## Download Binaries
 
 The code is continuously built and published. The client can be downloaded from the following URLs (depending on your OS and Architecture).
