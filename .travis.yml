@@ -136,12 +136,12 @@ after_deploy:
   - ghr -t "$GITHUB_TOKEN" -u rai-project -r rai --replace "class_v${VERSION}" "${DIST_CLASS}/latest"
   - cd ${TRAVIS_BUILD_DIR}
 deploy:
-  - provider: script
-    skip_cleanup: true
-    script: curl -sL https://git.io/goreleaser | bash
-    on:
-      tags: true
-      condition: $TRAVIS_OS_NAME = linux
+  # - provider: script
+  #   skip_cleanup: true
+  #   script: curl -sL https://git.io/goreleaser | bash
+  #   on:
+  #     tags: true
+  #     condition: $TRAVIS_OS_NAME = linux
   - deploy:
     provider: s3
     access_key_id: AKIAIAFSJLCCOYB5V3EQ
