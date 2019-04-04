@@ -11,7 +11,25 @@
 
 ## Download Binaries
 
-The code is continuously built and published. The client can be downloaded from the following URLs (depending on your OS and Architecture):
+The code is continuously built and published. The client can be downloaded from the following URLs (depending on your OS and Architecture).
+There are two types of binaries one for classes and one for general use.
+If you are using RAI for a class, then you need to use the class binary.
+
+### Classes Binaries
+
+| Operating System | Architecture | Stable Version Link                                                                   |
+| ---------------- | ------------ | ------------------------------------------------------------------------------------- |
+| Linux            | amd64        | [URL](http://files.rai-project.com/dist/rai_class/stable/latest/linux-amd64.tar.gz)   |
+| Linux            | armv5        | [URL](http://files.rai-project.com/dist/rai_class/stable/latest/linux-armv5.tar.gz)   |
+| Linux            | armv6        | [URL](http://files.rai-project.com/dist/rai_class/stable/latest/linux-armv6.tar.gz)   |
+| Linux            | armv7        | [URL](http://files.rai-project.com/dist/rai_class/stable/latest/linux-armv7.tar.gz)   |
+| Linux            | arm64        | [URL](http://files.rai-project.com/dist/rai_class/stable/latest/linux-arm64.tar.gz)   |
+| Linux            | ppc64        | [URL](http://files.rai-project.com/dist/rai_class/stable/latest/linux-ppc64.tar.gz)   |
+| Linux            | ppc64le      | [URL](http://files.rai-project.com/dist/rai_class/stable/latest/linux-ppc64le.tar.gz) |
+| OSX/Darwin       | amd64        | [URL](http://files.rai-project.com/dist/rai_class/stable/latest/darwin-amd64.tar.gz)  |
+| Windows          | amd64        | [URL](http://files.rai-project.com/dist/rai_class/stable/latest/windows-amd64.tar.gz) |
+
+### General Use Binaries
 
 | Operating System | Architecture | Stable Version Link                                                             |
 | ---------------- | ------------ | ------------------------------------------------------------------------------- |
