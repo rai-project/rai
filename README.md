@@ -272,6 +272,9 @@ rai --verbose --debug
 
 ## Usage
 
+- [ECE508 Labs](https://github.com/illinois-impact/gpu-algorithms-labs)
+- [ECE408 Spring2019 Project](https://github.com/illinois-impact/ece408_project/tree/2019sp)
+- [ECE408 Fall2018 Project](https://github.com/illinois-impact/ece408_project)
 - [PUMPS 2018 Summer School](https://github.com/illinois-impact/pumps-ai)
 - [ECE408 Fall2018 Project](https://github.com/webgpu/2017fa_ece408_project)
 - [ECE408 Fall2017 Project](https://github.com/illinois-impact/ece408_project/tree/2017fa)
