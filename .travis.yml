@@ -28,7 +28,7 @@ script:
   - VERSION=$(cat ./VERSION)
   - echo "VERSION = ${VERSION}"
   - DIST=${TRAVIS_BUILD_DIR}/dist/rai/stable
-  - DIST_CLASS=${TRAVIS_BUILD_DIR}/dist/class/rai/stable
+  - DIST_CLASS=${TRAVIS_BUILD_DIR}/dist/class/stable
   - mkdir -p ${DIST}
   - mkdir -p ${DIST_CLASS}
   - gox -verbose -parallel=4 -cgo=false -osarch="darwin/386 darwin/amd64 linux/386 linux/amd64 linux/armv5 linux/armv6 linux/armv7" -ldflags="$(govvv
@@ -104,6 +104,7 @@ before_deploy:
   - rm -fr ${DIST_CLASS}/${VERSION}/binaries
   - echo "Copying latest directory to ${DIST}/${TRAVIS_COMMIT}"
   - cp -r ${DIST}/latest ${DIST}/${TRAVIS_COMMIT}
+  - echo "Copying latest directory to ${DIST_CLASS}/${TRAVIS_COMMIT}"
   - cp -r ${DIST_CLASS}/latest ${DIST_CLASS}/${TRAVIS_COMMIT}
 after_deploy:
   - echo "releasing v${VERSION}..."
