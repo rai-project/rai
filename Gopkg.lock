@@ -411,14 +411,6 @@
 
 [[projects]]
   branch = "master"
-  digest = "0:"
-  name = "github.com/kardianos/osext"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "2bc1f35cddc0cc527b4bc3dce8578fc2a6c11384"
-
-[[projects]]
-  branch = "master"
   digest = "1:65caa6cd528a311c60a04a36223393f9892d6f4c520975ab541064b02c4c2f7c"
   name = "github.com/knq/jwt"
   packages = [
@@ -452,14 +444,6 @@
   pruneopts = "UT"
   revision = "f55edac94c9bbba5d6182a4be46d86a2c9b5b50e"
   version = "v1.0.2"
-
-[[projects]]
-  digest = "1:7ad278b575635babef38e4ad4219500c299a58ea14b30eb21383d0efca00b369"
-  name = "github.com/kr/binarydist"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "88f551ae580780cc79d12ab4c218ba1ca346b83a"
-  version = "v0.1.0"
 
 [[projects]]
   digest = "0:"
@@ -830,14 +814,6 @@
   packages = ["."]
   pruneopts = "UT"
   revision = "a477dd1646916742841ed20379f941cfa6c5bb6f"
-
-[[projects]]
-  branch = "master"
-  digest = "0:"
-  name = "github.com/sanbornm/go-selfupdate"
-  packages = ["selfupdate"]
-  pruneopts = "UT"
-  revision = "f041b81ae5e69ec5628a0e882a9d58f2950c11c5"
 
 [[projects]]
   branch = "master"
@@ -1243,17 +1219,6 @@
   version = "v1.0.1"
 
 [[projects]]
-  branch = "v0"
-  digest = "1:580aa4af38b87e235950c3a09841bb7f9f329e2495ec5d43c42d7f7fb7f5a464"
-  name = "gopkg.in/inconshreveable/go-update.v0"
-  packages = [
-    ".",
-    "download",
-  ]
-  pruneopts = "UT"
-  revision = "d8b0b1d421aa1cbf392c05869f8abbc669bb7066"
-
-[[projects]]
   branch = "v2"
   digest = "1:988de7520a09024d5d94cd99bd545afbf194893994ec759b1cda0a0bbb6adb80"
   name = "gopkg.in/mgo.v2"
@@ -1310,7 +1275,6 @@
     "github.com/Jeffail/tunny",
     "github.com/Unknwon/com",
     "github.com/fatih/color",
-    "github.com/mitchellh/go-homedir",
     "github.com/olekukonko/tablewriter",
     "github.com/pkg/errors",
     "github.com/rai-project/auth/provider",
@@ -1321,7 +1285,6 @@
     "github.com/rai-project/logger",
     "github.com/rai-project/logger/hooks",
     "github.com/rai-project/utils",
-    "github.com/sanbornm/go-selfupdate/selfupdate",
     "github.com/spf13/cast",
     "github.com/spf13/cobra",
     "github.com/spf13/viper",
