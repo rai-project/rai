@@ -2,14 +2,6 @@
 
 
 [[projects]]
-  digest = "0:"
-  name = "cloud.google.com/go"
-  packages = ["compute/metadata"]
-  pruneopts = "UT"
-  revision = "458e1f376a2b44413160b5d301183b65debaa3f6"
-  version = "v0.37.2"
-
-[[projects]]
   branch = "master"
   digest = "1:99010387da8d15937ae7f6159c54fe4323a6c2c4690c4a7a6fc43c14bef9e324"
   name = "github.com/GeertJohan/go-sourcepath"
@@ -99,14 +91,11 @@
     "private/protocol",
     "private/protocol/eventstream",
     "private/protocol/eventstream/eventstreamapi",
-    "private/protocol/json/jsonutil",
-    "private/protocol/jsonrpc",
     "private/protocol/query",
     "private/protocol/query/queryutil",
     "private/protocol/rest",
     "private/protocol/restxml",
     "private/protocol/xml/xmlutil",
-    "service/kinesis",
     "service/s3",
     "service/s3/s3iface",
     "service/s3/s3manager",
@@ -114,8 +103,8 @@
     "service/sts",
   ]
   pruneopts = "UT"
-  revision = "97ab38e1626747eaa660ff7e5e7d3f1a37172b36"
-  version = "v1.19.9"
+  revision = "53e87fccca39c3e7d20e5172dbe66aa13ff55d12"
+  version = "v1.19.10"
 
 [[projects]]
   digest = "0:"
@@ -250,14 +239,6 @@
   version = "v0.4.0"
 
 [[projects]]
-  digest = "1:f6657acd8700ff502a75cc82273e19d63717237722d2a343b15c0e48cb63b170"
-  name = "github.com/evalphobia/logrus_kinesis"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "428603df186e780ba1e055a1c8421881494d0e77"
-  version = "v0.2.0"
-
-[[projects]]
   branch = "master"
   digest = "1:9a023ac8c30a6871d3fc94c9c0b5a0639ede096c351fd6cdcd7268fe9cb95af2"
   name = "github.com/facebookgo/stack"
@@ -330,28 +311,6 @@
   version = "v1.2.1"
 
 [[projects]]
-  digest = "0:"
-  name = "github.com/golang/protobuf"
-  packages = [
-    "proto",
-    "ptypes",
-    "ptypes/any",
-    "ptypes/duration",
-    "ptypes/timestamp",
-  ]
-  pruneopts = "UT"
-  revision = "b5d812f8a3706043e23a9cd5babf2e5423744d30"
-  version = "v1.3.1"
-
-[[projects]]
-  digest = "0:"
-  name = "github.com/hashicorp/golang-lru"
-  packages = ["simplelru"]
-  pruneopts = "UT"
-  revision = "7087cb70de9f7a8bc0a10c375cb0d2280a8edf9c"
-  version = "v0.5.1"
-
-[[projects]]
   digest = "1:c0d19ab64b32ce9fe5cf4ddceba78d5bc9807f0016db6b1183599da3dcc24d10"
   name = "github.com/hashicorp/hcl"
   packages = [
@@ -408,34 +367,6 @@
   pruneopts = "UT"
   revision = "b13c7f285d1c1e9b577c072aea899a548dc1b718"
   version = "v2.4.0"
-
-[[projects]]
-  branch = "master"
-  digest = "1:65caa6cd528a311c60a04a36223393f9892d6f4c520975ab541064b02c4c2f7c"
-  name = "github.com/knq/jwt"
-  packages = [
-    ".",
-    "bearer",
-    "gserviceaccount",
-  ]
-  pruneopts = "UT"
-  revision = "fc44a4704737296ab034fd04557f9f1b36cc1612"
-
-[[projects]]
-  branch = "master"
-  digest = "0:"
-  name = "github.com/knq/pemutil"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "fb6fad722528d308d5fbc9f39e0a9644905ee1cb"
-
-[[projects]]
-  branch = "master"
-  digest = "0:"
-  name = "github.com/knq/sdhook"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "41b9ccbff0b5fa5a56fbdccf2eb8653e7afe8d4b"
 
 [[projects]]
   digest = "0:"
@@ -606,7 +537,7 @@
   name = "github.com/rai-project/archive"
   packages = ["."]
   pruneopts = "UT"
-  revision = "2aa85bf702da46ce05d67e50681fe7387df8624d"
+  revision = "cc2e0c7b1a1ba70d3bb18959b080e61403a6f48b"
 
 [[projects]]
   branch = "master"
@@ -620,7 +551,7 @@
     "secret",
   ]
   pruneopts = "UT"
-  revision = "029fc59a2bb4128a36e245726b9019d64ab0f4e9"
+  revision = "f8cd8b41e409e492996716c75d1554a3ea49fef2"
 
 [[projects]]
   branch = "master"
@@ -628,7 +559,7 @@
   name = "github.com/rai-project/aws"
   packages = ["."]
   pruneopts = "UT"
-  revision = "0989b18a4aeb9277319b28080a614a5161c3934e"
+  revision = "b1267890103b3ee28fcdad38399aefd73b0334a4"
 
 [[projects]]
   branch = "master"
@@ -640,7 +571,7 @@
     "sqs",
   ]
   pruneopts = "UT"
-  revision = "e229512f1af216179e018eaae48b9343ad9dd929"
+  revision = "c8b602016a89fc0bbe30b90977e11983492b06f0"
 
 [[projects]]
   branch = "master"
@@ -648,7 +579,7 @@
   name = "github.com/rai-project/client"
   packages = ["."]
   pruneopts = "UT"
-  revision = "f90517b3aea5561d65226f3a53c96a7a34315537"
+  revision = "da6d528a3ad8ca55834960dd3f42b0426ee7954f"
 
 [[projects]]
   branch = "master"
@@ -664,7 +595,7 @@
   name = "github.com/rai-project/config"
   packages = ["."]
   pruneopts = "UT"
-  revision = "d39524e3455d07b7db0a954c359e3ec64dda852a"
+  revision = "78b9f26ebde96fac771c9751bf18049989fe3401"
 
 [[projects]]
   branch = "master"
@@ -683,7 +614,7 @@
     "mongodb",
   ]
   pruneopts = "UT"
-  revision = "ef4eddec538ec52d1b0311739e14c010188bb2c0"
+  revision = "f629269e7e15fe9daf0a251f2373aeeafad6fd48"
 
 [[projects]]
   branch = "master"
@@ -696,14 +627,6 @@
 [[projects]]
   branch = "master"
   digest = "0:"
-  name = "github.com/rai-project/googlecloud"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "8938dc83da610b96d2ddbca3abf88b79f895ebe7"
-
-[[projects]]
-  branch = "master"
-  digest = "0:"
   name = "github.com/rai-project/logger"
   packages = [
     ".",
@@ -711,7 +634,7 @@
     "hooks/logruzio",
   ]
   pruneopts = "UT"
-  revision = "3edfaed4af1c2be49ae65399a82fab15780e6549"
+  revision = "d342af07f4531893979c6b161583b5536cd438a6"
 
 [[projects]]
   branch = "master"
@@ -719,7 +642,7 @@
   name = "github.com/rai-project/model"
   packages = ["."]
   pruneopts = "UT"
-  revision = "66be2e1deaae639c80884b7007a450ca353b69a3"
+  revision = "b8beba032796ab4dc985ae55c9552ea3a111d11e"
 
 [[projects]]
   branch = "master"
@@ -749,7 +672,7 @@
     "redis",
   ]
   pruneopts = "UT"
-  revision = "54382750f3610c03da0a5b324ac23ce0a8a56a5e"
+  revision = "3b2e18c8880ff9d84d4ca7bf9c6f2bf95deae8dc"
 
 [[projects]]
   branch = "master"
@@ -757,7 +680,7 @@
   name = "github.com/rai-project/ratelimit"
   packages = ["."]
   pruneopts = "UT"
-  revision = "9dbd0ff98234f15d0238058b55cba718c6f54084"
+  revision = "7dcbd07007f98b8524d1f5d007e76b9ca76214ec"
 
 [[projects]]
   branch = "master"
@@ -770,7 +693,7 @@
     "jsonpb",
   ]
   pruneopts = "UT"
-  revision = "c73b52fef2017617905a08210dcc65f0880cf11e"
+  revision = "336a7b8a10b9fc79cece86de389bc8d6525e9ae8"
 
 [[projects]]
   branch = "master"
@@ -781,7 +704,7 @@
     "s3",
   ]
   pruneopts = "UT"
-  revision = "3372af25378ae6204b2cd0aa33dd00df7394bd51"
+  revision = "747f32bab24cc9146a8a0ddb22a1971e38f6baca"
 
 [[projects]]
   branch = "master"
@@ -789,7 +712,7 @@
   name = "github.com/rai-project/utils"
   packages = ["."]
   pruneopts = "UT"
-  revision = "613b6e247b72449354f6ae1dfb4a58c2f988154c"
+  revision = "ecb38a40a22b87272782a004f48d60520d59c921"
 
 [[projects]]
   branch = "master"
@@ -805,7 +728,7 @@
   name = "github.com/rai-project/vipertags"
   packages = ["."]
   pruneopts = "UT"
-  revision = "8cbaab517f5d43e2d0bb7f1b237a0dfdc551cc81"
+  revision = "d63b0a674aa95058902e234d2e9e5d1a13aa46a3"
 
 [[projects]]
   branch = "master"
@@ -962,31 +885,6 @@
   revision = "b2862e3d0a775f18c7cfe02273500ae307b61218"
 
 [[projects]]
-  digest = "0:"
-  name = "go.opencensus.io"
-  packages = [
-    ".",
-    "internal",
-    "internal/tagencoding",
-    "metric/metricdata",
-    "metric/metricproducer",
-    "plugin/ochttp",
-    "plugin/ochttp/propagation/b3",
-    "resource",
-    "stats",
-    "stats/internal",
-    "stats/view",
-    "tag",
-    "trace",
-    "trace/internal",
-    "trace/propagation",
-    "trace/tracestate",
-  ]
-  pruneopts = "UT"
-  revision = "46618d076d80f4eab85adbcb3be9a370be1dc4e0"
-  version = "v0.20.0"
-
-[[projects]]
   branch = "master"
   digest = "0:"
   name = "golang.org/x/crypto"
@@ -1007,37 +905,6 @@
   ]
   pruneopts = "UT"
   revision = "38d8ce5564a5b71b2e3a00553993f1b9a7ae852f"
-
-[[projects]]
-  branch = "master"
-  digest = "0:"
-  name = "golang.org/x/net"
-  packages = [
-    "context",
-    "context/ctxhttp",
-    "http/httpguts",
-    "http2",
-    "http2/hpack",
-    "idna",
-    "internal/timeseries",
-    "trace",
-  ]
-  pruneopts = "UT"
-  revision = "b630fd6fe46bcfc98f989005d8b8ec1400e60a6e"
-
-[[projects]]
-  branch = "master"
-  digest = "0:"
-  name = "golang.org/x/oauth2"
-  packages = [
-    ".",
-    "google",
-    "internal",
-    "jws",
-    "jwt",
-  ]
-  pruneopts = "UT"
-  revision = "9f3314589c9a9136388751d9adae6b0ed400978a"
 
 [[projects]]
   branch = "master"
@@ -1066,110 +933,16 @@
   digest = "0:"
   name = "golang.org/x/text"
   packages = [
-    "collate",
-    "collate/build",
-    "internal/colltab",
     "internal/gen",
-    "internal/tag",
     "internal/triegen",
     "internal/ucd",
-    "language",
-    "secure/bidirule",
     "transform",
-    "unicode/bidi",
     "unicode/cldr",
     "unicode/norm",
-    "unicode/rangetable",
   ]
   pruneopts = "UT"
   revision = "f21a4dfb5e38f5895301dc265a8def02365cc3d0"
   version = "v0.3.0"
-
-[[projects]]
-  digest = "0:"
-  name = "google.golang.org/api"
-  packages = [
-    "clouderrorreporting/v1beta1",
-    "gensupport",
-    "googleapi",
-    "googleapi/internal/uritemplates",
-    "googleapi/transport",
-    "internal",
-    "logging/v2",
-    "option",
-    "transport/http",
-    "transport/http/internal/propagation",
-  ]
-  pruneopts = "UT"
-  revision = "bce707a4d0ea3488942724b3bcc1c8338f38f991"
-  version = "v0.3.0"
-
-[[projects]]
-  digest = "0:"
-  name = "google.golang.org/appengine"
-  packages = [
-    ".",
-    "internal",
-    "internal/app_identity",
-    "internal/base",
-    "internal/datastore",
-    "internal/log",
-    "internal/modules",
-    "internal/remote_api",
-    "internal/urlfetch",
-    "urlfetch",
-  ]
-  pruneopts = "UT"
-  revision = "54a98f90d1c46b7731eb8fb305d2a321c30ef610"
-  version = "v1.5.0"
-
-[[projects]]
-  branch = "master"
-  digest = "0:"
-  name = "google.golang.org/genproto"
-  packages = ["googleapis/rpc/status"]
-  pruneopts = "UT"
-  revision = "64821d5d210748c883cd2b809589555ae4654203"
-
-[[projects]]
-  digest = "0:"
-  name = "google.golang.org/grpc"
-  packages = [
-    ".",
-    "balancer",
-    "balancer/base",
-    "balancer/roundrobin",
-    "binarylog/grpc_binarylog_v1",
-    "codes",
-    "connectivity",
-    "credentials",
-    "credentials/internal",
-    "encoding",
-    "encoding/proto",
-    "grpclog",
-    "internal",
-    "internal/backoff",
-    "internal/binarylog",
-    "internal/channelz",
-    "internal/envconfig",
-    "internal/grpcrand",
-    "internal/grpcsync",
-    "internal/syscall",
-    "internal/transport",
-    "keepalive",
-    "metadata",
-    "naming",
-    "peer",
-    "resolver",
-    "resolver/dns",
-    "resolver/passthrough",
-    "stats",
-    "status",
-    "tap",
-  ]
-  pruneopts = "UT"
-  revision = "3507fb8e1a5ad030303c106fef3a47c9fdad16ad"
-  version = "v1.19.1"
 
 [[projects]]
   digest = "0:"
