@@ -3,5 +3,5 @@
 package cmd
 
 var (
-	configContent = _escFSMustString(false, "/rai_config.yml")
+	configContent = string(MustAsset("rai_config.yml"))
 )
