@@ -15,7 +15,6 @@ before_install:
 - go get github.com/ahmetb/govvv
 - go get github.com/mitchellh/gox
 - go get github.com/tcnksm/ghr
-- go get github.com/sanbornm/go-selfupdate
 - go get github.com/laher/bump/...
 - go get github.com/gordonklaus/ineffassign
 - go get github.com/client9/misspell/cmd/misspell
@@ -39,7 +38,6 @@ script:
 #  -flags) -s -w -X main.AppSecret=${APP_SECRET} -extldflags \"-static\"" -output="${DIST}/${VERSION}/{{.OS}}-{{.Arch}}/{{.Dir}}"
 #  .
 before_deploy:
-- echo "go-selfupdate generating bindiffs"
 - mkdir -p ${DIST}/${VERSION}/binaries
 - mkdir -p ${DIST}/latest
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/darwin-386     ${DIST}/${VERSION}/darwin-386/rai        ${TRAVIS_BUILD_DIR}/LICENSE.TXT
@@ -66,7 +64,6 @@ before_deploy:
   ${TRAVIS_BUILD_DIR}/VERSION || true
 - tar --transform 's/.*\///g' -czvf ${DIST}/${VERSION}/binaries/windows-amd64  ${DIST}/${VERSION}/windows-amd64/rai.exe
   ${TRAVIS_BUILD_DIR}/LICENSE.TXT ${TRAVIS_BUILD_DIR}/VERSION || true
-- go-selfupdate -o ${DIST}/updates ${DIST}/${VERSION}/binaries/ ${VERSION}
 - cp ${DIST}/${VERSION}/binaries/darwin-386    ${DIST}/latest/darwin-386.tar.gz || true
 - cp ${DIST}/${VERSION}/binaries/darwin-amd64  ${DIST}/latest/darwin-amd64.tar.gz || true
 - cp ${DIST}/${VERSION}/binaries/linux-386     ${DIST}/latest/linux-386.tar.gz || true

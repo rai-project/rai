@@ -77,9 +77,6 @@
   branch = "master"
   name = "github.com/rai-project/utils"
 
-[[constraint]]
-  branch = "master"
-  name = "github.com/sanbornm/go-selfupdate"
 
 [[constraint]]
   branch = "master"
