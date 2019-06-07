@@ -692,7 +692,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:7f4c050064bc2441227116afacad6e3f2f8ae47e70b69cb990c0179ee6b5e3dc"
+  digest = "0:"
   name = "github.com/rai-project/serializer"
   packages = [
     ".",
@@ -701,7 +701,7 @@
     "jsonpb",
   ]
   pruneopts = "UT"
-  revision = "336a7b8a10b9fc79cece86de389bc8d6525e9ae8"
+  revision = "6a71bde4dab7509678eadec05f990bc037de3238"
 
 [[projects]]
   branch = "master"
