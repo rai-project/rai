@@ -311,6 +311,14 @@
   version = "v1.2.1"
 
 [[projects]]
+  digest = "0:"
+  name = "github.com/golang/snappy"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "2a8bb927dd31d8daada140a5d09578521ce5c36a"
+  version = "v0.0.1"
+
+[[projects]]
   digest = "1:c0d19ab64b32ce9fe5cf4ddceba78d5bc9807f0016db6b1183599da3dcc24d10"
   name = "github.com/hashicorp/hcl"
   packages = [
@@ -575,11 +583,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:4d61e2d0e78a8d81e769b6cf1b0a9799cba6478029d75e1f79ffd47f9e83567d"
+  digest = "0:"
   name = "github.com/rai-project/client"
   packages = ["."]
   pruneopts = "UT"
-  revision = "da6d528a3ad8ca55834960dd3f42b0426ee7954f"
+  revision = "65bd43d7112efc21a74c5f0d502828681fa288e8"
 
 [[projects]]
   branch = "master"
