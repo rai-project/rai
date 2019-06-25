@@ -91,9 +91,11 @@ func Execute() error {
 var VersionCmd = cmd.VersionCmd
 
 func init() {
+	// Store the original run function so we can explicitly run it later
+	var original_VersionCmd_run = VersionCmd.Run
 	// The version information command
 	VersionCmd.Run = func(c *cobra.Command, args []string) {
-		cmd.VersionCmd.Run(c, args)
+		original_VersionCmd_run(c, args)
 		if ece408ProjectMode {
 			fmt.Println("ECE408ProjectMode: ", ece408ProjectMode)
 		}
