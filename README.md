@@ -272,6 +272,7 @@ rai --verbose --debug
 
 ## Usage
 
+- [PUMPS 2019 Summer School](https://pumps.bsc.es/2019/)
 - [ECE508 Labs](https://github.com/illinois-impact/gpu-algorithms-labs)
 - [ECE408 Spring2019 Project](https://github.com/illinois-impact/ece408_project/tree/2019sp)
 - [ECE408 Fall2018 Project](https://github.com/illinois-impact/ece408_project)
